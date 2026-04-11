@@ -1,0 +1,36 @@
+# Logs (archivos generados por el script)
+logs/
+*.log
+
+# Archivos del SO
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Secrets (NUNCA subir)
+*.secrets
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# PowerShell
+*.ps1~
+*.psc1
+
+# Testing
+test-*.json
+temp/
+
+# Archivos del sistema
+$RECYCLE.BIN/
+.Spotlight-V100
+.Trashes
+
+# Configuración local personalizada
+config/paths.local.json
+config/rules.local.json

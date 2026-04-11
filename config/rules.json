@@ -1,0 +1,74 @@
+{
+  "rules": [
+    {
+      "id": "propuestas",
+      "name": "Propuestas Nuvaus (PDF)",
+      "patterns": ["NV-PROP-*", "NV-QUOT-*"],
+      "extensions": [".pdf"],
+      "destination": "propuestas",
+      "rename_pattern": "NV-PROP-{CLIENT}-{DD-MM-YYYY}",
+      "notify_notion": true,
+      "notion_db": "896da7d5-0b9c-4f4e-ad4b-750cef851389"
+    },
+    {
+      "id": "invoices",
+      "name": "Facturas y recibos",
+      "patterns": ["factura*", "invoice*", "recibo*"],
+      "extensions": [".pdf", ".xlsx", ".xls"],
+      "destination": "documentos/invoices",
+      "rename_pattern": "{CLIENT}-{YYYY-MM-DD}-{FILENAME}",
+      "notify_notion": false
+    },
+    {
+      "id": "contratos",
+      "name": "Contratos y términos",
+      "patterns": ["contrato*", "termino*", "acuerdo*", "servicio*"],
+      "extensions": [".pdf", ".docx"],
+      "destination": "documentos/contratos",
+      "rename_pattern": "{CLIENT}-{YYYY}-{FILENAME}",
+      "notify_notion": true
+    },
+    {
+      "id": "diseños",
+      "name": "Diseños y mockups",
+      "patterns": ["diseño*", "mockup*", "prototipo*", "figma*"],
+      "extensions": [".png", ".jpg", ".jpeg", ".psd", ".sketch", ".fig"],
+      "destination": "descargas-ordenadas/diseños",
+      "rename_pattern": "{CLIENT}-{YYYY-MM-DD}-{FILENAME}",
+      "notify_notion": false
+    },
+    {
+      "id": "reportes",
+      "name": "Reportes y analytics",
+      "patterns": ["reporte*", "report*", "analytics*", "lighthouse*"],
+      "extensions": [".pdf", ".json", ".xlsx", ".html"],
+      "destination": "temp/reportes",
+      "rename_pattern": "{YYYY-MM-DD}-{FILENAME}",
+      "notify_notion": false,
+      "auto_delete_days": 90
+    },
+    {
+      "id": "artículos",
+      "name": "Artículos y referencias",
+      "patterns": ["artículo*", "article*", "guía*", "guide*", "blog*"],
+      "extensions": [".pdf", ".html", ".md", ".docx"],
+      "destination": "descargas-ordenadas/artículos",
+      "rename_pattern": "{YYYY-MM-DD}-{FILENAME}",
+      "notify_notion": false
+    }
+  ],
+  "clients": [
+    { "code": "CECA", "name": "CECA Salud", "folder": "ceca", "country": "CL" },
+    { "code": "AJJ", "name": "AJJ Remodelaciones", "folder": "ajj", "country": "US" },
+    { "code": "ALEP", "name": "Alepineda", "folder": "alepineda", "country": "CL" },
+    { "code": "UNAB", "name": "Universidad Andrés Bello", "folder": "unab", "country": "CL" }
+  ],
+  "global_settings": {
+    "log_level": "INFO",
+    "dry_run": false,
+    "create_folders_if_missing": true,
+    "skip_existing_files": false,
+    "archive_propuestas_after_days": 180,
+    "archive_folder_pattern": "propuestas-archivo/{YYYY}"
+  }
+}
