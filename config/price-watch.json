@@ -1,0 +1,61 @@
+{
+  "settings": {
+    "currency": "CLP",
+    "country": "CL",
+    "cache_minutes": 360,
+    "request_timeout_sec": 30,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    "scraper_provider": "auto",
+    "mercadolibre_site": "MLC",
+    "solotodo_api_base": "https://publicapi.solotodo.com",
+    "notify_notion": false,
+    "notion_db": ""
+  },
+  "watchlist": [
+    {
+      "id": "lavadora-lg-wd12vvc5s6c",
+      "name": "LG Lavadora-Secadora WD12VVC5S6C 12/7kg",
+      "query": "LG WD12VVC5S6C lavadora secadora",
+      "model": "WD12VVC5S6C",
+      "target_price": 400000,
+      "sources": {
+        "mercadolibre": true,
+        "solotodo": true,
+        "urls": [
+          "https://www.falabella.com/falabella-cl/product/16731299/Lavadora-Secadora-12-Kg-7-Kg-Inverter-Wd12Vvc5S6C-Lg/16731299"
+        ]
+      },
+      "notify_notion": false
+    },
+    {
+      "id": "robot-dreame-l40-ultra",
+      "name": "Dreame L40 Ultra Robot Aspiradora",
+      "query": "Dreame L40 Ultra robot aspiradora",
+      "model": "L40 Ultra",
+      "target_price": 600000,
+      "sources": {
+        "mercadolibre": true,
+        "solotodo": true,
+        "urls": [
+          "https://nuvac.cl/dreame-l40-ultra-robot-vacuum/"
+        ]
+      },
+      "notify_notion": false
+    },
+    {
+      "id": "robot-dreame-l10s-ultra-gen2",
+      "name": "Dreame L10s Ultra Gen 2 Robot Aspiradora",
+      "query": "Dreame L10s Ultra Gen 2 robot aspiradora",
+      "model": "L10s Ultra",
+      "target_price": 500000,
+      "sources": {
+        "mercadolibre": true,
+        "solotodo": true,
+        "urls": [
+          "https://www.falabella.com/falabella-cl/product/144551216/Dreame-Aspiradora-y-trapeadora-robot-L10s-Ultra-Gen-2,-succion-de-10,000-Pa/144551217"
+        ]
+      },
+      "notify_notion": false
+    }
+  ]
+}

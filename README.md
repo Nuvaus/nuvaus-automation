@@ -11,6 +11,7 @@ Sistema automático de gestión de archivos para Nuvaus. Monitorea descargas, cl
 ✅ **Sincronización Notion** — Actualiza BD Propuestas/Interacciones  
 ✅ **Archivado automático** — Propuestas antiguas → propuestas-archivo/{YYYY}  
 ✅ **Logs detallados** — Auditoría completa de qué se movió y cuándo  
+✅ **Monitor de precios** — Compara precios multi-tienda (Chile) evadiendo anti-bot → ver `PRICE-WATCH.md`  
 
 ## Estructura
 
@@ -18,15 +19,19 @@ Sistema automático de gestión de archivos para Nuvaus. Monitorea descargas, cl
 .automation/
 ├── scripts/
 │   ├── file-manager.ps1      ← Core de automatización
-│   └── notion-sync.ps1       ← Sincronización Notion
+│   ├── notion-sync.ps1       ← Sincronización Notion
+│   └── price-fetcher.ps1     ← Monitor de precios multi-tienda
 ├── config/
 │   ├── paths.json            ← Rutas del sistema
-│   └── rules.json            ← Reglas de clasificación
+│   ├── rules.json            ← Reglas de clasificación
+│   └── price-watch.json      ← Productos a monitorear (precios)
 ├── logs/
-│   └── file-manager.log      ← Log de operaciones
+│   ├── file-manager.log      ← Log de operaciones
+│   └── price-history.json    ← Historial de precios
 ├── README.md                 ← Este archivo
 ├── SETUP.md                  ← Instalación
 ├── RULES.md                  ← Cómo modificar reglas
+├── PRICE-WATCH.md            ← Monitor de precios (uso + config)
 └── .gitignore
 ```
 
