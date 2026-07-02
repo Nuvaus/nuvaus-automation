@@ -22,6 +22,10 @@ Thumbs.db
 *.ps1~
 *.psc1
 
+# Python
+__pycache__/
+*.pyc
+
 # Testing
 test-*.json
 temp/

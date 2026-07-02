@@ -3,6 +3,9 @@
 Módulo para consultar y comparar precios de productos en tiendas chilenas
 **sin caer en los bloqueos anti-bot** (403 de Falabella, Líder, SoloTodo, etc.).
 
+> **Plataforma:** escrito en **Python 3** (stdlib, sin dependencias). Corre nativo en
+> **macOS** (Python viene incluido) y Linux. No requiere `pip install`.
+
 ## Por qué existe
 
 Las tiendas grandes (Falabella, Líder, LG, Ripley) y comparadores como SoloTodo
@@ -13,13 +16,13 @@ preferencia**, cayendo a scraping gestionado solo cuando es necesario.
 
 ## Estrategia (cadena de resiliencia)
 
-Por cada producto, `price-fetcher.ps1` intenta en este orden y **agrega** todo lo que encuentre:
+Por cada producto, `price-fetcher.py` intenta en este orden y **agrega** todo lo que encuentre:
 
 | # | Fuente | Cómo | Requiere |
 |---|--------|------|----------|
 | 1 | **MercadoLibre** | API oficial `api.mercadolibre.com` (sitio MLC) | Nada (token opcional) |
 | 2 | **SoloTodo** | API pública `publicapi.solotodo.com` | Nada |
-| 3 | **Fetch directo** | `Invoke-WebRequest` con cabeceras de navegador | Nada |
+| 3 | **Fetch directo** | `urllib` con cabeceras de navegador | Nada |
 | 4 | **Scraping-API** | ScraperAPI / ZenRows con `render=true` + `country=cl` | API key en `.secrets` |
 
 Luego toma el **precio más bajo** de todas las fuentes, lo guarda en historial y
@@ -86,7 +89,8 @@ alerta si quedó **bajo el precio objetivo**.
 
 ## Secrets (en `~/.claude/.secrets`)
 
-Mismo archivo que usa `notion-sync.ps1`. Agrega **una** de estas para habilitar el fallback anti-bot:
+Mismo archivo que usa la integración de Notion. Formato `CLAVE=valor`, una por línea.
+Agrega **una** de estas para habilitar el fallback anti-bot:
 
 ```
 SCRAPER_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxx     # ScraperAPI (recomendado)
@@ -98,29 +102,33 @@ NOTION_API_KEY=ntn_xxxxxxxx                 # opcional, para notify_notion
 Sin ninguna API key de scraping, los pasos 1–3 igual funcionan; solo se omite el
 paso 4 (las tiendas con anti-bot fuerte podrían no dar precio).
 
-## Uso
+## Uso (macOS / Linux)
 
-### DRY RUN (no escribe historial/caché/Notion)
-```powershell
-cd "C:\Users\ariel\Desktop\Nuvaus\.automation"
-& .\scripts\price-fetcher.ps1 -DryRun $true
+```bash
+cd ~/ruta/al/repo/nuvaus-automation
+
+# DRY RUN (no escribe historial/caché/Notion)
+python3 scripts/price-fetcher.py --dry-run
+
+# Ejecutar de verdad
+python3 scripts/price-fetcher.py
+
+# Un solo producto
+python3 scripts/price-fetcher.py --only-id robot-dreame-l40-ultra
+
+# Sin salida por consola (solo al log)
+python3 scripts/price-fetcher.py --quiet
 ```
 
-### Ejecutar de verdad
-```powershell
-& .\scripts\price-fetcher.ps1
-```
-
-### Un solo producto
-```powershell
-& .\scripts\price-fetcher.ps1 -OnlyId "robot-dreame-l40-ultra"
+Opcional, hacerlo ejecutable:
+```bash
+chmod +x scripts/price-fetcher.py
+./scripts/price-fetcher.py --dry-run
 ```
 
 ### Ver historial de precios
-```powershell
-Get-Content "logs\price-history.json" -Raw | ConvertFrom-Json |
-  Select-Object timestamp, name, best_price, best_store, below_target |
-  Format-Table
+```bash
+python3 -c "import json;[print(r['timestamp'], r['name'], r['best_price'], r['best_store'], r['below_target']) for r in json.load(open('logs/price-history.json'))]"
 ```
 
 ## Salidas
@@ -133,22 +141,28 @@ Get-Content "logs\price-history.json" -Raw | ConvertFrom-Json |
 
 > `logs/` está en `.gitignore`, así que el historial y las keys nunca se suben.
 
-## Automatización (Task Scheduler)
+## Automatización en macOS (cron)
 
-Igual que el File Manager (ver `SETUP.md`), pero apuntando a este script y con
-frecuencia diaria (los precios no cambian cada 15 min):
+Ejecutar una vez al día a las 9:00. Edita tu crontab:
 
-```powershell
-$Action = New-ScheduledTaskAction -Execute "powershell.exe" `
-  -Argument "-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File `"C:\Users\ariel\Desktop\Nuvaus\.automation\scripts\price-fetcher.ps1`"" `
-  -WorkingDirectory "C:\Users\ariel\Desktop\Nuvaus\.automation"
-$Trigger = New-ScheduledTaskTrigger -Daily -At 9am
-Register-ScheduledTask -TaskName "Nuvaus Price Watch" -TaskPath "\Nuvaus\" `
-  -Trigger $Trigger -Action $Action -User $env:USERNAME -RunLevel Highest -Force
+```bash
+crontab -e
 ```
+
+Agrega (ajusta la ruta del repo):
+
+```cron
+0 9 * * * cd "$HOME/nuvaus-automation" && /usr/bin/python3 scripts/price-fetcher.py --quiet >> logs/cron.log 2>&1
+```
+
+> Alternativa más "nativa" en Mac: un agente `launchd` con un `.plist` en
+> `~/Library/LaunchAgents/`. Para un chequeo diario, cron es más simple y suficiente.
 
 ## Notas de honestidad / mantenimiento
 
+- **Probado end-to-end** en dry-run y con tests de las funciones núcleo (`to_clp`,
+  `prices_from_html`, selección de mejor precio + historial). El flujo y la
+  degradación ante fallos están verificados.
 - **La regex de precios** (paso 3/4) es best-effort: extrae `"price"` de JSON-LD y
   el patrón `$399.990`. Si una tienda cambia su HTML, puede requerir ajuste. Las
   fuentes API (pasos 1–2) son estables y deberían ser la base.

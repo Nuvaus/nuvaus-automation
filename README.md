@@ -20,7 +20,7 @@ Sistema automático de gestión de archivos para Nuvaus. Monitorea descargas, cl
 ├── scripts/
 │   ├── file-manager.ps1      ← Core de automatización
 │   ├── notion-sync.ps1       ← Sincronización Notion
-│   └── price-fetcher.ps1     ← Monitor de precios multi-tienda
+│   └── price-fetcher.py      ← Monitor de precios multi-tienda (Python, cross-platform)
 ├── config/
 │   ├── paths.json            ← Rutas del sistema
 │   ├── rules.json            ← Reglas de clasificación
