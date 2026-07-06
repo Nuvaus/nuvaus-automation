@@ -69,6 +69,7 @@
     "create_folders_if_missing": true,
     "skip_existing_files": false,
     "archive_propuestas_after_days": 180,
-    "archive_folder_pattern": "propuestas-archivo/{YYYY}"
+    "archive_folder_pattern": "propuestas-archivo/{YYYY}",
+    "min_file_age_seconds": 60
   }
 }

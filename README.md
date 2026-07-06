@@ -1,35 +1,39 @@
-# Nuvaus Automation — File Manager
+# Nuvaus Automation
 
-Sistema automático de gestión de archivos para Nuvaus. Monitorea descargas, clasifica, renombra y sincroniza con Notion.
+Sistema de automatización para Nuvaus en **macOS**: gestiona archivos descargados,
+sincroniza con Notion y monitorea precios en tiendas chilenas.
 
 ## Características
 
 ✅ **Monitoreo automático** — Detecta nuevos archivos en Descargas  
 ✅ **Clasificación inteligente** — Aplica reglas según tipo de archivo  
 ✅ **Renombrado automático** — Patrón: `NV-PROP-{Cliente}-{DD-MM-YYYY}`  
-✅ **Organización en carpetas** — Mueve a estructura definida  
+✅ **Organización en carpetas** — Mueve a estructura definida (soporta `{CLIENT}` en destinos)  
 ✅ **Sincronización Notion** — Actualiza BD Propuestas/Interacciones  
 ✅ **Archivado automático** — Propuestas antiguas → propuestas-archivo/{YYYY}  
+✅ **Auto-limpieza** — Borra reportes temporales tras N días (`auto_delete_days`)  
+✅ **Monitor de precios** — Compara precios multi-tienda (Chile) evadiendo anti-bot → `PRICE-WATCH.md`  
 ✅ **Logs detallados** — Auditoría completa de qué se movió y cuándo  
-✅ **Monitor de precios** — Compara precios multi-tienda (Chile) evadiendo anti-bot → ver `PRICE-WATCH.md`  
+
+Todo en **Python 3 puro** (sin dependencias, sin `pip install`) + `launchd` para la automatización.
 
 ## Estructura
 
 ```
-.automation/
+nuvaus-automation/
 ├── scripts/
-│   ├── file-manager.ps1      ← Core de automatización
-│   ├── notion-sync.ps1       ← Sincronización Notion
-│   └── price-fetcher.py      ← Monitor de precios multi-tienda (Python, cross-platform)
+│   ├── file-manager.py       ← Core de automatización de archivos
+│   ├── notion_sync.py        ← Integración con Notion
+│   ├── price-fetcher.py      ← Monitor de precios multi-tienda
+│   ├── run-tests.py          ← Suite de tests (no toca archivos reales)
+│   └── setup-mac.sh          ← Instalador: carpetas + launchd
 ├── config/
-│   ├── paths.json            ← Rutas del sistema
+│   ├── paths.json            ← Rutas del sistema (soporta ~)
 │   ├── rules.json            ← Reglas de clasificación
 │   └── price-watch.json      ← Productos a monitorear (precios)
-├── logs/
-│   ├── file-manager.log      ← Log de operaciones
-│   └── price-history.json    ← Historial de precios
+├── logs/                     ← Generados en ejecución (git los ignora)
 ├── README.md                 ← Este archivo
-├── SETUP.md                  ← Instalación
+├── SETUP.md                  ← Instalación (macOS)
 ├── RULES.md                  ← Cómo modificar reglas
 ├── PRICE-WATCH.md            ← Monitor de precios (uso + config)
 └── .gitignore
@@ -37,62 +41,62 @@ Sistema automático de gestión de archivos para Nuvaus. Monitorea descargas, cl
 
 ## Requisitos
 
-- **Windows 10+** con PowerShell 5.1+
-- **Acceso a** `C:\Users\ariel\.secrets` (para NOTION_API_KEY)
-- **Notion Integration Token** guardado en `.secrets`
+- **macOS 12+** con Python 3.8+ (`xcode-select --install` si falta)
+- **Notion Integration Token** en `~/.claude/.secrets` (opcional)
 
 ## Inicio Rápido
 
 ```bash
-# 1. Clonar repositorio
-git clone https://github.com/ariel-meneses/nuvaus-automation.git
+# 1. Clonar (rama con la versión macOS)
+cd ~
+git clone -b claude/washing-machine-price-comparison-Jpfol https://github.com/Nuvaus/nuvaus-automation.git
+cd nuvaus-automation
 
-# 2. Copiar a Desktop/Nuvaus/.automation/
-cp -r nuvaus-automation/* "C:\Users\ariel\Desktop\Nuvaus\.automation\"
+# 2. Setup (carpetas + verificación + dry-run de prueba)
+bash scripts/setup-mac.sh
 
-# 3. Crear carpetas faltantes (las define Task Scheduler)
-New-Item "C:\Users\ariel\Desktop\Nuvaus\descargas-ordenadas" -ItemType Directory
-New-Item "C:\Users\ariel\Desktop\Nuvaus\propuestas-archivo" -ItemType Directory
+# 3. Probar de verdad
+python3 scripts/file-manager.py
 
-# 4. Verificar configuración
-. "C:\Users\ariel\Desktop\Nuvaus\.automation\scripts\file-manager.ps1" -DryRun $true
-
-# 5. Programar Task Scheduler (ver SETUP.md)
+# 4. Automatizar (cada 15 min + precios diarios 9:00)
+bash scripts/setup-mac.sh --install-agents
 ```
+
+Ver `SETUP.md` para el detalle paso a paso.
 
 ## Uso
 
-### Manual — Test sin ejecutar
-```powershell
+```bash
 # DRY RUN: ver qué haría sin ejecutar
-& "C:\Users\ariel\Desktop\Nuvaus\.automation\scripts\file-manager.ps1" -DryRun $true
-```
+python3 scripts/file-manager.py --dry-run
 
-### Manual — Ejecutar ahora
-```powershell
-# Ejecutar inmediatamente
-& "C:\Users\ariel\Desktop\Nuvaus\.automation\scripts\file-manager.ps1"
-```
+# Ejecutar ahora
+python3 scripts/file-manager.py
 
-### Automático — Task Scheduler
-Ver `SETUP.md` para configurar ejecución cada 15 minutos.
+# Tests
+python3 scripts/run-tests.py
+
+# Monitor de precios
+python3 scripts/price-fetcher.py --dry-run
+```
 
 ## Configuración
 
-### `paths.json`
-Define dónde busca y dónde mueve archivos.
+### `config/paths.json`
+Define dónde busca y dónde mueve archivos (acepta `~`):
 
 ```json
 {
-  "nuvaus_base": "C:\\Users\\ariel\\Desktop\\Nuvaus",
-  "monitored_downloads": "C:\\Users\\ariel\\Downloads",
-  "propuestas_activas": "C:\\Users\\ariel\\Desktop\\Nuvaus\\propuestas",
-  ...
+  "nuvaus_base": "~/Desktop/Nuvaus",
+  "monitored_downloads": "~/Downloads"
 }
 ```
 
-### `rules.json`
-Define reglas de clasificación. Ver `RULES.md` para agregar nuevas.
+> Para rutas personales sin tocar git, crea `config/paths.local.json`
+> con el mismo formato — tiene prioridad y está en `.gitignore`.
+
+### `config/rules.json`
+Reglas de clasificación. Ver `RULES.md` para agregar nuevas.
 
 ```json
 {
@@ -105,71 +109,54 @@ Define reglas de clasificación. Ver `RULES.md` para agregar nuevas.
       "destination": "propuestas",
       "rename_pattern": "NV-PROP-{CLIENT}-{DD-MM-YYYY}",
       "notify_notion": true
-    },
-    ...
+    }
   ]
 }
 ```
 
 ## Logs
 
-Todos los movimientos se registran en `logs/file-manager.log`:
+Todos los movimientos quedan en `logs/file-manager.log`:
 
 ```
-[2026-04-10 14:32:15] [INFO] Analizando: NV-PROP-CECA-2026.pdf
-[2026-04-10 14:32:15] [INFO] Regla coincide: Propuestas Nuvaus (PDF)
-[2026-04-10 14:32:16] [INFO] Movido: C:\Users\ariel\Downloads\NV-PROP-CECA-2026.pdf → C:\Users\ariel\Desktop\Nuvaus\propuestas\NV-PROP-CECA-10-04-2026.pdf
-[2026-04-10 14:32:16] [INFO] Notion sync queued: NV-PROP-CECA-10-04-2026.pdf | Client: CECA
+[2026-07-06 14:32:15] [INFO] Analizando: NV-PROP-CECA-2026.pdf
+[2026-07-06 14:32:15] [INFO] Regla coincide: Propuestas Nuvaus (PDF)
+[2026-07-06 14:32:16] [INFO] Movido: ~/Downloads/NV-PROP-CECA-2026.pdf → ~/Desktop/Nuvaus/propuestas/NV-PROP-CECA-06-07-2026.pdf
+[2026-07-06 14:32:16] [INFO] Notion: interacción creada — NV-PROP-CECA-06-07-2026.pdf | Cliente: CECA
 ```
 
 ## Notion Sync
 
-Cuando se mueve una propuesta con `notify_notion: true`, se crea automáticamente una entrada en:
+Cuando se mueve una propuesta con `notify_notion: true`, se crea una entrada en
+**DB Interacciones** (`896da7d5-0b9c-4f4e-ad4b-750cef851389`):
+- Tipo: Propuesta · Cliente: [código] · Resultado: Propuesta Enviada · Próximo paso: Seguimiento en 7 días
 
-- **DB Interacciones** (`896da7d5-0b9c-4f4e-ad4b-750cef851389`)
-  - Tipo: Propuesta
-  - Cliente: [código extraído del nombre]
-  - Resultado: Propuesta Enviada
-  - Próximo paso: Seguimiento en 7 días
-
-Esto permite trackear automáticamente cuándo se mueven propuestas sin tocar Notion manualmente.
+Requiere `NOTION_API_KEY` en `~/.claude/.secrets`. Sin la key, el resto del
+sistema funciona igual (solo se omite Notion, con aviso en el log).
 
 ## Troubleshooting
 
-### "NOTION_API_KEY no encontrada"
-Verifica que existe en `~/.claude/.secrets`:
-```bash
-cat $env:USERPROFILE\.claude\.secrets | grep NOTION_API_KEY
-```
-
-### Archivos no se mueven
-1. Ejecutar en **DRY RUN** para ver qué haría
-2. Revisar `rules.json` — ¿el patrón coincide?
-3. Revisar logs — ver error específico
-4. Probar manualmente: `Test-RuleMatch`
-
-### Task Scheduler no ejecuta
-1. Abrir Task Scheduler → buscar "Nuvaus File Manager"
-2. Verificar permisos → debe ejecutarse con tu usuario
-3. Revisar "Historial" de la tarea → ver error
-4. Re-crear la tarea (ver SETUP.md)
+Ver la sección completa en `SETUP.md`. Resumen:
+- **No mueve archivos** → correr `--dry-run` y revisar `logs/file-manager.log`
+- **launchd no corre** → `launchctl list | grep nuvaus` y `cat logs/launchd-*.log`
+- **Notion falla** → verificar `NOTION_API_KEY` en `~/.claude/.secrets`
 
 ## Desarrollo
 
-### Agregar nueva regla
-Editar `config/rules.json` — ver `RULES.md` para detalles.
+- Agregar regla → editar `config/rules.json` (ver `RULES.md`), validar con `--dry-run`
+- Modificar scripts → correr `python3 scripts/run-tests.py` antes de commitear
 
-### Modificar script
-- `scripts/file-manager.ps1` — Core de automatización
-- `scripts/notion-sync.ps1` — Integración Notion
-- Después de cambios, ejecutar DRY RUN para validar
-
-### Versioning
 ```bash
-git add scripts/ config/ docs/
+git add scripts/ config/
 git commit -m "feat: nueva regla para facturas"
-git push origin main
+git push
 ```
+
+## Historia
+
+- **v2.0** — Port completo a macOS: Python 3 + launchd. Se retiraron los scripts
+  PowerShell (la versión Windows vive en el historial de git).
+- **v1.0** — Versión original Windows (PowerShell + Task Scheduler).
 
 ## Roadmap
 
@@ -183,9 +170,9 @@ git push origin main
 
 **Creador**: Ariel Meneses  
 **Email**: ariel@nuvaus.com  
-**Repo**: https://github.com/ariel-meneses/nuvaus-automation
+**Repo**: https://github.com/Nuvaus/nuvaus-automation
 
 ---
 
-**Última actualización**: 10-04-2026  
-**Versión**: 1.0.0
+**Última actualización**: 06-07-2026  
+**Versión**: 2.0.0

@@ -1,273 +1,193 @@
-# SETUP — Instalación y Configuración
+# SETUP — Instalación y Configuración (macOS)
 
-Guía completa para instalar Nuvaus File Manager + Task Scheduler.
+Guía completa para instalar Nuvaus Automation en tu Mac.
 
-## Paso 1: Clonar Repositorio
+## Requisitos
+
+- **macOS 12+** (Monterey o posterior)
+- **Python 3.8+** — viene con las Command Line Tools de Apple. Si al correr
+  `python3 --version` te pide instalar algo, acepta o ejecuta:
+  ```bash
+  xcode-select --install
+  ```
+- **git** — incluido en las mismas Command Line Tools.
+
+## Paso 1: Clonar el repositorio
 
 ```bash
-cd C:\Users\ariel\Desktop\Nuvaus
-git clone https://github.com/ariel-meneses/nuvaus-automation.git .automation
-cd .automation
+cd ~
+git clone -b claude/washing-machine-price-comparison-Jpfol https://github.com/Nuvaus/nuvaus-automation.git
+cd nuvaus-automation
 ```
 
-O si ya está clonado, actualizar:
+> El `-b ...` descarga directamente la rama que contiene la versión macOS.
+> Cuando esa rama se fusione a `main` (vía Pull Request), bastará el clone normal.
+
+> Si git te pide usuario/contraseña: GitHub ya no acepta contraseñas por
+> terminal. Lo más simple es instalar [GitHub Desktop](https://desktop.github.com)
+> y clonar desde ahí, o crear un *Personal Access Token* en
+> github.com → Settings → Developer settings → Tokens y usarlo como contraseña.
+
+Si ya está clonado, actualizar:
 ```bash
-cd C:\Users\ariel\Desktop\Nuvaus\.automation
-git pull origin main
+cd ~/nuvaus-automation
+git fetch origin
+git checkout claude/washing-machine-price-comparison-Jpfol
+git pull
 ```
 
-## Paso 2: Crear Carpetas Faltantes
+## Paso 2: Ejecutar el setup automático
 
-El script crea algunas automáticamente, pero es mejor pre-crearlas:
-
-```powershell
-# Abre PowerShell como Administrador y ejecuta:
-
-$BasePath = "C:\Users\ariel\Desktop\Nuvaus"
-
-@(
-    "$BasePath\descargas-ordenadas",
-    "$BasePath\descargas-ordenadas\diseños",
-    "$BasePath\descargas-ordenadas\artículos",
-    "$BasePath\propuestas-archivo",
-    "$BasePath\documentos",
-    "$BasePath\documentos\invoices",
-    "$BasePath\documentos\contratos",
-    "$BasePath\temp",
-    "$BasePath\temp\reportes",
-    "$BasePath\.automation\logs"
-) | ForEach-Object {
-    if (!(Test-Path $_)) {
-        New-Item -ItemType Directory -Path $_ -Force | Out-Null
-        Write-Host "✓ Creada: $_"
-    }
-}
+```bash
+bash scripts/setup-mac.sh
 ```
 
-## Paso 3: Verificar NOTION_API_KEY
+Esto hace todo por ti:
+1. Crea la estructura de carpetas en `~/Desktop/Nuvaus`
+2. Verifica tus secrets (`~/.claude/.secrets`)
+3. Corre un **DRY RUN** de prueba del File Manager
 
-El script lee automáticamente de `~/.claude/.secrets`. Verificar que existe:
+## Paso 3: Configurar secrets (opcional)
 
-```powershell
-$secretsPath = "$env:USERPROFILE\.claude\.secrets"
-$content = Get-Content $secretsPath -Raw
-if ($content -match 'NOTION_API_KEY=([^\r\n]+)') {
-    Write-Host "✓ NOTION_API_KEY encontrada"
-} else {
-    Write-Host "✗ NOTION_API_KEY NO encontrada"
-    Write-Host "  Abre: $secretsPath"
-    Write-Host "  Agrega línea: NOTION_API_KEY=ntn_..."
-}
+El archivo `~/.claude/.secrets` guarda las API keys (formato `CLAVE=valor`, una por línea):
+
+```bash
+mkdir -p ~/.claude && touch ~/.claude/.secrets
+open -e ~/.claude/.secrets   # lo abre en TextEdit
 ```
 
-## Paso 4: Test en DRY RUN
-
-Antes de automatizar, probar sin ejecutar cambios reales:
-
-```powershell
-# Abre PowerShell (NO necesita admin para este test)
-cd "C:\Users\ariel\Desktop\Nuvaus\.automation"
-
-# Ejecutar en modo DRY RUN
-& .\scripts\file-manager.ps1 -DryRun $true -VerboseLogging $true
+Contenido según lo que uses:
+```
+NOTION_API_KEY=ntn_xxxxxxxx        # sincronización con Notion
+SCRAPER_API_KEY=xxxxxxxxxxxx       # fallback anti-bot del monitor de precios
+ML_ACCESS_TOKEN=APP_USR-xxxx       # opcional, API MercadoLibre
 ```
 
-**Qué debería pasar:**
-- Ver análisis de archivos en Downloads
-- Ver qué haría sin mover nada
-- Ver logs en `logs/file-manager.log`
+Sin secrets, todo funciona igual — solo se desactivan Notion y el fallback de precios.
 
-**Ejemplo de output:**
-```
-[2026-04-10 14:32:15] [INFO] NUVAUS FILE MANAGER — Iniciando procesamiento
-[2026-04-10 14:32:15] [INFO] Modo: DRY RUN
-[2026-04-10 14:32:15] [INFO] Procesando 3 archivo(s)
-[2026-04-10 14:32:15] [INFO] Analizando: propuesta-cliente.pdf
-[2026-04-10 14:32:15] [INFO] Regla coincide: Propuestas Nuvaus (PDF)
-[2026-04-10 14:32:15] [INFO] [DRY RUN] Movería: C:\Users\ariel\Downloads\propuesta-cliente.pdf → C:\Users\ariel\Desktop\Nuvaus\propuestas\NV-PROP-CLIENT-10-04-2026.pdf
-```
+## Paso 4: Probar a mano
 
-Si dice "Sin archivos nuevos en Downloads" — normal, el test funciona igual.
+```bash
+cd ~/nuvaus-automation
 
-## Paso 5: Ejecutar por Primera Vez (PRODUCCIÓN)
+# Ver qué haría, sin mover nada:
+python3 scripts/file-manager.py --dry-run
 
-Una vez validado en DRY RUN, ejecutar de verdad:
+# Ejecutar de verdad:
+python3 scripts/file-manager.py
 
-```powershell
-cd "C:\Users\ariel\Desktop\Nuvaus\.automation"
+# Correr la suite de tests (no toca tus archivos):
+python3 scripts/run-tests.py
 
-# Ejecutar producción
-& .\scripts\file-manager.ps1
+# Monitor de precios:
+python3 scripts/price-fetcher.py --dry-run
 ```
 
 Ver logs:
-```powershell
-Get-Content "logs/file-manager.log" -Tail 20
+```bash
+tail -20 logs/file-manager.log
 ```
 
-## Paso 6: Programar Task Scheduler
+## Paso 5: Automatizar con launchd
 
-Ejecutar automáticamente cada 15 minutos.
-
-### Opción A: PowerShell Script (RECOMENDADO)
-
-```powershell
-# Abre PowerShell COMO ADMINISTRADOR y copia todo esto:
-
-$TaskName = "Nuvaus File Manager"
-$TaskPath = "\Nuvaus\"
-$ScriptPath = "C:\Users\ariel\Desktop\Nuvaus\.automation\scripts\file-manager.ps1"
-$WorkingDir = "C:\Users\ariel\Desktop\Nuvaus\.automation"
-
-# Eliminar tarea antigua si existe
-Unregister-ScheduledTask -TaskName $TaskName -TaskPath $TaskPath -Confirm:$false -ErrorAction SilentlyContinue
-
-# Crear disparador cada 15 minutos
-$Trigger = New-ScheduledTaskTrigger -RepetitionInterval (New-TimeSpan -Minutes 15) -At (Get-Date) -RepeatIndefinitely
-
-# Crear acción
-$Action = New-ScheduledTaskAction `
-    -Execute "powershell.exe" `
-    -Argument "-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File `"$ScriptPath`"" `
-    -WorkingDirectory $WorkingDir
-
-# Crear configuración
-$Settings = New-ScheduledTaskSettingsSet `
-    -MultipleInstancePolicy IgnoreNew `
-    -RunOnlyIfNetworkAvailable `
-    -StartWhenAvailable
-
-# Registrar tarea
-Register-ScheduledTask `
-    -TaskName $TaskName `
-    -TaskPath $TaskPath `
-    -Trigger $Trigger `
-    -Action $Action `
-    -Settings $Settings `
-    -User $env:USERNAME `
-    -RunLevel Highest `
-    -Force
-
-Write-Host "✓ Tarea programada: $TaskName"
-Write-Host "  Frecuencia: Cada 15 minutos"
-Write-Host "  Usuario: $env:USERNAME"
-Write-Host "  Próxima ejecución: En 15 minutos"
-```
-
-### Opción B: Manualmente en Task Scheduler UI
-
-1. Abrir **Task Scheduler** (buscar en Windows)
-2. Crear carpeta → Nueva carpeta: `Nuvaus`
-3. Click derecho en carpeta → **Crear tarea**
-4. **General**:
-   - Nombre: `Nuvaus File Manager`
-   - Usuario: Tu usuario Windows
-   - ☑ Ejecutar con privilegios máximos
-5. **Disparadores**:
-   - Click **Nuevo**
-   - Tipo: `Diariamente`
-   - Tiempo: Ahora
-   - Repetición: `15 minutos` durante `1 día`
-6. **Acciones**:
-   - Programa: `powershell.exe`
-   - Argumentos: `-NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File "C:\Users\ariel\Desktop\Nuvaus\.automation\scripts\file-manager.ps1"`
-   - Directorio inicio: `C:\Users\ariel\Desktop\Nuvaus\.automation`
-7. **Condiciones**:
-   - ☑ Iniciar solo si hay conexión de red disponible
-8. **Configuración**:
-   - ☑ Permitir que la tarea se ejecute bajo demanda
-   - Si ya se está ejecutando: `No iniciar nueva instancia`
-9. Click **Aceptar**
-
-## Paso 7: Validar Setup
-
-```powershell
-# Verificar que tarea existe
-Get-ScheduledTask -TaskName "Nuvaus File Manager" -TaskPath "\Nuvaus\*"
-
-# Ver historial de ejecutiones
-Get-ScheduledTaskInfo -TaskName "Nuvaus File Manager" -TaskPath "\Nuvaus\"
-```
-
-Output debería ser:
-```
-TaskName                      TaskPath              State
---------                      --------              -----
-Nuvaus File Manager           \Nuvaus\              Ready
-```
-
-## Paso 8: Agregar Descarga de Prueba
-
-Descarga un PDF a tu carpeta Downloads con un nombre que coincida con una regla:
+`launchd` es el equivalente en macOS del Task Scheduler de Windows.
+Un solo comando instala los dos agentes:
 
 ```bash
-# Crea un archivo de prueba
-"test content" > "$env:USERPROFILE\Downloads\NV-PROP-TEST-2026.pdf"
+bash scripts/setup-mac.sh --install-agents
 ```
 
-Luego ejecuta manualmente:
-```powershell
-cd "C:\Users\ariel\Desktop\Nuvaus\.automation"
-& .\scripts\file-manager.ps1
+Esto programa:
+| Agente | Frecuencia |
+|--------|-----------|
+| `com.nuvaus.file-manager` | Cada 15 minutos (y al iniciar sesión) |
+| `com.nuvaus.price-watch` | Todos los días a las 9:00 |
+
+Verificar que están corriendo:
+```bash
+launchctl list | grep nuvaus
 ```
 
-Ver que se movió a `propuestas/`:
-```powershell
-Get-ChildItem "C:\Users\ariel\Desktop\Nuvaus\propuestas"
+> **Permiso de macOS:** la primera vez, macOS puede preguntar si Python puede
+> acceder a las carpetas Descargas/Escritorio. Acepta, o ve a
+> **Ajustes del Sistema → Privacidad y seguridad → Archivos y carpetas** y
+> habilita Terminal/python3 ahí.
+
+Desinstalar la automatización:
+```bash
+bash scripts/setup-mac.sh --uninstall-agents
 ```
+
+## Paso 6: Prueba end-to-end
+
+```bash
+# Crear un archivo de prueba en Descargas
+echo "test" > ~/Downloads/NV-PROP-CECA-test.pdf
+
+# Esperar 60s (guard de archivos recientes) y ejecutar
+sleep 61 && python3 scripts/file-manager.py
+
+# Verificar que se movió y renombró
+ls ~/Desktop/Nuvaus/propuestas
+```
+
+Deberías ver `NV-PROP-CECA-<fecha>.pdf`.
 
 ## Troubleshooting
 
-### Error: "ExecutionPolicy is set to Restricted"
-```powershell
-# Ejecutar como Admin:
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+### "python3: command not found"
+```bash
+xcode-select --install
 ```
 
-### Error: "NOTION_API_KEY no encontrada"
-1. Abrir: `C:\Users\ariel\.claude\.secrets`
-2. Agregar línea: `NOTION_API_KEY=ntn_...`
-3. Guardar
-4. Reintentar
+### El agente launchd no corre
+```bash
+# Ver estado (el segundo número es el último código de salida; 0 = OK)
+launchctl list | grep nuvaus
 
-### Task Scheduler no ejecuta el script
-1. Abrir Task Scheduler
-2. Buscar tarea: `\Nuvaus\Nuvaus File Manager`
-3. Click derecho → **Ejecutar**
-4. Revisar "Último resultado" → debería ser "0" (éxito)
-5. Si error, revisar "Historial" → ver log del error
+# Ver errores
+cat logs/launchd-file-manager.log
 
-### Verificar que Task Scheduler corre cada 15 min
-```powershell
-# Ver logs de la tarea
-Get-WinEvent -FilterHashtable @{
-    LogName = "Microsoft-Windows-TaskScheduler/Operational"
-    Level = 0,1,2
-    ProviderName = "Microsoft-Windows-TaskScheduler"
-} | Where-Object { $_.Message -match "Nuvaus" } | Select-Object -First 10 | Format-Table TimeCreated, Message
+# Recargar
+bash scripts/setup-mac.sh --uninstall-agents
+bash scripts/setup-mac.sh --install-agents
 ```
 
-## Desinstalación
+### Los archivos no se mueven
+1. Ejecuta con `--dry-run` para ver qué detecta
+2. ¿El nombre coincide con algún patrón de `config/rules.json`?
+3. Los archivos con menos de 60 segundos se saltan (evita agarrar descargas
+   a medias) — espera un minuto y reintenta
+4. Revisa `logs/file-manager.log`
 
-Si necesitas remover el setup:
-
-```powershell
-# Como Administrador:
-
-# Eliminar tarea programada
-Unregister-ScheduledTask -TaskName "Nuvaus File Manager" -TaskPath "\Nuvaus\" -Confirm:$false
-
-# Eliminar carpeta (opcional)
-Remove-Item "C:\Users\ariel\Desktop\Nuvaus\.automation" -Recurse -Force
+### "NOTION_API_KEY no encontrada"
+```bash
+grep NOTION_API_KEY ~/.claude/.secrets || echo "falta agregarla"
 ```
 
-## Siguiente Paso
+### Rutas personalizadas
+Si tu carpeta Nuvaus no está en `~/Desktop/Nuvaus`, crea
+`config/paths.local.json` (git lo ignora) con tus rutas:
+```json
+{
+  "nuvaus_base": "~/Documents/Nuvaus",
+  "monitored_downloads": "~/Downloads"
+}
+```
 
-Una vez funcione, ver `RULES.md` para:
-- Agregar nuevas reglas de clasificación
-- Personalizar patrones de renombrado
-- Cambiar destinos de carpetas
+## Desinstalación completa
+
+```bash
+bash scripts/setup-mac.sh --uninstall-agents
+rm -rf ~/nuvaus-automation
+# Las carpetas de ~/Desktop/Nuvaus con tus archivos NO se tocan
+```
+
+## Siguiente paso
+
+Ver `RULES.md` para personalizar reglas de clasificación y
+`PRICE-WATCH.md` para el monitor de precios.
 
 ---
 
-**¿Problemas?** Ver README.md en sección "Troubleshooting" o contactar ariel@nuvaus.com
+**¿Problemas?** Ver README.md o contactar ariel@nuvaus.com

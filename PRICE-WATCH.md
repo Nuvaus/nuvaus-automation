@@ -105,7 +105,7 @@ paso 4 (las tiendas con anti-bot fuerte podrían no dar precio).
 ## Uso (macOS / Linux)
 
 ```bash
-cd ~/ruta/al/repo/nuvaus-automation
+cd ~/nuvaus-automation
 
 # DRY RUN (no escribe historial/caché/Notion)
 python3 scripts/price-fetcher.py --dry-run
@@ -127,8 +127,9 @@ chmod +x scripts/price-fetcher.py
 ```
 
 ### Ver historial de precios
+(disponible después de la primera ejecución sin `--dry-run`)
 ```bash
-python3 -c "import json;[print(r['timestamp'], r['name'], r['best_price'], r['best_store'], r['below_target']) for r in json.load(open('logs/price-history.json'))]"
+python3 -c "import json;[print(r['timestamp'], r['name'], r['best_price'], r['best_store'], r['below_target']) for r in json.load(open('logs/price-history.json'))]" 2>/dev/null || echo "Aún no hay historial: ejecuta primero python3 scripts/price-fetcher.py"
 ```
 
 ## Salidas
@@ -141,22 +142,22 @@ python3 -c "import json;[print(r['timestamp'], r['name'], r['best_price'], r['be
 
 > `logs/` está en `.gitignore`, así que el historial y las keys nunca se suben.
 
-## Automatización en macOS (cron)
+## Automatización en macOS (launchd)
 
-Ejecutar una vez al día a las 9:00. Edita tu crontab:
+El instalador del repo lo programa por ti (diario a las 9:00), junto con el File Manager:
 
 ```bash
-crontab -e
+bash scripts/setup-mac.sh --install-agents
 ```
 
-Agrega (ajusta la ruta del repo):
-
-```cron
-0 9 * * * cd "$HOME/nuvaus-automation" && /usr/bin/python3 scripts/price-fetcher.py --quiet >> logs/cron.log 2>&1
+Verificar / desinstalar:
+```bash
+launchctl list | grep nuvaus
+bash scripts/setup-mac.sh --uninstall-agents
 ```
 
-> Alternativa más "nativa" en Mac: un agente `launchd` con un `.plist` en
-> `~/Library/LaunchAgents/`. Para un chequeo diario, cron es más simple y suficiente.
+> Alternativa manual con cron: `crontab -e` y agregar
+> `0 9 * * * cd "$HOME/nuvaus-automation" && /usr/bin/python3 scripts/price-fetcher.py --quiet`
 
 ## Notas de honestidad / mantenimiento
 

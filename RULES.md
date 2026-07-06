@@ -241,14 +241,14 @@ Ejemplo:
 
 Después de editar `rules.json`, **siempre ejecutar en DRY RUN**:
 
-```powershell
-cd "C:\Users\ariel\Desktop\Nuvaus\.automation"
-& .\scripts\file-manager.ps1 -DryRun $true -VerboseLogging $true
+```bash
+cd ~/nuvaus-automation
+python3 scripts/file-manager.py --dry-run
 ```
 
 Ver logs para errores:
-```powershell
-Get-Content "logs/file-manager.log" -Tail 30
+```bash
+tail -30 logs/file-manager.log
 ```
 
 Si ve errores JSON, revisar:
