@@ -25,7 +25,10 @@ echo "[4/7] Instalando unidades systemd"
 tar -C "$AQUI/systemd" -czf - . | tailscale ssh root@$VPS "tar -C /etc/systemd/system -xzf -"
 tssh root "systemctl daemon-reload && systemctl enable --now jarvis-memoria.service jarvis-memoria-backup.timer"
 
-echo "[5/7] Configurando Traefik (Coolify) para memoria.nuvaus.com"
+echo "[5/7] Firewall: permitir 8931 solo desde la red interna de Coolify"
+tssh root 'ufw status | grep -q 8931 || ufw allow from 10.0.1.0/24 to any port 8931 proto tcp comment "jarvis-memoria via Traefik"'
+
+echo "[5b/7] Configurando Traefik (Coolify) para memoria.nuvaus.com"
 cat "$AQUI/traefik/memoria.yaml" | tailscale ssh root@$VPS "cat > /data/coolify/proxy/dynamic/memoria.yaml"
 # Traefik vigila el directorio dinámico: recarga sola, sin reiniciar el proxy.
 
