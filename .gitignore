@@ -34,3 +34,4 @@ $RECYCLE.BIN/
 # Configuración local personalizada
 config/paths.local.json
 config/rules.local.json
+__pycache__/
