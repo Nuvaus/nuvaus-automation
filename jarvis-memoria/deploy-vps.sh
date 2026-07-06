@@ -25,9 +25,9 @@ echo "[4/7] Instalando unidades systemd"
 tar -C "$AQUI/systemd" -czf - . | tailscale ssh root@$VPS "tar -C /etc/systemd/system -xzf -"
 tssh root "systemctl daemon-reload && systemctl enable --now jarvis-memoria.service jarvis-memoria-backup.timer"
 
-echo "[5/7] Configurando Caddy (Coolify) para memoria.nuvaus.com"
-cat "$AQUI/caddy/memoria.caddy" | tailscale ssh root@$VPS "cat > /data/coolify/proxy/dynamic/memoria.caddy"
-tssh root 'PROXY=$(docker ps --format "{{.Names}}" | grep -m1 -E "coolify-proxy|proxy") && docker exec "$PROXY" caddy reload --config /config/caddy/Caddyfile.autosave 2>/dev/null || docker restart "$PROXY"'
+echo "[5/7] Configurando Traefik (Coolify) para memoria.nuvaus.com"
+cat "$AQUI/traefik/memoria.yaml" | tailscale ssh root@$VPS "cat > /data/coolify/proxy/dynamic/memoria.yaml"
+# Traefik vigila el directorio dinámico: recarga sola, sin reiniciar el proxy.
 
 echo "[6/7] Verificando servicio local"
 sleep 2

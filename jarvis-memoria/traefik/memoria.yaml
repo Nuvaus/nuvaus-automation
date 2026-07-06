@@ -1,0 +1,27 @@
+# jarvis-memoria (NV-NUV-0222) — HTTPS via proxy Coolify/Traefik
+# Instalar en /data/coolify/proxy/dynamic/memoria.yaml (Traefik lo recarga solo).
+http:
+  middlewares:
+    memoria-https-redirect:
+      redirectScheme:
+        scheme: https
+  routers:
+    memoria-http:
+      entryPoints:
+        - http
+      service: memoria
+      rule: Host(`memoria.nuvaus.com`)
+      middlewares:
+        - memoria-https-redirect
+    memoria-https:
+      entryPoints:
+        - https
+      service: memoria
+      rule: Host(`memoria.nuvaus.com`)
+      tls:
+        certresolver: letsencrypt
+  services:
+    memoria:
+      loadBalancer:
+        servers:
+          - url: 'http://10.0.1.1:8931'

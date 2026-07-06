@@ -8,7 +8,7 @@ compartan la misma memoria. Diseño completo: `docs/NV-NUV-0222-F1-diseno.md`.
 
 - `server.py` / `db.py` — servidor MCP (HTTP streamable, `/mcp`) + SQLite WAL/FTS5.
 - `systemd/` — `jarvis-memoria.service` + backup diario (`.timer`, retención 14 días).
-- `caddy/memoria.caddy` — HTTPS `memoria.nuvaus.com` vía proxy Coolify.
+- `traefik/memoria.yaml` — HTTPS `memoria.nuvaus.com` vía proxy Coolify (Traefik).
 - `deploy-vps.sh` — despliegue idempotente a vps-hub vía Tailscale SSH.
 - `migrar/migrar.py` — migración idempotente de las 3 capas (corre en el Mac).
 
