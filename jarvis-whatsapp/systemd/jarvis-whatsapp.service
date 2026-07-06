@@ -1,0 +1,42 @@
+# Jarvis — puerta WhatsApp del asesor personal (migracion desde Telegram, jul-2026).
+# Instalar: sudo cp jarvis-whatsapp.service /etc/systemd/system/ &&
+#           sudo systemctl daemon-reload && sudo systemctl enable --now jarvis-whatsapp
+# Logs:     journalctl -u jarvis-whatsapp -f
+[Unit]
+Description=Jarvis - puerta WhatsApp del asesor personal Nuvaus
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=jarvis
+Group=jarvis
+WorkingDirectory=/home/jarvis
+# Mismas variables de portabilidad que jarvis-listener (el puente importa su nucleo):
+Environment=ASESOR_CLAUDE_BIN=/home/jarvis/.local/bin/claude
+Environment=ASESOR_STT_PYTHON=/home/jarvis/venv-stt/bin/python
+Environment=ASESOR_MEMORY_DIR=/srv/jarvis/memoria-nuvaus
+Environment=ASESOR_WIKI_DIR=/srv/jarvis/wiki
+Environment=ASESOR_WHISPER_MODEL=small
+Environment=LANG=en_US.UTF-8
+# Bind en la red interna de Coolify; TLS lo termina Traefik (whatsapp.nuvaus.com).
+Environment=JARVIS_WA_BIND=10.0.1.1
+Environment=JARVIS_WA_PORT=8932
+ExecStart=/usr/bin/python3 /home/jarvis/repos/nuvaus/scripts/jarvis-whatsapp.py
+Restart=always
+RestartSec=15
+
+# Hardening (filtro ciberseguridad Nuvaus): minimo privilegio, FS read-only
+# salvo el home propio — paridad con jarvis-listener.service.
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/home/jarvis
+PrivateTmp=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+
+[Install]
+WantedBy=multi-user.target

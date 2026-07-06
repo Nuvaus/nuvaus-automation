@@ -1,0 +1,29 @@
+# jarvis-whatsapp — HTTPS via proxy Coolify/Traefik (patron memoria.nuvaus.com).
+# Instalar en /data/coolify/proxy/dynamic/whatsapp.yaml (Traefik lo recarga solo).
+# Si el certificado no se emite: retirar el archivo, esperar 5 s y volver a
+# copiarlo (gatilla ACME; un touch NO recarga — hallazgo 06-jul-2026).
+http:
+  middlewares:
+    whatsapp-https-redirect:
+      redirectScheme:
+        scheme: https
+  routers:
+    whatsapp-http:
+      entryPoints:
+        - http
+      service: whatsapp
+      rule: Host(`whatsapp.nuvaus.com`)
+      middlewares:
+        - whatsapp-https-redirect
+    whatsapp-https:
+      entryPoints:
+        - https
+      service: whatsapp
+      rule: Host(`whatsapp.nuvaus.com`)
+      tls:
+        certresolver: letsencrypt
+  services:
+    whatsapp:
+      loadBalancer:
+        servers:
+          - url: 'http://10.0.1.1:8932'
