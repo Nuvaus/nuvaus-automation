@@ -10,11 +10,22 @@
 # ===================================================================
 set -euo pipefail
 
+# Locale neutra: evita errores de parseo de bash con locales no instaladas
+# (p.ej. LC_ALL=es_AR.UTF-8 configurada pero ausente en macOS)
+export LC_ALL=C LANG=C
+
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 BASE="$HOME/Desktop/Nuvaus"
 AGENTS_DIR="$HOME/Library/LaunchAgents"
 SECRETS="$HOME/.claude/.secrets"
-PY="$(command -v python3 || true)"
+
+# Preferir el python3 del sistema para los agentes launchd (ruta estable que
+# sobrevive a cambios de versión de mise/pyenv/homebrew); si no, el del PATH
+if [ -x /usr/bin/python3 ] && /usr/bin/python3 --version >/dev/null 2>&1; then
+  PY="/usr/bin/python3"
+else
+  PY="$(command -v python3 || true)"
+fi
 
 bold() { printf '\n\033[1m%s\033[0m\n' "$*"; }
 ok()   { printf '  ✓ %s\n' "$*"; }
@@ -72,7 +83,7 @@ uninstall_agent() {
 }
 
 if [[ "$MODE" == "--uninstall-agents" ]]; then
-  bold "Desinstalando agentes launchd…"
+  bold "Desinstalando agentes launchd..."
   uninstall_agent "com.nuvaus.file-manager"
   uninstall_agent "com.nuvaus.price-watch"
   exit 0
@@ -82,7 +93,7 @@ bold "== Nuvaus Setup (macOS) =="
 echo "  Repo:   $REPO_DIR"
 echo "  Python: $PY ($("$PY" --version 2>&1))"
 
-bold "1) Creando estructura de carpetas en $BASE…"
+bold "1) Creando estructura de carpetas en ${BASE}..."
 for d in \
   "$BASE/propuestas" \
   "$BASE/propuestas-archivo" \
@@ -97,7 +108,7 @@ for d in \
 done
 ok "Carpetas listas"
 
-bold "2) Verificando secrets ($SECRETS)…"
+bold "2) Verificando secrets (${SECRETS})..."
 if [[ -f "$SECRETS" ]]; then
   if grep -q '^NOTION_API_KEY=' "$SECRETS"; then
     ok "NOTION_API_KEY presente"
@@ -114,11 +125,11 @@ else
   echo '      mkdir -p ~/.claude && touch ~/.claude/.secrets'
 fi
 
-bold "3) DRY RUN de prueba del File Manager…"
+bold "3) DRY RUN de prueba del File Manager..."
 "$PY" "$REPO_DIR/scripts/file-manager.py" --dry-run
 
 if [[ "$MODE" == "--install-agents" ]]; then
-  bold "4) Instalando agentes launchd…"
+  bold "4) Instalando agentes launchd..."
 
   # File Manager: cada 15 minutos (y al iniciar sesión)
   install_agent "com.nuvaus.file-manager" <<PLIST
