@@ -9,11 +9,21 @@ locales, resúmenes duplicados).
 
 ### Fuente canónica por orden de precedencia
 
-1. **jarvis-memoria MCP** (`memoria.nuvaus.com`) — cuando esté desplegado.
-   Es la memoria unificada de Jarvis F4 (ticket NV-NUV-0222). Diseño completo
-   en `docs/NV-NUV-0222-F1-diseno.md` (rama `claude/jarvis-f4-memory-mcp-iet824`).
-   Cuando entre en producción, pasa a ser la fuente primaria y Notion queda
-   como espejo legible para humanos.
+1. **jarvis-memoria MCP** — DESPLEGADO en vps-hub (06-jul-2026): systemd
+   `jarvis-memoria.service`, escucha en `10.0.1.1:8931`, auth por
+   `JARVIS_MEMORY_MCP_TOKEN` (solo en `.secrets`). Herramientas: `buscar`,
+   `recordar`, `guardar`, `actualizar`, `bitacora`. Es la memoria unificada de
+   Jarvis F4 (ticket NV-NUV-0222; diseño en `docs/NV-NUV-0222-F1-diseno.md`,
+   rama `claude/jarvis-f4-memory-mcp-iet824`).
+   - URL pública `https://memoria.nuvaus.com/mcp` — activa cuando exista el
+     registro A en Porkbun (`memoria → 5.78.107.39`). Declarado en `.mcp.json`
+     de este repo (requiere `JARVIS_MEMORY_MCP_TOKEN` en el entorno).
+   - Conector claude.ai: URL `https://memoria.nuvaus.com/mcp/<token>`.
+   - Acceso alternativo desde entornos con tailnet: SSH a `jarvis@vps-hub` y
+     llamar a `http://10.0.1.1:8931/mcp/<token>` (token en `.secrets` del VPS).
+   - Al iniciar sesión con este MCP disponible: llamar `recordar()` primero.
+   - Pendiente para cierre total: migración de las 3 capas desde el Mac
+     (`/home/jarvis/jarvis-memoria/migrar/migrar.py`) y conexión de clientes.
 2. **Notion (vigente hoy)** — mientras jarvis-memoria no esté en producción:
    - **DB "Pendientes Claude"**: registro operativo de tareas, decisiones y
      resultados de todas las sesiones.
