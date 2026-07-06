@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# nuvaus-dns — operaciones DNS de nuvaus.com vía API Porkbun (NV-NUV-0222).
+# Patrón "autonomía con seguridad": las llaves viven en /etc/nuvaus/dns.env
+# (root, 600) y NUNCA se imprimen; los agentes (usuario jarvis) invocan este
+# script vía sudoers sin poder leer las credenciales.
+#
+# Uso:
+#   nuvaus-dns add <subdominio> <TIPO> <valor> [ttl]
+#   nuvaus-dns list
+#   nuvaus-dns delete <id>
+set -euo pipefail
+
+DOMINIO=nuvaus.com
+ENV=/etc/nuvaus/dns.env
+API=https://api.porkbun.com/api/json/v3
+
+[ -r "$ENV" ] || { echo "falta $ENV (PORKBUN_API_KEY / PORKBUN_SECRET_API_KEY)" >&2; exit 1; }
+# shellcheck disable=SC1090
+source "$ENV"
+: "${PORKBUN_API_KEY:?}" "${PORKBUN_SECRET_API_KEY:?}"
+
+auth() { printf '"apikey":"%s","secretapikey":"%s"' "$PORKBUN_API_KEY" "$PORKBUN_SECRET_API_KEY"; }
+
+case "${1:-}" in
+  add)
+    sub=${2:?subdominio}; tipo=${3:?tipo}; valor=${4:?valor}; ttl=${5:-600}
+    curl -sS -X POST "$API/dns/create/$DOMINIO" -H "Content-Type: application/json" \
+      -d "{$(auth),\"type\":\"$tipo\",\"name\":\"$sub\",\"content\":\"$valor\",\"ttl\":\"$ttl\"}"
+    echo
+    ;;
+  list)
+    curl -sS -X POST "$API/dns/retrieve/$DOMINIO" -H "Content-Type: application/json" \
+      -d "{$(auth)}" | python3 -c 'import json,sys; [print(r["id"], r["type"], r["name"], "->", r["content"]) for r in json.load(sys.stdin).get("records",[])]'
+    ;;
+  delete)
+    id=${2:?id de registro}
+    curl -sS -X POST "$API/dns/delete/$DOMINIO/$id" -H "Content-Type: application/json" \
+      -d "{$(auth)}"
+    echo
+    ;;
+  *)
+    grep '^#   ' "$0" | sed 's/^#   //' >&2
+    exit 1
+    ;;
+esac
