@@ -1,0 +1,55 @@
+# CLAUDE.md — nuvaus-automation
+
+## Protocolo de memoria (obligatorio en toda sesión)
+
+Existe UNA fuente canónica de memoria. Toda sesión de Claude (Claude.ai, Claude
+Desktop, Claude Code local o web, Jarvis) debe leerla al inicio y escribir en
+ella en tiempo real. No crear memorias paralelas (archivos sueltos, notas
+locales, resúmenes duplicados).
+
+### Fuente canónica por orden de precedencia
+
+1. **jarvis-memoria MCP** (`memoria.nuvaus.com`) — cuando esté desplegado.
+   Es la memoria unificada de Jarvis F4 (ticket NV-NUV-0222). Diseño completo
+   en `docs/NV-NUV-0222-F1-diseno.md` (rama `claude/jarvis-f4-memory-mcp-iet824`).
+   Cuando entre en producción, pasa a ser la fuente primaria y Notion queda
+   como espejo legible para humanos.
+2. **Notion (vigente hoy)** — mientras jarvis-memoria no esté en producción:
+   - **DB "Pendientes Claude"**: registro operativo de tareas, decisiones y
+     resultados de todas las sesiones.
+     - Database: `48b0a720-b74d-8303-b37c-8196ef82e6af`
+     - Data source: `collection://4890a720-b74d-82eb-bd3b-072280642832`
+   - **Página "Memoria Claude.ai — Historial de chats"**: síntesis de contexto
+     personal y de proyectos.
+     - Page ID: `3950a720-b74d-810b-af3c-f904ef9963ee`
+
+### Reglas de operación
+
+- **Al iniciar sesión**: leer la página de Memoria vía Notion MCP y consultar
+  la DB "Pendientes Claude" para el contexto del tema en curso. Buscar SIEMPRE
+  en ambas antes de declarar que algo no existe o no se ha hecho.
+- **Durante la sesión**: toda decisión, resultado o dato durable se escribe de
+  inmediato en la fuente canónica (no al final, no "después").
+- **Correcciones del usuario**: si Ariel corrige un dato de la memoria, la
+  corrección se aplica en Notion en el momento.
+- **Secretos**: nunca en la memoria ni versionados. Solo en `.secrets`
+  (Mac: `~/.claude/.secrets`; VPS: `/home/jarvis/.claude/.secrets`) o en
+  variables de entorno del entorno remoto.
+
+## Preferencias del usuario
+
+- Responder en español latinoamericano neutro, sin chilenismos.
+- Conciso y práctico.
+
+## Herramientas de acceso a sitios con bloqueo anti-bot
+
+Para precios/scraping (Mercado Libre, SoloTodo, Falabella, etc.):
+
+- **Firecrawl MCP** — instalado en el Mac (key en `.secrets`, plan free
+  500 páginas/mes). En este repo queda declarado en `.mcp.json`: se activa
+  automáticamente donde exista `FIRECRAWL_API_KEY` en el entorno.
+- **Playwright MCP** — instalado en el Mac (bootstrap-mac-extras.sh).
+- Complementos según plan de MCPs: Exa (pendiente, falta `EXA_API_KEY`),
+  Apify (Tier 3, solo si Firecrawl no alcanza).
+- En el entorno remoto de Claude Code web estos dominios requieren permitirse
+  en la política de red del entorno (hoy bloqueados por defecto).
