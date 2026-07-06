@@ -1,0 +1,5 @@
+# jarvis-memoria (NV-NUV-0222) — HTTPS via Coolify/Caddy
+# Instalar en /data/coolify/proxy/dynamic/memoria.caddy y recargar el proxy.
+memoria.nuvaus.com {
+	reverse_proxy 10.0.1.1:8931
+}

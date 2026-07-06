@@ -1,0 +1,22 @@
+[Unit]
+Description=Jarvis Memoria - servidor MCP de memoria unificada (Nuvaus NV-NUV-0222)
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=jarvis
+Group=jarvis
+WorkingDirectory=/home/jarvis/jarvis-memoria
+EnvironmentFile=/home/jarvis/.claude/.secrets
+Environment=JARVIS_MEMORIA_HOST=10.0.1.1
+Environment=JARVIS_MEMORIA_PORT=8931
+Environment=JARVIS_MEMORIA_DB=/home/jarvis/jarvis-memoria/memoria.db
+ExecStart=/home/jarvis/jarvis-memoria/venv/bin/python server.py
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

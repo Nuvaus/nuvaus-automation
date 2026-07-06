@@ -1,0 +1,7 @@
+[Unit]
+Description=Backup diario de la base de jarvis-memoria
+
+[Service]
+Type=oneshot
+User=jarvis
+ExecStart=/bin/bash -c 'mkdir -p /home/jarvis/jarvis-memoria/backups && sqlite3 /home/jarvis/jarvis-memoria/memoria.db ".backup /home/jarvis/jarvis-memoria/backups/memoria-$(date +%%F).db" && find /home/jarvis/jarvis-memoria/backups -name "memoria-*.db" -mtime +14 -delete'
