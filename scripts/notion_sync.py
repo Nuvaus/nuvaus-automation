@@ -104,5 +104,6 @@ def test_connection(logger=print):
 
 
 if __name__ == "__main__":
-    # Ejecución directa: prueba de conexión
-    test_connection()
+    # Ejecución directa: prueba de conexión (exit 1 si falla, como el original)
+    import sys
+    sys.exit(0 if test_connection() else 1)

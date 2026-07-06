@@ -14,10 +14,12 @@
 # ===================================================================
 
 import argparse
+import fcntl
 import fnmatch
 import json
 import os
 import shutil
+import subprocess
 import sys
 import unicodedata
 from datetime import datetime
@@ -65,6 +67,19 @@ def expand(path):
     return os.path.expandvars(os.path.expanduser(path))
 
 
+def notify_macos(title, message):
+    """Notificación nativa de macOS (best-effort; silencioso si falla)."""
+    if sys.platform != "darwin":
+        return
+    try:
+        subprocess.run(
+            ["osascript", "-e", f'display notification "{message}" with title "{title}"'],
+            capture_output=True, timeout=10, check=False,
+        )
+    except Exception:  # noqa: BLE001
+        pass
+
+
 def load_json_file(path):
     try:
         with open(path, "r", encoding="utf-8") as f:
@@ -90,11 +105,32 @@ def load_config(config_dir):
     paths = load_json_file(pick("paths.json"))
     rules_doc = load_json_file(pick("rules.json"))
 
+    for key in ("nuvaus_base", "monitored_downloads"):
+        if not paths.get(key):
+            log(f"paths.json sin la clave requerida '{key}'", "ERROR")
+            sys.exit(1)
+
+    required_rule = ("id", "name", "patterns", "extensions", "destination", "rename_pattern")
+    rules = []
+    for rule in rules_doc.get("rules", []):
+        missing = [k for k in required_rule if not rule.get(k)]
+        if missing:
+            log(f"Regla malformada (falta {missing}), se descarta: {rule.get('id', rule)}", "WARN")
+            continue
+        rules.append(rule)
+
+    clients = []
+    for c in rules_doc.get("clients", []):
+        if c.get("code") and c.get("name"):
+            clients.append(c)
+        else:
+            log(f"Cliente malformado (requiere code y name), se descarta: {c}", "WARN")
+
     return {
         "base": expand(paths["nuvaus_base"]),
         "downloads": expand(paths["monitored_downloads"]),
-        "rules": rules_doc["rules"],
-        "clients": rules_doc["clients"],
+        "rules": rules,
+        "clients": clients,
         "gs": rules_doc.get("global_settings", {}),
     }
 
@@ -196,7 +232,10 @@ def should_skip(entry_path, filename, min_age_sec):
         return "descarga en progreso"
     if not os.path.isfile(entry_path):
         return "no es archivo"
-    age = datetime.now().timestamp() - os.path.getmtime(entry_path)
+    try:
+        age = datetime.now().timestamp() - os.path.getmtime(entry_path)
+    except OSError:
+        return "desapareció durante el escaneo"
     if age < min_age_sec:
         return f"muy reciente ({int(age)}s < {min_age_sec}s)"
     return None
@@ -229,34 +268,39 @@ def process_downloads(cfg):
     moved = []
 
     for path, name in candidates:
-        log(f"Analizando: {name}", "DEBUG")
-        matched = False
-        for rule in cfg["rules"]:
-            if not rule_matches(name, rule):
-                continue
-            log(f"Regla coincide: {rule['name']}")
-            client = resolve_client(name, cfg["clients"])
-            base = os.path.splitext(name)[0]
-            ext = os.path.splitext(name)[1]
-            new_name = render_pattern(rule["rename_pattern"], client, base) + ext
-            dest_dir = os.path.join(cfg["base"], render_pattern(rule["destination"], client, base))
+        try:
+            log(f"Analizando: {name}", "DEBUG")
+            matched = False
+            for rule in cfg["rules"]:
+                if not rule_matches(name, rule):
+                    continue
+                log(f"Regla coincide: {rule['name']}")
+                client = resolve_client(name, cfg["clients"])
+                base = os.path.splitext(name)[0]
+                ext = os.path.splitext(name)[1]
+                new_name = render_pattern(rule["rename_pattern"], client, base) + ext
+                dest_dir = os.path.join(cfg["base"], render_pattern(rule["destination"], client, base))
 
-            final_name = move_file(path, dest_dir, new_name, skip_existing)
-            if final_name:
-                moved.append({"rule": rule, "new_name": final_name, "client": client})
-                if rule.get("notify_notion") and not DRY_RUN:
-                    try:
-                        notion_sync.sync_moved_file(
-                            {"rule": rule, "new_name": final_name}, client,
-                            logger=lambda m: log(m),
-                        )
-                    except Exception as e:  # noqa: BLE001 — Notion nunca debe frenar el flujo
-                        log(f"Notion sync falló (continuo): {e}", "ERROR")
-            matched = True
-            break
+                final_name = move_file(path, dest_dir, new_name, skip_existing)
+                if final_name:
+                    moved.append({"rule": rule, "new_name": final_name, "client": client})
+                    if rule.get("notify_notion") and not DRY_RUN:
+                        try:
+                            notion_sync.sync_moved_file(
+                                {"rule": rule, "new_name": final_name}, client,
+                                logger=lambda m: log(m),
+                            )
+                        except Exception as e:  # noqa: BLE001 — Notion nunca debe frenar el flujo
+                            log(f"Notion sync falló (continuo): {e}", "ERROR")
+                matched = True
+                break
 
-        if not matched:
-            log(f"Sin regla coincidente para: {name}", "WARN")
+            if not matched:
+                log(f"Sin regla coincidente para: {name}", "WARN")
+        except PermissionError:
+            raise  # macOS TCC: lo maneja main() con aviso al usuario
+        except Exception as e:  # noqa: BLE001 — un archivo problemático no frena el resto
+            log(f"Error procesando {name} (continúo con el resto): {e}", "ERROR")
 
     log(f"Procesamiento completado. {len(moved)} archivo(s) movido(s).")
     return moved
@@ -280,10 +324,15 @@ def archive_old_proposals(cfg):
         path = os.path.join(src_dir, name)
         if not os.path.isfile(path) or name.startswith("."):
             continue
-        mtime = os.path.getmtime(path)
-        if mtime >= cutoff:
+        try:
+            st = os.stat(path)
+        except OSError:
             continue
-        year = datetime.fromtimestamp(mtime).strftime("%Y")
+        # max(mtime, ctime): un archivo recién llegado con mtime viejo
+        # (zip, AirDrop, export) no debe archivarse el mismo día
+        if max(st.st_mtime, st.st_ctime) >= cutoff:
+            continue
+        year = datetime.fromtimestamp(st.st_mtime).strftime("%Y")
         dest_dir = os.path.join(dst_root, year)
         if DRY_RUN:
             log(f"[DRY RUN] Archivaría: {name} → propuestas-archivo/{year}")
@@ -315,7 +364,13 @@ def cleanup_auto_delete(cfg):
             path = os.path.join(target, name)
             if not os.path.isfile(path) or name.startswith("."):
                 continue
-            if os.path.getmtime(path) >= cutoff:
+            try:
+                st = os.stat(path)
+            except OSError:
+                continue
+            # max(mtime, ctime): protege archivos recién movidos aquí cuyo
+            # mtime original es antiguo (no borrarlos el mismo día que llegan)
+            if max(st.st_mtime, st.st_ctime) >= cutoff:
                 continue
             if DRY_RUN:
                 log(f"[DRY RUN] Eliminaría (> {days} días): {rule['destination']}/{name}")
@@ -343,6 +398,15 @@ def main():
     DRY_RUN = args.dry_run
     VERBOSE = not args.quiet
 
+    # Instancia única: evita carreras entre launchd y una ejecución manual
+    os.makedirs(LOG_DIR, exist_ok=True)
+    lock_file = open(os.path.join(LOG_DIR, ".file-manager.lock"), "w")
+    try:
+        fcntl.flock(lock_file, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError:
+        log("Otra instancia ya está corriendo; salgo.", "WARN")
+        return
+
     cfg = load_config(args.config)
 
     log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
@@ -354,6 +418,12 @@ def main():
         process_downloads(cfg)
         archive_old_proposals(cfg)
         cleanup_auto_delete(cfg)
+    except PermissionError as e:
+        log(f"Permiso denegado por macOS (TCC): {e}", "ERROR")
+        log("Habilita python3/Terminal en Ajustes del Sistema → Privacidad y seguridad → Archivos y carpetas", "ERROR")
+        notify_macos("Nuvaus File Manager sin permisos",
+                     "Habilita python3 en Privacidad y seguridad → Archivos y carpetas")
+        sys.exit(1)
     except Exception as e:  # noqa: BLE001
         log(f"Error fatal: {e}", "ERROR")
         sys.exit(1)

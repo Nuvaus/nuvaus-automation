@@ -27,13 +27,40 @@ if [[ -z "$PY" ]]; then
 fi
 
 MODE="${1:-setup}"
+case "$MODE" in
+  setup|--install-agents|--uninstall-agents) ;;
+  *)
+    echo "Argumento desconocido: $MODE"
+    echo "Uso: bash scripts/setup-mac.sh [--install-agents | --uninstall-agents]"
+    exit 1
+    ;;
+esac
+
+xml_escape() {  # escapa & < > para que rutas raras no rompan el plist
+  local s="$1"
+  s="${s//&/&amp;}"; s="${s//</&lt;}"; s="${s//>/&gt;}"
+  printf '%s' "$s"
+}
+PY_X="$(xml_escape "$PY")"
+REPO_X="$(xml_escape "$REPO_DIR")"
+MACLOGS="$HOME/Library/Logs"   # ruta estable: sobrevive si mueves el repo
+MACLOGS_X="$(xml_escape "$MACLOGS")"
 
 install_agent() {  # $1 = nombre; el plist llega por stdin
   local name="$1" plist="$AGENTS_DIR/$1.plist"
   mkdir -p "$AGENTS_DIR"
   launchctl unload "$plist" >/dev/null 2>&1 || true
   cat > "$plist"
-  launchctl load -w "$plist"
+  if command -v plutil >/dev/null 2>&1 && ! plutil -lint "$plist" >/dev/null; then
+    rm -f "$plist"
+    warn "plist inválido para $name (¿la ruta del repo tiene caracteres extraños?)"
+    exit 1
+  fi
+  if ! launchctl load -w "$plist"; then
+    rm -f "$plist"
+    warn "No se pudo cargar $name — ¿estás en una sesión gráfica de macOS?"
+    exit 1
+  fi
   ok "Agente cargado: $name"
 }
 
@@ -102,15 +129,15 @@ if [[ "$MODE" == "--install-agents" ]]; then
     <key>Label</key><string>com.nuvaus.file-manager</string>
     <key>ProgramArguments</key>
     <array>
-        <string>${PY}</string>
-        <string>${REPO_DIR}/scripts/file-manager.py</string>
+        <string>${PY_X}</string>
+        <string>${REPO_X}/scripts/file-manager.py</string>
         <string>--quiet</string>
     </array>
-    <key>WorkingDirectory</key><string>${REPO_DIR}</string>
+    <key>WorkingDirectory</key><string>${REPO_X}</string>
     <key>StartInterval</key><integer>900</integer>
     <key>RunAtLoad</key><true/>
-    <key>StandardOutPath</key><string>${REPO_DIR}/logs/launchd-file-manager.log</string>
-    <key>StandardErrorPath</key><string>${REPO_DIR}/logs/launchd-file-manager.log</string>
+    <key>StandardOutPath</key><string>${MACLOGS_X}/nuvaus-file-manager.log</string>
+    <key>StandardErrorPath</key><string>${MACLOGS_X}/nuvaus-file-manager.log</string>
 </dict>
 </plist>
 PLIST
@@ -124,19 +151,19 @@ PLIST
     <key>Label</key><string>com.nuvaus.price-watch</string>
     <key>ProgramArguments</key>
     <array>
-        <string>${PY}</string>
-        <string>${REPO_DIR}/scripts/price-fetcher.py</string>
+        <string>${PY_X}</string>
+        <string>${REPO_X}/scripts/price-fetcher.py</string>
         <string>--quiet</string>
     </array>
-    <key>WorkingDirectory</key><string>${REPO_DIR}</string>
+    <key>WorkingDirectory</key><string>${REPO_X}</string>
     <key>StartCalendarInterval</key>
     <dict>
         <key>Hour</key><integer>9</integer>
         <key>Minute</key><integer>0</integer>
     </dict>
     <key>RunAtLoad</key><false/>
-    <key>StandardOutPath</key><string>${REPO_DIR}/logs/launchd-price-watch.log</string>
-    <key>StandardErrorPath</key><string>${REPO_DIR}/logs/launchd-price-watch.log</string>
+    <key>StandardOutPath</key><string>${MACLOGS_X}/nuvaus-price-watch.log</string>
+    <key>StandardErrorPath</key><string>${MACLOGS_X}/nuvaus-price-watch.log</string>
 </dict>
 </plist>
 PLIST

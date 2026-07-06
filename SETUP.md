@@ -108,10 +108,17 @@ Verificar que están corriendo:
 launchctl list | grep nuvaus
 ```
 
-> **Permiso de macOS:** la primera vez, macOS puede preguntar si Python puede
-> acceder a las carpetas Descargas/Escritorio. Acepta, o ve a
-> **Ajustes del Sistema → Privacidad y seguridad → Archivos y carpetas** y
-> habilita Terminal/python3 ahí.
+> **Permiso de macOS (importante):** macOS pide permiso para acceder a
+> Descargas/Escritorio **dos veces distintas**: una cuando pruebas desde
+> Terminal, y OTRA cuando el agente corre solo por primera vez (es otro
+> proceso para macOS). Acepta ambas. Si tocaste "No permitir" por error,
+> ve a **Ajustes del Sistema → Privacidad y seguridad → Archivos y carpetas**
+> y habilita python3/Terminal ahí. Si el agente queda sin permiso, te
+> avisará con una notificación de macOS.
+
+> **Si mueves o renombras la carpeta del repo**, los agentes quedan
+> apuntando a la ruta vieja: re-ejecuta
+> `bash scripts/setup-mac.sh --install-agents` desde la nueva ubicación.
 
 Desinstalar la automatización:
 ```bash
@@ -145,8 +152,8 @@ xcode-select --install
 # Ver estado (el segundo número es el último código de salida; 0 = OK)
 launchctl list | grep nuvaus
 
-# Ver errores
-cat logs/launchd-file-manager.log
+# Ver errores (los agentes escriben en ~/Library/Logs)
+cat ~/Library/Logs/nuvaus-file-manager.log
 
 # Recargar
 bash scripts/setup-mac.sh --uninstall-agents

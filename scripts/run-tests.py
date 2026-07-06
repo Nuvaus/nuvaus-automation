@@ -16,6 +16,7 @@ import tempfile
 import time
 import unicodedata
 import unittest
+from unittest import mock
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -202,24 +203,86 @@ class TestProcessing(unittest.TestCase):
         self.assertTrue(os.path.exists(os.path.join(self.cfg["downloads"], "NV-PROP-CECA-x.pdf")))
         self.assertFalse(os.path.isdir(os.path.join(self.cfg["base"], "propuestas")))
 
+    @staticmethod
+    def _stat_with_old_ctime(suffixes):
+        """os.stat parcheado: para archivos cuyo nombre termina en `suffixes`,
+        simula que el ctime es igual de antiguo que el mtime (como un archivo
+        que lleva meses en la carpeta). Los tests no pueden fijar ctime real."""
+        real_stat = os.stat
+
+        def fake_stat(path, *a, **kw):
+            st = real_stat(path, *a, **kw)
+            if isinstance(path, str) and path.endswith(suffixes):
+                return os.stat_result((st.st_mode, st.st_ino, st.st_dev, st.st_nlink,
+                                       st.st_uid, st.st_gid, st.st_size,
+                                       st.st_atime, st.st_mtime, st.st_mtime))
+            return st
+        return fake_stat
+
     def test_archive_old_proposals(self):
         old = time.time() - 200 * 86400  # 200 días
         year = time.strftime("%Y", time.localtime(old))
         touch(os.path.join(self.cfg["base"], "propuestas", "vieja.pdf"), mtime=old)
         touch(os.path.join(self.cfg["base"], "propuestas", "nueva.pdf"))
-        fm.archive_old_proposals(self.cfg)
+        with mock.patch.object(fm.os, "stat", side_effect=self._stat_with_old_ctime(("vieja.pdf",))):
+            fm.archive_old_proposals(self.cfg)
         archived = os.path.join(self.cfg["base"], "propuestas-archivo", year, "vieja.pdf")
         self.assertTrue(os.path.exists(archived))
         self.assertTrue(os.path.exists(os.path.join(self.cfg["base"], "propuestas", "nueva.pdf")))
+
+    def test_archive_protects_freshly_arrived_file(self):
+        # mtime viejo pero ctime reciente (zip/AirDrop recién llegado) → NO se archiva
+        old = time.time() - 200 * 86400
+        touch(os.path.join(self.cfg["base"], "propuestas", "recien-llegada.pdf"), mtime=old)
+        fm.archive_old_proposals(self.cfg)
+        self.assertTrue(os.path.exists(os.path.join(self.cfg["base"], "propuestas", "recien-llegada.pdf")))
 
     def test_auto_delete_old_reports(self):
         target = os.path.join(self.cfg["base"], "temp", "reportes")
         old = time.time() - 40 * 86400  # 40 días > 30
         touch(os.path.join(target, "viejo.json"), mtime=old)
         touch(os.path.join(target, "reciente.json"))
-        fm.cleanup_auto_delete(self.cfg)
+        with mock.patch.object(fm.os, "stat", side_effect=self._stat_with_old_ctime(("viejo.json",))):
+            fm.cleanup_auto_delete(self.cfg)
         self.assertFalse(os.path.exists(os.path.join(target, "viejo.json")))
         self.assertTrue(os.path.exists(os.path.join(target, "reciente.json")))
+
+    def test_auto_delete_protects_freshly_arrived_file(self):
+        # mtime viejo pero ctime reciente → NO se borra (protección anti-pérdida)
+        target = os.path.join(self.cfg["base"], "temp", "reportes")
+        old = time.time() - 40 * 86400
+        touch(os.path.join(target, "recien-movido.json"), mtime=old)
+        fm.cleanup_auto_delete(self.cfg)
+        self.assertTrue(os.path.exists(os.path.join(target, "recien-movido.json")))
+
+    def test_load_config_discards_malformed_rule(self):
+        cfgdir = os.path.join(self.tmp, "config2")
+        os.makedirs(cfgdir)
+        with open(os.path.join(cfgdir, "paths.json"), "w") as f:
+            json.dump({"nuvaus_base": "~/Desktop/Nuvaus", "monitored_downloads": "~/Downloads"}, f)
+        with open(os.path.join(cfgdir, "rules.json"), "w") as f:
+            json.dump({
+                "rules": [
+                    {"id": "rota", "name": "sin patterns ni destino"},
+                    {"id": "ok", "name": "Válida", "patterns": ["x*"], "extensions": [".pdf"],
+                     "destination": "d", "rename_pattern": "{FILENAME}"},
+                ],
+                "clients": [{"code": "CECA", "name": "CECA Salud"}, {"code": "", "name": ""}],
+                "global_settings": {},
+            }, f)
+        cfg = fm.load_config(cfgdir)
+        self.assertEqual([r["id"] for r in cfg["rules"]], ["ok"])
+        self.assertEqual(len(cfg["clients"]), 1)
+
+    def test_load_config_missing_paths_key_exits(self):
+        cfgdir = os.path.join(self.tmp, "config3")
+        os.makedirs(cfgdir)
+        with open(os.path.join(cfgdir, "paths.json"), "w") as f:
+            json.dump({"nuvaus_base": "~/Desktop/Nuvaus"}, f)  # falta monitored_downloads
+        with open(os.path.join(cfgdir, "rules.json"), "w") as f:
+            json.dump({"rules": [], "clients": [], "global_settings": {}}, f)
+        with self.assertRaises(SystemExit):
+            fm.load_config(cfgdir)
 
     def test_load_config_expands_home(self):
         cfgdir = os.path.join(self.tmp, "config")

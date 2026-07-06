@@ -38,6 +38,18 @@ SECRETS_FILE = os.path.join(os.path.expanduser("~"), ".claude", ".secrets")
 VERBOSE = True
 DRY_RUN = False
 
+# Valores por defecto si settings viene incompleto en price-watch.json
+DEFAULT_SETTINGS = {
+    "cache_minutes": 360,
+    "request_timeout_sec": 30,
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    "scraper_provider": "auto",
+    "mercadolibre_site": "MLC",
+    "solotodo_api_base": "https://publicapi.solotodo.com",
+    "notify_notion": False,
+    "notion_db": "",
+}
+
 
 # ===================================================================
 # 1. UTILIDADES (logging / secrets / precios)
@@ -61,6 +73,14 @@ def get_secret(key):
         content = f.read()
     m = re.search(rf"^{re.escape(key)}=(.+)$", content, re.MULTILINE)
     return m.group(1).strip() if m else None
+
+
+def redact_secrets(text):
+    """Enmascara valores de API keys si aparecieran en mensajes de error,
+    para que nunca terminen en el log."""
+    if not text:
+        return text
+    return re.sub(r"(api_?key=)[^&\s'\"]+", r"\1***", str(text), flags=re.IGNORECASE)
 
 
 def to_clp(raw):
@@ -168,8 +188,15 @@ def from_solotodo(item, settings):
         log(f"SoloTodo respuesta no-JSON para '{item['query']}'", "WARN")
         return offers
 
-    results = data.get("results", data if isinstance(data, list) else [])
+    if isinstance(data, dict):
+        results = data.get("results", [])
+    elif isinstance(data, list):
+        results = data
+    else:
+        results = []
     for p in results:
+        if not isinstance(p, dict):
+            continue
         price = to_clp(p.get("min_price") or p.get("price"))
         if price and price >= 1000:
             offers.append({
@@ -220,15 +247,16 @@ def from_scraperapi(url, settings):
         log(f"Sin API key de scraping en .secrets (SCRAPER_API_KEY / ZENROWS_API_KEY). Se omite fallback para {url}", "WARN")
         return offers
 
-    encoded = urllib.parse.quote(url, safe="")
     if use == "scraperapi":
-        api = f"https://api.scraperapi.com/?api_key={scraper_key}&country_code=cl&render=true&url={encoded}"
+        api = "https://api.scraperapi.com/?" + urllib.parse.urlencode(
+            {"api_key": scraper_key, "country_code": "cl", "render": "true", "url": url})
     else:
-        api = f"https://api.zenrows.com/v1/?apikey={zen_key}&js_render=true&proxy_country=cl&url={encoded}"
+        api = "https://api.zenrows.com/v1/?" + urllib.parse.urlencode(
+            {"apikey": zen_key, "js_render": "true", "proxy_country": "cl", "url": url})
 
     status, body = http_get(api, {}, settings["request_timeout_sec"] * 3)
     if status != 200 or not body:
-        log(f"Scraper-API ({use}) falló ({url}): {body}", "ERROR")
+        log(f"Scraper-API ({use}) falló ({url}): {redact_secrets(body)}", "ERROR")
         return offers
     host = urllib.parse.urlparse(url).netloc
     for pr in prices_from_html(body, url):
@@ -246,9 +274,26 @@ def load_json(path, default):
         try:
             with open(path, "r", encoding="utf-8") as f:
                 return json.load(f)
-        except (json.JSONDecodeError, OSError):
+        except json.JSONDecodeError:
+            # No descartar datos silenciosamente: respaldar el archivo corrupto
+            try:
+                os.replace(path, path + ".bak")
+                log(f"Archivo corrupto respaldado como {os.path.basename(path)}.bak", "WARN")
+            except OSError:
+                pass
+            return default
+        except OSError:
             return default
     return default
+
+
+def save_json_atomic(path, data):
+    """Escritura atómica: si el proceso muere a mitad, el archivo original
+    queda intacto (evita perder historial/caché)."""
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    os.replace(tmp, path)
 
 
 def cache_fresh(cache, item_id, cache_minutes):
@@ -277,8 +322,7 @@ def add_history(item, best, all_offers):
         "below_target": best["price"] <= int(item["target_price"]),
         "offer_count": len(all_offers),
     })
-    with open(HISTORY_FILE, "w", encoding="utf-8") as f:
-        json.dump(history, f, ensure_ascii=False, indent=2)
+    save_json_atomic(HISTORY_FILE, history)
 
 
 def sync_to_notion(item, best, settings):
@@ -328,6 +372,11 @@ def sync_to_notion(item, best, settings):
 # ===================================================================
 
 def check_item(item, cache, cache_map, settings):
+    missing = [k for k in ("id", "name", "query", "target_price") if item.get(k) in (None, "")]
+    if missing:
+        log(f"Item '{item.get('id', '?')}' sin campos requeridos {missing}, se omite", "WARN")
+        return
+
     log("─────────────────────────────────────────────")
     log(f"Producto: {item['name']} [{item['id']}]")
 
@@ -391,10 +440,18 @@ def main():
     DRY_RUN = args.dry_run
     VERBOSE = not args.quiet
 
-    with open(args.config, "r", encoding="utf-8") as f:
-        cfg = json.load(f)
-    settings = cfg["settings"]
-    watchlist = cfg["watchlist"]
+    try:
+        with open(args.config, "r", encoding="utf-8") as f:
+            cfg = json.load(f)
+    except (OSError, json.JSONDecodeError) as e:
+        log(f"No se pudo leer la configuración {args.config}: {e}", "ERROR")
+        sys.exit(1)
+
+    settings = {**DEFAULT_SETTINGS, **(cfg.get("settings") or {})}
+    watchlist = cfg.get("watchlist") or []
+    if not watchlist:
+        log("price-watch.json sin 'watchlist' válida. Nada que monitorear.", "ERROR")
+        sys.exit(1)
 
     log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
     log("NUVAUS PRICE FETCHER — Iniciando")
@@ -406,18 +463,25 @@ def main():
 
     try:
         for item in watchlist:
-            if args.only_id and item["id"] != args.only_id:
+            item_id = item.get("id") if isinstance(item, dict) else None
+            if not item_id:
+                log(f"Item de watchlist sin 'id', se omite: {item}", "WARN")
                 continue
-            check_item(item, cache, cache_map, settings)
-        # Preservar entradas de caché no tocadas en esta corrida
+            if args.only_id and item_id != args.only_id:
+                continue
+            try:
+                check_item(item, cache, cache_map, settings)
+            except Exception as e:  # noqa: BLE001 — un item malo no frena el resto
+                log(f"Error en item {item_id} (continúo con el resto): {e}", "ERROR")
+    finally:
+        # Preservar entradas de caché no tocadas y guardar SIEMPRE (atómico)
         for k, v in cache.items():
             cache_map.setdefault(k, v)
         if not DRY_RUN:
-            with open(CACHE_FILE, "w", encoding="utf-8") as f:
-                json.dump(cache_map, f, ensure_ascii=False, indent=2)
-    except Exception as e:  # noqa: BLE001
-        log(f"Error fatal: {e}", "ERROR")
-        sys.exit(1)
+            try:
+                save_json_atomic(CACHE_FILE, cache_map)
+            except OSError as e:
+                log(f"No se pudo guardar la caché: {e}", "ERROR")
 
     log("Price fetcher finalizado.")
 
