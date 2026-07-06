@@ -15,9 +15,11 @@ locales, resúmenes duplicados).
    `recordar`, `guardar`, `actualizar`, `bitacora`. Es la memoria unificada de
    Jarvis F4 (ticket NV-NUV-0222; diseño en `docs/NV-NUV-0222-F1-diseno.md`,
    rama `claude/jarvis-f4-memory-mcp-iet824`).
-   - URL pública `https://memoria.nuvaus.com/mcp` — activa cuando exista el
-     registro A en Porkbun (`memoria → 5.78.107.39`). Declarado en `.mcp.json`
-     de este repo (requiere `JARVIS_MEMORY_MCP_TOKEN` en el entorno).
+   - URL pública `https://memoria.nuvaus.com/mcp` — EN PRODUCCIÓN desde el
+     06-jul-2026 (TLS Let's Encrypt). Declarado en `.mcp.json` de este repo
+     (requiere `JARVIS_MEMORY_MCP_TOKEN` en el entorno).
+   - DNS automatizado: las keys de Porkbun están en `.secrets` del VPS;
+     nuevos subdominios se crean vía API desde `jarvis@vps-hub`.
    - Conector claude.ai: URL `https://memoria.nuvaus.com/mcp/<token>`.
    - Acceso alternativo desde entornos con tailnet: SSH a `jarvis@vps-hub` y
      llamar a `http://10.0.1.1:8931/mcp/<token>` (token en `.secrets` del VPS).
