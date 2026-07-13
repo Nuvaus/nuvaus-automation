@@ -1,9 +1,31 @@
 # Radar de Oportunidades Nuvaus
 
-**Último escaneo:** 2026-07-08 · **Método:** workflow multiagente (Opus 4.8) con verificación adversarial contra fuente oficial.
-**Resultado:** 30 oportunidades encontradas → **25 vigentes verificadas**.
+**Último escaneo:** 2026-07-13 · **Método:** workflow multiagente (Opus 4.8) con verificación adversarial contra fuente oficial.
+**Resultado:** 30 encontradas → **27 vigentes verificadas**.
 
 > Este archivo lo regenera automáticamente la Routine semanal (lunes 09:00 Chile). Ver `ESTRATEGIA.md` → "Loop automático".
+
+---
+
+## 🔄 Cambios de esta semana (13-jul vs 08-jul)
+
+**Nuevo con fecha dura (→ agendado):**
+- ⚠️ **La ventana de WhatsApp "service conversations" gratis caduca el 2026-10-01.** Meta pasa a cobro por mensaje. Antes de esa fecha hay que medir volumen, diseñar flujos user-initiated y proyectar el costo. Evento `[Radar]` creado el **22-sep** (con margen). *Reconfirmar la fecha en el pricing oficial de Meta.*
+
+**Programas nuevos detectados (todos rolling, sin deadline — no se agendan, se listan abajo):**
+- **Supabase Startup Program** — 6 meses de plan Team gratis.
+- **Notion for Startups** — 3–6 meses de Business + Notion AI gratis.
+- **AWS Generative AI Accelerator 2026** — programa específico de IA generativa.
+- **Make Partner Program** y **Zapier Solution Partner Program** — directorios de partners (canal de leads para automatización).
+- **Claude for Open Source** — 6 meses de Max 20x gratis al abrir el servidor MCP de memoria (ya en el radar de producto).
+- **Antler LatAm** (Founder Residency) — ⚠️ mal fit: exige relocación a Brasil y exclusividad. Descartado.
+
+**Cambios de estado:**
+- **Start-Up Chile** y **Platanus Ventures** ahora figuran **CERRADAS** (sin nueva convocatoria con fecha; el "28-nov" de Start-Up Chile es texto stale). Se mantienen en monitoreo para la apertura de la próxima generación (BIG 13, estimada 2º semestre 2026).
+- **ProChile:** los fondos de exportación insignia (Enexpro, Global X) cerraron para 2026; sigue vivo el **Ciclo E-Commerce** (inscripción hasta 21-jul, ya agendado).
+- **Sercotec:** la vía para mipymes formalizadas es Crece / Capital Abeja (convocatorias regionales rolling; hoy solo Tarapacá abierta, no RM).
+
+**Sin cambios (ya agendados la semana pasada):** créditos cloud AWS/MS/Google (14-jul), Platanus (15-jul), ProChile E-Commerce (15 y 21-jul), optimización API de Jarvis (17-jul), YC Fall 2026 (20 y 27-jul).
 
 ---
 
