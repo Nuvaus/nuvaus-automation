@@ -1,0 +1,22 @@
+fecha,categoria,descripcion,monto,tipo,saldo_anterior,saldo_nuevo,notas
+2026-08-01,INGRESO,Pago recibido,420000,+,0,420000,Pagado este mes
+2026-08-05,INGRESO,Licencia psiquiátrica,300000,+,420000,720000,Confirmado para martes
+2026-08-31,INGRESO,Licencia psiquiátrica (proyectado),300000,+,720000,1020000,Ingreso fijo mensual
+2026-08-31,GASTO,Arriendo mes,0,-,1020000,1020000,A completar
+2026-08-31,GASTO,Servicios (luz/agua/gas),0,-,1020000,1020000,A completar
+2026-08-31,GASTO,Comida/Despensa,0,-,1020000,1020000,A completar
+2026-08-31,GASTO,Transporte,0,-,1020000,1020000,A completar
+2026-08-31,GASTO,Teléfono/Internet,0,-,1020000,1020000,A completar
+2026-08-31,GASTO,Otras cuotas,0,-,1020000,1020000,A completar
+2026-09-01,DEUDA,Crédito Caja Los Andes (desembolso),1160000,+,1020000,2180000,Proyectado
+2026-09-01,PAGO_DEUDA,Pago tarjeta 1,0,-,2180000,2180000,Se pagará con crédito - A completar
+2026-09-01,PAGO_DEUDA,Pago tarjeta 2,0,-,2180000,2180000,Se pagará con crédito - A completar
+2026-09-01,PAGO_DEUDA,Pago tarjeta 3,0,-,2180000,2180000,Se pagará con crédito - A completar
+2026-09-01,PAGO_DEUDA,Pago tarjeta 4,0,-,2180000,2180000,Se pagará con crédito - A completar
+2026-09-05,PAGO_DEUDA,Primera cuota Caja Los Andes,0,-,2180000,2180000,A completar
+2026-09-30,TRADING,Trading Intento 1,0,±,0,0,Proyectado - Capital a definir
+2026-10-01,INGRESO,Licencia psiquiátrica,300000,+,0,300000,Ingreso fijo
+2026-10-31,TRADING,Trading Intento 2,0,±,300000,300000,Proyectado
+2026-11-01,INGRESO,Licencia psiquiátrica,300000,+,300000,600000,Ingreso fijo
+2026-11-30,TRADING,Trading Intento 3,0,±,600000,600000,Proyectado
+2026-12-01,INGRESO,Licencia psiquiátrica,300000,+,600000,900000,Ingreso fijo
