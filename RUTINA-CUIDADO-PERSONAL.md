@@ -560,20 +560,36 @@ Lo razonable sin más justificación: **vitamina D3** si estás deficitario (muy
 
 ## 10. Lista de compra — presupuesto medio
 
-### 10.0 Resumen ejecutable
+### 10.0 Inventario — lo que ya tienes en casa
 
-**Compra 1 — hoy o mañana · ~$89.000**
+Compartidos con tu pareja. Los tres son tubo o dosificador, así que no hay problema de contaminación cruzada.
+
+| Producto | Veredicto | Acción |
+|---|---|---|
+| **Eucerin Sun Gel-Crema Oil Control FPS 50+** | **Perfecto.** Oil-free, toque seco, formulado para piel mixta a grasa. Es exactamente el de la lista | **Úsalo desde mañana.** SPF tachado de la compra |
+| **Coreana Gaon — Cleansing Foam 100 ml** | Sirve como limpiador. Riesgo: muchas espumas coreanas son alcalinas | Pruébalo 1 semana y aplica el test de abajo |
+| **Coreana Gaon — Eye & Face Cream** | Cubre hidratante **y** contorno de ojos. Riesgo: puede ser muy rica para piel grasa | Pruébalo 2-3 semanas y aplica el test |
+
+**Test del limpiador:** ¿la cara te queda **tirante** 2-3 min después de lavarte? Sí → demasiado alcalino, cámbialo por el gel syndet. No → te sirve.
+
+**Test de la crema:** ¿más brillo a media tarde o granitos nuevos en 2-3 semanas? Sí → demasiado oclusiva para tu piel, pasa al gel-crema con niacinamida. No → sigue con ella.
+
+**Cómo aplicar el SPF (lo único que importa hacer bien):** **dos dedos de producto** — línea completa sobre índice y medio — para cara y cuello. La mayoría se pone un tercio de lo necesario y obtiene un SPF real de ~15 en vez de 50. Todos los días, también nublado y en interior junto a ventanas.
+
+### 10.1 Resumen ejecutable
+
+**Compra 1 — hoy o mañana · ~$45.000** (bajó de $89.000 con lo que ya tienes)
 
 | Producto | $ | Qué mejora | Cuándo lo notas |
 |---|---|---|---|
-| SPF 50 oil-free | 18.000 | Frena arrugas y manchas. **El de mayor impacto de la lista** | Años (pero empieza hoy) |
-| Hidratante c/niacinamida | 14.000 | Menos brillo, poros y marcas | 3-4 semanas |
-| Limpiador facial gel | 12.000 | Base: sin esto los activos irritan | Inmediato |
-| Crema corporal | 12.000 | Corta la piel seca | 1-2 semanas |
 | **Perspirex Comfort** | 16.000 | Sudor de estrés controlado | **5 días** |
+| Crema corporal | 12.000 | Corta la piel seca | 1-2 semanas |
 | Gel ducha syndet | 10.000 | Deja de resecarte en la ducha | 1 semana |
 | Desodorante día | 4.000 | Olor | Inmediato |
 | Seda dental | 3.000 | Encías y aliento | 2 semanas |
+| ~~SPF 50 oil-free~~ | ~~18.000~~ | **Ya lo tienes** (Eucerin Oil Control) | — |
+| ~~Hidratante c/niacinamida~~ | ~~14.000~~ | **Cubierto de momento** (Gaon Eye & Face) | — |
+| ~~Limpiador facial gel~~ | ~~12.000~~ | **Cubierto de momento** (Gaon Cleansing Foam) | — |
 
 **Compra 2 — semana 2-3 · ~$53.000**
 
@@ -606,9 +622,9 @@ Lo razonable sin más justificación: **vitamina D3** si estás deficitario (muy
 
 **Higiene íntima: $0** — usas el mismo gel syndet de la Compra 1.
 
-**Total 3 meses: ~$251.000** → ~$84.000/mes los primeros 3 meses, luego ~$40.000/mes en reposición.
+**Total 3 meses: ~$207.000** → ~$69.000/mes los primeros 3 meses, luego ~$40.000/mes en reposición.
 
-### 10.1 Dónde y con qué criterio
+### 10.2 Dónde y con qué criterio
 
 **Dónde comprar en Chile:** Cruz Verde, Salcobrand y Farmacias Ahumada tienen CeraVe, La Roche-Posay, Eucerin, Isdin, Vichy y Bioderma, casi siempre con rotación de ofertas 2x1 o 40% dto. **Preunic y DBS** suelen tener mejor precio en dermocosmética y son el sitio para The Ordinary. Revisa siempre el precio en las tres cadenas antes de comprar: la diferencia por el mismo producto llega al 40%.
 
