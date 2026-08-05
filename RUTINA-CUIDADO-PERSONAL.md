@@ -259,7 +259,29 @@ Un truco práctico si no llegas bien a la espalda: usa un **cepillo de mango lar
 | Cuándo | Sudas normal, solo quieres olor controlado | Sudas mucho, manchas la ropa |
 | Aplicación | Mañana, piel seca y limpia | **Por la noche, sobre piel seca** — es cuando penetra en el conducto y funciona |
 
-Sobre el aluminio: **no hay evidencia científica que lo vincule con cáncer de mama ni Alzheimer.** Ese vínculo fue desmentido. Si aun así prefieres evitarlo, las alternativas eficaces son desodorantes con **ácido mandélico** o **glicina de zinc**.
+Sobre el aluminio: **no hay evidencia científica que lo vincule con cáncer de mama ni Alzheimer.** Ese vínculo fue desmentido. Si aun así prefieres evitarlo, la alternativa con más respaldo es el **ricinoleato de zinc** (Weleda y similares), pero asume que controla olor, **no** sudor.
+
+### 5.2 Qué comprar en Chile — decidido
+
+**Producto principal: Perspirex.** Es el estándar de antitranspirante clínico y está disponible en Salcobrand y Cruz Verde. Cloruro de aluminio en complejo, sin fragancia, unisex, y una aplicación aguanta varios días.
+
+| Versión | Para quién | Precio aprox. |
+|---|---|---|
+| **Perspirex Comfort** ← **empieza por esta** | Fórmula con emolientes, menor irritación. La correcta para un primer uso y para sudoración emocional como la tuya | ~$16.000 / 20 ml |
+| Perspirex Original (roll-on) | Estándar, algo más potente. Cambia aquí solo si el Comfort se queda corto tras 3-4 semanas | ~$15.000 / 20 ml |
+| Perspirex Strong | Sudoración severa. **No lo necesitas** — irrita bastante más | ~$18.000 / 20 ml |
+| Perspirex Loción Pies 100 ml | Solo si el olor de pies persiste tras aplicar todo lo de la sección 5.3 | ~$20.000 |
+
+**Por qué Comfort y no Strong:** con sales de aluminio, más concentración no es mejor — es más irritación. Tu sudor es situacional, no constante. Empieza por el más suave y solo escala si en 3-4 semanas de uso correcto no basta.
+
+**Rendimiento:** 20 ml usados 2-3 veces por semana duran **2-3 meses**. Es decir, ~$6.000/mes. Cabe de sobra en tu presupuesto.
+
+**Desodorante de día (encima del Perspirex):** aquí no compliques. El Perspirex controla el sudor de noche; de día solo quieres frescor y olor. Cualquiera de estos sirve, en supermercado o Maicao:
+- **Nivea Men Black & White** o **Dry Impact** — barato y cumple
+- **Rexona Clinical** — algo más de control si un día lo necesitas
+- **Vichy Homme o Eucerin Deo** — si prefieres farmacia y piel sensible
+
+> **Corrección importante:** los **desodorantes** con ácido mandélico **no se venden en Chile** — allá el ácido mandélico solo existe como sérum facial. Ignora esa recomendación si la ves en foros; no la busques.
 
 ### Protocolo para sudoración alta (tu caso)
 
@@ -273,7 +295,7 @@ La mayoría de la gente usa el antitranspirante mal y concluye que "no le funcio
 
 **Además:**
 - **Recorta el vello de las axilas** con el cabezal de cuerpo de la Philips (no hace falta rasurar al ras): menos superficie húmeda para bacterias, menos olor y el producto llega mejor a la piel.
-- El olor no lo produce el sudor — lo producen las bacterias que lo degradan. Un **desodorante con ácido mandélico** baja el pH de la piel y las bacterias dejan de proliferar. Combínalo con el antitranspirante: uno controla el sudor de noche, el otro el olor de día.
+- El olor no lo produce el sudor — lo producen las bacterias que lo degradan. Por eso combinas dos productos: **Perspirex de noche** controla el sudor, **desodorante normal de mañana** controla el olor. No son alternativas, son capas.
 - **La ropa huele aunque tú no.** Las camisetas técnicas de poliéster retienen bacterias que el lavado normal no elimina. Lávalas aparte, con un remojo previo en agua con vinagre blanco (30 min) o con detergente enzimático, y **no las dejes en el cesto húmedas**.
 - Si sudas de forma incapacitante **también en reposo y sin estrés** (te empapa la ropa estando tranquilo, todos los días): eso es **hiperhidrosis primaria** y tiene tratamiento médico real — antitranspirantes con receta, iontoforesis, toxina botulínica. No es tu caso, pero conviene saber dónde está la línea.
 
@@ -295,7 +317,7 @@ Y tiene un **bucle** propio: sudas → te das cuenta → te preocupa que se note
 | **Ropa** | Algodón, lino o merino, y **colores que no marquen**: blanco, negro, estampados. Los que peor delatan son gris medio, azul claro y celeste. Una camiseta interior de algodón absorbe antes de que llegue a la camisa |
 | **Manos** | Si te sudan las palmas al saludar: antitranspirante también en las manos por la noche (mismo producto), y lleva un pañuelo de tela en el bolsillo |
 | **Cafeína** | Es un estimulante adrenérgico directo. Si notas que los días de más café sudas más en reuniones, ahí tienes una palanca gratis |
-| **Higiene específica** | El sudor apocrino huele más: el desodorante con **ácido mandélico** de día es más útil en tu caso que un desodorante perfumado, que solo tapa |
+| **Higiene específica** | El sudor apocrino huele más, así que la capa de día importa: desodorante por la mañana **además** del Perspirex de la noche, y vello de axila recortado |
 
 **Lo de fondo:** el sudor es el síntoma, la ansiedad es la causa. Lo que más va a mover la aguja no es un producto — es el sueño consistente, el ejercicio regular y, si la ansiedad te condiciona decisiones o te afecta más allá de sudar, hablarlo con un profesional. Las secciones 6, 7 y 8 de este documento son, indirectamente, tratamiento para esto.
 
@@ -411,11 +433,44 @@ Empezar en remoto y sin trayecto es **el mejor momento posible** para construir 
 
 **El entrenamiento a las 18:00 está bien colocado:** 4,5 h antes de dormir. Entrenar fuerte a menos de 3 h de la cama sube la temperatura corporal y retrasa el sueño; a esta hora te da el efecto contrario y duermes mejor.
 
-**Cómo llegar ahí sin fracasar:** no cambies tu horario 3 horas de golpe. **Adelanta 15 minutos cada 2-3 días** hasta llegar al objetivo. El cuerpo acepta desplazamientos graduales; los saltos bruscos duran una semana y se abandonan.
-
 **Lo primero que debes fijar no es la hora de acostarte — es la hora de LEVANTARTE.** La de dormir se ajusta sola después de 5-7 días de despertar consistente.
 
 **Si te cambian el horario de entrada más adelante:** mantén las 06:45 mientras la entrada no sea antes de las 08:00. Solo si te adelantan por debajo de esa hora, mueve el despertador — y hazlo también en 15 min cada 2-3 días.
+
+### 6.3 Calendario de transición — 08:00 → 06:45
+
+No cambies tu horario 75 minutos de golpe. **Adelanta 15 min cada 3 días.** El cuerpo acepta desplazamientos graduales; los saltos bruscos duran una semana y se abandonan.
+
+Arranque: **jueves 6 de agosto a las 08:00.** Cada bloque mantiene **8 h 15 min** de sueño, así que nunca duermes menos por avanzar.
+
+| Días | Despertar | En la cama | Dormido |
+|---|---|---|---|
+| Jue 6 – Sáb 8 ago | **08:00** | 23:30 | 23:45 |
+| Dom 9 – Mar 11 | 07:45 | 23:15 | 23:30 |
+| Mié 12 – Vie 14 | 07:30 | 23:00 | 23:15 |
+| Sáb 15 – Lun 17 | 07:15 | 22:45 | 23:00 |
+| Mar 18 – Jue 20 | 07:00 | 22:30 | 22:45 |
+| **Vie 21 en adelante** | **06:45** | **22:15** | **22:30** ← definitivo |
+
+**Reglas de la transición:**
+
+- **El fin de semana no se salta.** Es justo donde se rompe el avance. Máximo 1 hora más tarde que el día de la semana, y aun así sales a la luz al levantarte.
+- **Si un bloque te cuesta**, quédate 3 días más en él antes de avanzar. Retroceder no: solo esperar.
+- **La luz de la mañana es lo que hace el trabajo**, no el despertador. Los 15 min de calle al levantarte son los que adelantan tu reloj interno; sin eso, el despertador solo te resta sueño.
+- **La cafeína a las 14:00 se respeta desde el día 1**, aunque la hora de dormir todavía sea tardía. Es lo que permite que el adelanto funcione.
+
+### 6.4 Qué hacer hoy (día de planificación)
+
+Hoy no empiezas la rutina, la dejas montada. 20 minutos:
+
+- [ ] **Alarma recurrente a las 08:00** para jue-vie-sáb. Y una segunda alarma **"preparar para dormir" a las 23:15**, que es la que de verdad importa
+- [ ] Deja el **cargador del móvil fuera del dormitorio**. Hoy, físicamente, no mañana
+- [ ] Decide **dónde vas a caminar** los 15 min de mañana. Ruta concreta, no "salgo un rato"
+- [ ] Agenda la **compra 1** (sección 10) + **Perspirex Comfort** para mañana o pasado
+- [ ] Mete el **entrenamiento de 18:00 en el calendario** como bloque fijo, no como intención
+- [ ] Escribe tu **hora de última cafeína (14:00)** donde la veas desde el escritorio
+
+**Y nada más.** No compres 15 productos hoy ni intentes empezar los seis frentes mañana. El plan de 30 días de la sección 12 ya está ordenado por prioridad: semana 1 es solo cara + hora de despertar.
 
 ---
 
@@ -476,7 +531,8 @@ Lo razonable sin más justificación: **vitamina D3** si estás deficitario (muy
 | **Protector solar SPF 50 oil-free** | Isdin Fusion Water · Effaclar UV Mat · Eucerin Oil Control | $18.000 |
 | Gel de ducha syndet | CeraVe Limpiador Hidratante · Eucerin pH5 | $10.000 |
 | Crema corporal | CeraVe Loción Hidratante · Eucerin Urea 5% | $12.000 |
-| Antitranspirante clínico | Cloruro de aluminio, en farmacia | $8.000 |
+| **Perspirex Comfort 20 ml** | Salcobrand o Cruz Verde. Dura 2-3 meses | $16.000 |
+| Desodorante de día | Nivea Men Black & White o similar, supermercado | $4.000 |
 | Seda dental / interdentales | Cualquier marca | $3.000 |
 
 ### Compra 2 — semana 2-3 (~$45.000, dura 3-4 meses)
