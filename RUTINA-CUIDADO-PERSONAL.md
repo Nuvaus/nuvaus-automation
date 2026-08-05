@@ -331,11 +331,15 @@ En el hombre, el estándar dermatológico es **agua + un limpiador syndet suave 
 
 | Opción | Producto | Coste |
 |---|---|---|
-| **La correcta** | **CeraVe Limpiador Hidratante** o **Eucerin pH5** — el mismo de la Compra 1 | **$0 extra** |
+| **La correcta** | **CeraVe Limpiador Hidratante** — el mismo de la Compra 1 | **$0 extra** |
 | Aceptable | Cualquier syndet sin fragancia, pH 5-5.5 | ~$10.000 |
 | Innecesario | Geles "íntimos masculinos" de farmacia | $8.000-15.000 |
 
 Si aun así quieres uno dedicado, **elige por criterios, no por marca**: syndet (sin jabón), **pH 5-5.5**, **sin fragancia**, sin antibacterianos tipo triclosán, sin aceites esenciales ni mentol.
+
+> **CeraVe Hidratante vs. Eucerin pH5 — decidido: CeraVe.** Dos razones: lleva **ceramidas** (repone los lípidos de la barrera, no solo evita agredirla — clave con tu piel seca corporal) y es **sin perfume** garantizado, que importa en zona íntima y compartiendo producto. El Eucerin gana en precio por ml en formato 1 L y hace más espuma; el CeraVe casi no espuma y tiene textura cremosa, que limpia igual pero desconcierta al principio.
+>
+> **Ojo con la variante:** el **CeraVe Espumoso** (Foaming, etiqueta verde, "piel normal a grasa") es el limpiador **facial**. Para cuerpo e íntimo va el **Hidratante**, que desengrasa menos.
 
 > **¿Versión íntima o versión cara/cuerpo?** La de **cara/cuerpo**, y compra el envase grande. Es la misma fórmula base, pero las versiones "íntimas" vienen en 250-400 ml a precio parecido al de 1 L: pagas **3-4x por ml** por lo mismo. Un solo envase en la ducha cubre cuerpo y zona íntima, y no tienes que acordarte de cuál usar dónde. La única razón para uno dedicado sería que el syndet te irritara, y no va a pasar: es más suave que cualquier gel de ducha convencional.
 
@@ -639,7 +643,7 @@ Compartidos con tu pareja. Los tres son tubo o dosificador, así que no hay prob
 | Limpiador facial en gel | CeraVe Espuma Limpiadora piel normal-grasa · La Roche-Posay Effaclar Gel | $12.000 |
 | Hidratante gel-crema | CeraVe PM Loción · Effaclar Mat · cualquiera con niacinamida, oil-free | $14.000 |
 | **Protector solar SPF 50 oil-free** | Isdin Fusion Water · Effaclar UV Mat · Eucerin Oil Control | $18.000 |
-| Gel de ducha syndet | CeraVe Limpiador Hidratante · Eucerin pH5 | $10.000 |
+| Gel de ducha syndet | **CeraVe Limpiador Hidratante** (el de ceramidas, no el Espumoso) | $14.000 |
 | Crema corporal | CeraVe Loción Hidratante · Eucerin Urea 5% | $12.000 |
 | **Perspirex Comfort 20 ml** | Salcobrand o Cruz Verde. Dura 2-3 meses | $16.000 |
 | Desodorante de día | Nivea Men Black & White o similar, supermercado | $4.000 |
