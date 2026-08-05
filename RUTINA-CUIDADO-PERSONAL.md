@@ -337,6 +337,8 @@ En el hombre, el estándar dermatológico es **agua + un limpiador syndet suave 
 
 Si aun así quieres uno dedicado, **elige por criterios, no por marca**: syndet (sin jabón), **pH 5-5.5**, **sin fragancia**, sin antibacterianos tipo triclosán, sin aceites esenciales ni mentol.
 
+> **¿Versión íntima o versión cara/cuerpo?** La de **cara/cuerpo**, y compra el envase grande. Es la misma fórmula base, pero las versiones "íntimas" vienen en 250-400 ml a precio parecido al de 1 L: pagas **3-4x por ml** por lo mismo. Un solo envase en la ducha cubre cuerpo y zona íntima, y no tienes que acordarte de cuál usar dónde. La única razón para uno dedicado sería que el syndet te irritara, y no va a pasar: es más suave que cualquier gel de ducha convencional.
+
 > **Error frecuente:** usar un producto íntimo femenino (Lactacyd, Nosotras y similares). Están formulados a **pH 3.5-4.5** para el ecosistema vaginal. La piel genital masculina está en torno a **pH 5.5** — un producto tan ácido solo te va a irritar. No son intercambiables.
 
 #### Técnica (esto es lo que de verdad importa)
