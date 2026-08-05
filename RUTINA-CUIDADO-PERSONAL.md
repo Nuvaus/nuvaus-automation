@@ -323,10 +323,52 @@ Y tiene un **bucle** propio: sudas → te das cuenta → te preocupa que se note
 
 ### 5.5 Higiene íntima
 
-- Solo agua o un limpiador de pH neutro específico. Nada de geles perfumados.
-- Retraer y limpiar bien la zona, secar completamente antes de vestirse.
-- Ropa interior de algodón, cambio diario. Evita ropa interior muy ajustada durante todo el día.
-- Recorte del vello púbico con recortadora (guarda de 3-5 mm) en lugar de rasurado al ras: menos foliculitis y encarnados.
+**La respuesta honesta: no necesitas comprar nada.** Esta es la sección donde "lo mejor" y "lo más caro" van en direcciones opuestas.
+
+En el hombre, el estándar dermatológico es **agua + un limpiador syndet suave sin fragancia** — exactamente el gel de ducha que ya está en la Compra 1. Los "geles íntimos masculinos" son en su mayoría marketing: el hombre no tiene la flora ni el ecosistema de pH que justifica un producto especializado en la mujer. Lo que de verdad previene problemas es la **técnica y el secado**, no el frasco.
+
+#### Qué usar
+
+| Opción | Producto | Coste |
+|---|---|---|
+| **La correcta** | **CeraVe Limpiador Hidratante** o **Eucerin pH5** — el mismo de la Compra 1 | **$0 extra** |
+| Aceptable | Cualquier syndet sin fragancia, pH 5-5.5 | ~$10.000 |
+| Innecesario | Geles "íntimos masculinos" de farmacia | $8.000-15.000 |
+
+Si aun así quieres uno dedicado, **elige por criterios, no por marca**: syndet (sin jabón), **pH 5-5.5**, **sin fragancia**, sin antibacterianos tipo triclosán, sin aceites esenciales ni mentol.
+
+> **Error frecuente:** usar un producto íntimo femenino (Lactacyd, Nosotras y similares). Están formulados a **pH 3.5-4.5** para el ecosistema vaginal. La piel genital masculina está en torno a **pH 5.5** — un producto tan ácido solo te va a irritar. No son intercambiables.
+
+#### Técnica (esto es lo que de verdad importa)
+
+1. **Retrae el prepucio con suavidad** y lava con agua templada. Sin forzar nunca.
+2. **Syndet solo en la parte externa** y en la ingle. Dentro, agua sola basta — el esmegma se elimina con agua.
+3. **Aclara a fondo.** Restos de producto = irritación.
+4. **Seca completamente antes de vestirte**, incluidos los pliegues inguinales. **Este es el paso que previene el 90% de los problemas**: la humedad atrapada es lo que causa candidiasis, irritación y olor.
+5. **Vuelve a colocar el prepucio** en su posición después de lavar y secar.
+
+#### Qué NO hacer
+
+- **Geles perfumados, jabón antibacteriano o gel de manos.** Arrasan la flora protectora y causan justo lo que intentas evitar.
+- **Lavarte más de una vez al día** con producto. El exceso de higiene irrita tanto como el defecto.
+- **Toallitas húmedas a diario** — la mayoría llevan conservantes sensibilizantes.
+- **Talco, desodorante o antitranspirante** en la zona. El antitranspirante de la sección 5.3 es para axilas, plantas y palmas. **Ahí no.**
+- Agua muy caliente.
+
+#### Vello y ropa
+
+- **Recorte con recortadora, guarda de 3-5 mm**, en lugar de rasurado al ras: mucha menos foliculitis y menos pelos encarnados. Usa un cabezal dedicado a esa zona y desinféctalo igual que el resto del equipo.
+- **Ropa interior de algodón, cambio diario.** Evita la muy ajustada todo el día.
+- **Cámbiate inmediatamente después de entrenar.** Ropa deportiva húmeda + calor es el escenario perfecto para hongos en la ingle (tiña inguinal), muy común en hombres jóvenes que entrenan.
+
+#### Banderas rojas — al médico
+
+- Rojez, picor o ardor persistente en el glande, o placas blanquecinas → **balanitis** (a menudo candidiásica). Es común y se trata fácil con antifúngico tópico; no lo aguantes semanas.
+- Prepucio que no retrae o que se ha ido estrechando → valoración urológica.
+- Secreción, llagas, verrugas, o escozor al orinar → consulta, y descarta ITS.
+- Mancha rojiza con borde elevado que se extiende por la ingle → tiña inguinal, antifúngico tópico 2-4 semanas.
+
+Nada de esto es raro ni vergonzoso a los 27. Se resuelve rápido cuando se consulta y se cronifica cuando no.
 
 ### 5.6 Pies
 
