@@ -560,6 +560,56 @@ Lo razonable sin más justificación: **vitamina D3** si estás deficitario (muy
 
 ## 10. Lista de compra — presupuesto medio
 
+### 10.0 Resumen ejecutable
+
+**Compra 1 — hoy o mañana · ~$89.000**
+
+| Producto | $ | Qué mejora | Cuándo lo notas |
+|---|---|---|---|
+| SPF 50 oil-free | 18.000 | Frena arrugas y manchas. **El de mayor impacto de la lista** | Años (pero empieza hoy) |
+| Hidratante c/niacinamida | 14.000 | Menos brillo, poros y marcas | 3-4 semanas |
+| Limpiador facial gel | 12.000 | Base: sin esto los activos irritan | Inmediato |
+| Crema corporal | 12.000 | Corta la piel seca | 1-2 semanas |
+| **Perspirex Comfort** | 16.000 | Sudor de estrés controlado | **5 días** |
+| Gel ducha syndet | 10.000 | Deja de resecarte en la ducha | 1 semana |
+| Desodorante día | 4.000 | Olor | Inmediato |
+| Seda dental | 3.000 | Encías y aliento | 2 semanas |
+
+**Compra 2 — semana 2-3 · ~$53.000**
+
+| Producto | $ | Qué mejora | Cuándo |
+|---|---|---|---|
+| Champú sin sulfatos + acondicionador | 18.000 | Frizz y pelo seco | **2 lavados** |
+| Retinal 0.05% | 15.000 | Acné, textura, marcas, arrugas | 8-12 semanas |
+| Aceite + champú de barba | 12.000 | Quita descamación bajo la barba | 1 semana |
+| Cepillo de jabalí | 8.000 | Barba con forma, pelo domado | Inmediato |
+
+**Compra 3 — semana 6-8 · ~$38.000**
+
+| Producto | $ | Qué mejora | Cuándo |
+|---|---|---|---|
+| Gel salicílico/ketoconazol cuerpo | 12.000 | **Granitos de espalda y pecho** | 4 semanas |
+| Salicílico 2% facial | 10.000 | Puntos negros y poros | 4-6 semanas |
+| Leave-in | 10.000 | Frizz controlado todo el día | Inmediato |
+| Toalla de microfibra | 6.000 | Menos frizz desde el secado | Inmediato |
+
+**Compra 4 — mes 3+ · ~$71.000**
+
+| Producto | $ | Qué mejora |
+|---|---|---|
+| Vitamina C | 18.000 | Marcas post-acné y luminosidad |
+| Contorno de ojos cafeína | 14.000 | Hinchazón y cara cansada |
+| Funda de almohada satén | 12.000 | Menos frizz al dormir |
+| Mascarilla capilar | 10.000 | Puntas y nutrición |
+| Aceite de argán | 9.000 | Sella puntas |
+| Urea 20-30% | 8.000 | Talones |
+
+**Higiene íntima: $0** — usas el mismo gel syndet de la Compra 1.
+
+**Total 3 meses: ~$251.000** → ~$84.000/mes los primeros 3 meses, luego ~$40.000/mes en reposición.
+
+### 10.1 Dónde y con qué criterio
+
 **Dónde comprar en Chile:** Cruz Verde, Salcobrand y Farmacias Ahumada tienen CeraVe, La Roche-Posay, Eucerin, Isdin, Vichy y Bioderma, casi siempre con rotación de ofertas 2x1 o 40% dto. **Preunic y DBS** suelen tener mejor precio en dermocosmética y son el sitio para The Ordinary. Revisa siempre el precio en las tres cadenas antes de comprar: la diferencia por el mismo producto llega al 40%.
 
 > Los precios son órdenes de magnitud aproximados en CLP a 2026 y varían con las promociones. Un producto dura 2-4 meses, así que el gasto **mensual** real es bastante menor que el desembolso inicial.
