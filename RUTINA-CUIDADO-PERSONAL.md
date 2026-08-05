@@ -413,7 +413,11 @@ Es lo primero que la gente ve cuando das la mano o gesticulas hablando. Cuesta 1
 Impacta en salud general: la enfermedad periodontal está asociada a inflamación sistémica y riesgo cardiovascular.
 
 - Cepillado **2x/día, 2 minutos**, cepillo suave o eléctrico, pasta con **flúor 1450 ppm**.
-- **Seda dental o cepillos interdentales a diario.** El cepillo no llega al 40% de la superficie dental.
+- **Limpieza interdental a diario.** El cepillo no llega al 40% de la superficie dental.
+  - **Cepillos interdentales (TePe, Curaprox) antes que hilo.** Son más eficaces cuando el espacio lo permite, se usan con una mano en 30 s, y la adherencia es muchísimo mayor. Si la seda dental te resulta incómoda, no insistas: el mejor método es el que vas a usar todos los días.
+  - **Tamaño:** compra un pack mixto de colores. Empieza por el más fino y sube hasta el que entra con leve resistencia, **sin forzar**. Lo normal es acabar usando dos tamaños: uno atrás y otro más fino delante.
+  - Si algún espacio es demasiado apretado para el cepillo más fino, ahí sí hilo — pero en **arcos porta-hilo**, que se manejan con una mano.
+  - El **irrigador de agua** es cómodo pero no sustituye: no rompe la placa adherida. Complemento, no reemplazo.
 - No enjuagues con agua tras cepillarte — escupe y deja el flúor actuar.
 - Limpiador lingual: la mayoría del mal aliento viene del dorso de la lengua.
 - **Limpieza dental profesional 1-2 veces al año** + revisión.
@@ -644,10 +648,10 @@ Compartidos con tu pareja. Los tres son tubo o dosificador, así que no hay prob
 | Hidratante gel-crema | CeraVe PM Loción · Effaclar Mat · cualquiera con niacinamida, oil-free | $14.000 |
 | **Protector solar SPF 50 oil-free** | Isdin Fusion Water · Effaclar UV Mat · Eucerin Oil Control | $18.000 |
 | Gel de ducha syndet | **CeraVe Limpiador Hidratante** (el de ceramidas, no el Espumoso) | $14.000 |
-| Crema corporal | CeraVe Loción Hidratante · Eucerin Urea 5% | $12.000 |
+| Crema corporal | **CeraVe Loción Hidratante** 473 ml (ceramidas, sin perfume, no comedogénica) | $16.000 |
 | **Perspirex Comfort 20 ml** | Salcobrand o Cruz Verde. Dura 2-3 meses | $16.000 |
 | Desodorante de día | Nivea Men Black & White o similar, supermercado | $4.000 |
-| Seda dental / interdentales | Cualquier marca | $3.000 |
+| **Cepillos interdentales** (TePe o Curaprox, pack mixto) | En vez de seda dental — ver 5.8 | $8.000 |
 
 ### Compra 2 — semana 2-3 (~$45.000, dura 3-4 meses)
 
@@ -696,7 +700,7 @@ Compartidos con tu pareja. Los tres son tubo o dosificador, así que no hay prob
 - [ ] Cepillar la barba + aceite de barba
 - [ ] Ducha (salicílico en espalda/pecho si toca) + **hidratante corporal en los 3 min siguientes**
 - [ ] Antitranspirante **por la noche**, axilas secas
-- [ ] Cepillado dental 2x + seda dental
+- [ ] Cepillado dental 2x + cepillos interdentales
 - [ ] Calcetines limpios + zapatos rotados
 - [ ] Sin cafeína después de las 14:00
 - [ ] "Trayecto artificial": caminata al cerrar el día laboral
@@ -742,7 +746,7 @@ Un solo foco por semana. Lo de la semana anterior ya no se negocia — se mantie
 - Compra 1 de la lista.
 - **Cara:** limpiador + hidratante + SPF. Nada más, ningún activo.
 - **Sueño:** fija **la hora de LEVANTARTE** (no la de acostarte) y respétala también el fin de semana. Sal a la calle 15 min cada mañana.
-- **Higiene:** seda dental diaria. Antitranspirante por la noche, cada noche esta semana.
+- **Higiene:** limpieza interdental diaria. Antitranspirante por la noche, cada noche esta semana.
 
 ### Semana 2 — Cuerpo y barba
 
