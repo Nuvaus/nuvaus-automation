@@ -270,7 +270,7 @@ Sobre el aluminio: **no hay evidencia científica que lo vincule con cáncer de 
 | **Perspirex Comfort** ← **empieza por esta** | Fórmula con emolientes, menor irritación. La correcta para un primer uso y para sudoración emocional como la tuya | ~$16.000 / 20 ml |
 | Perspirex Original (roll-on) | Estándar, algo más potente. Cambia aquí solo si el Comfort se queda corto tras 3-4 semanas | ~$15.000 / 20 ml |
 | Perspirex Strong | Sudoración severa. **No lo necesitas** — irrita bastante más | ~$18.000 / 20 ml |
-| Perspirex Loción Pies 100 ml | Solo si el olor de pies persiste tras aplicar todo lo de la sección 5.3 | ~$20.000 |
+| Perspirex Loción Pies 100 ml | Solo si el olor de pies persiste tras aplicar todo lo de la sección 5.6 | ~$20.000 |
 
 **Por qué Comfort y no Strong:** con sales de aluminio, más concentración no es mejor — es más irritación. Tu sudor es situacional, no constante. Empieza por el más suave y solo escala si en 3-4 semanas de uso correcto no basta.
 
@@ -283,7 +283,7 @@ Sobre el aluminio: **no hay evidencia científica que lo vincule con cáncer de 
 
 > **Corrección importante:** los **desodorantes** con ácido mandélico **no se venden en Chile** — allá el ácido mandélico solo existe como sérum facial. Ignora esa recomendación si la ves en foros; no la busques.
 
-### Protocolo para sudoración alta (tu caso)
+### 5.3 Protocolo para sudoración alta
 
 La mayoría de la gente usa el antitranspirante mal y concluye que "no le funciona". Haz esto:
 
@@ -299,7 +299,7 @@ La mayoría de la gente usa el antitranspirante mal y concluye que "no le funcio
 - **La ropa huele aunque tú no.** Las camisetas técnicas de poliéster retienen bacterias que el lavado normal no elimina. Lávalas aparte, con un remojo previo en agua con vinagre blanco (30 min) o con detergente enzimático, y **no las dejes en el cesto húmedas**.
 - Si sudas de forma incapacitante **también en reposo y sin estrés** (te empapa la ropa estando tranquilo, todos los días): eso es **hiperhidrosis primaria** y tiene tratamiento médico real — antitranspirantes con receta, iontoforesis, toxina botulínica. No es tu caso, pero conviene saber dónde está la línea.
 
-### Sudoración emocional — tu caso real
+### 5.4 Sudoración emocional — tu caso real
 
 En el día a día no tienes problema; sudas cuando te estresas o sientes ansiedad. **Eso es un mecanismo distinto al sudor térmico y por eso no se ataca igual.**
 
@@ -321,14 +321,14 @@ Y tiene un **bucle** propio: sudas → te das cuenta → te preocupa que se note
 
 **Lo de fondo:** el sudor es el síntoma, la ansiedad es la causa. Lo que más va a mover la aguja no es un producto — es el sueño consistente, el ejercicio regular y, si la ansiedad te condiciona decisiones o te afecta más allá de sudar, hablarlo con un profesional. Las secciones 6, 7 y 8 de este documento son, indirectamente, tratamiento para esto.
 
-### 5.2 Higiene íntima
+### 5.5 Higiene íntima
 
 - Solo agua o un limpiador de pH neutro específico. Nada de geles perfumados.
 - Retraer y limpiar bien la zona, secar completamente antes de vestirse.
 - Ropa interior de algodón, cambio diario. Evita ropa interior muy ajustada durante todo el día.
 - Recorte del vello púbico con recortadora (guarda de 3-5 mm) en lugar de rasurado al ras: menos foliculitis y encarnados.
 
-### 5.3 Pies
+### 5.6 Pies
 
 Si sudas bastante (tu caso), los pies son la zona de mayor riesgo: humedad + oscuridad + calor = hongos y mal olor.
 
@@ -344,7 +344,7 @@ Si sudas bastante (tu caso), los pies son la zona de mayor riesgo: humedad + osc
 
 **Señales de hongos** (descamación entre los dedos, picor, uña engrosada o amarillenta): antifúngico tópico de farmacia 4 semanas. Si es la **uña**, el tópico rara vez basta — necesita valoración médica y tratamiento largo.
 
-### 5.4 Manos y uñas
+### 5.7 Manos y uñas
 
 Es lo primero que la gente ve cuando das la mano o gesticulas hablando. Cuesta 10 minutos a la semana.
 
@@ -360,7 +360,7 @@ Es lo primero que la gente ve cuando das la mano o gesticulas hablando. Cuesta 1
 
 **No te muerdas las uñas ni te arranques los padrastros.** Si lo haces por ansiedad, córtalas muy cortas una temporada y ten crema a mano; la textura suave rompe el hábito.
 
-### 5.5 Higiene oral (subestimadísima)
+### 5.8 Higiene oral (subestimadísima)
 
 Impacta en salud general: la enfermedad periodontal está asociada a inflamación sistémica y riesgo cardiovascular.
 
@@ -606,11 +606,9 @@ Lo razonable sin más justificación: **vitamina D3** si estás deficitario (muy
 ### Quincenal
 - [ ] Manicura y pedicura básica (corte, limado, cutículas, aceite)
 
-### Mensual (además de lo de abajo)
+### Mensual
 - [ ] Aceitar cuchillas de la Philips
 - [ ] Barbero: reconstruir el degradado (cada 3-4 semanas)
-
-### Mensual
 - [ ] Revisar la foto del mes anterior — es la única forma honesta de ver progreso
 - [ ] Evaluar si toca subir frecuencia o concentración de activos
 
