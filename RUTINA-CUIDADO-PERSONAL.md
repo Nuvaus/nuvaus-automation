@@ -4,8 +4,8 @@
 > - **Piel:** mixta-grasa. Objetivos: acné/marcas + prevención de envejecimiento + ojeras + textura/poros
 > - **Pelo:** seco y encrespado
 > - **Barba:** con degradado, mantenimiento propio entre visitas al barbero. Equipo: Philips Series 7000, Gillette de cartucho sensible, maquinilla de mariposa
-> - **Cuerpo:** sudoración alta con olor · granitos en espalda/pecho · piel seca corporal · manos, pies y uñas por poner al día
-> - **Sueño:** en reconstrucción — inicio de teletrabajo, sin trayecto, horarios por definir
+> - **Cuerpo:** sudoración **emocional** (estrés/ansiedad, no térmica) · granitos en espalda/pecho · piel seca corporal · manos, pies y uñas por poner al día
+> - **Sueño:** en reconstrucción — teletrabajo sin trayecto. Jornada 08:30-17:30, entrada más temprana posible 08:00 → **despertar anclado a las 06:45**
 > - **Presupuesto:** medio (~$30.000-60.000 CLP/mes) · **Compra en Chile**
 > - **Compromiso:** completo (20+ min/día)
 >
@@ -275,7 +275,29 @@ La mayoría de la gente usa el antitranspirante mal y concluye que "no le funcio
 - **Recorta el vello de las axilas** con el cabezal de cuerpo de la Philips (no hace falta rasurar al ras): menos superficie húmeda para bacterias, menos olor y el producto llega mejor a la piel.
 - El olor no lo produce el sudor — lo producen las bacterias que lo degradan. Un **desodorante con ácido mandélico** baja el pH de la piel y las bacterias dejan de proliferar. Combínalo con el antitranspirante: uno controla el sudor de noche, el otro el olor de día.
 - **La ropa huele aunque tú no.** Las camisetas técnicas de poliéster retienen bacterias que el lavado normal no elimina. Lávalas aparte, con un remojo previo en agua con vinagre blanco (30 min) o con detergente enzimático, y **no las dejes en el cesto húmedas**.
-- Si sudas de forma incapacitante (te empapa la ropa en reposo, afecta tu vida social o laboral): eso es **hiperhidrosis** y tiene tratamiento médico real — antitranspirantes con receta, iontoforesis, toxina botulínica. Vale la pena consultar, no es algo que tengas que aguantar.
+- Si sudas de forma incapacitante **también en reposo y sin estrés** (te empapa la ropa estando tranquilo, todos los días): eso es **hiperhidrosis primaria** y tiene tratamiento médico real — antitranspirantes con receta, iontoforesis, toxina botulínica. No es tu caso, pero conviene saber dónde está la línea.
+
+### Sudoración emocional — tu caso real
+
+En el día a día no tienes problema; sudas cuando te estresas o sientes ansiedad. **Eso es un mecanismo distinto al sudor térmico y por eso no se ataca igual.**
+
+**Qué está pasando:** el sudor por calor es termorregulación — glándulas ecrinas repartidas por todo el cuerpo, aparición gradual. El sudor emocional lo dispara la **adrenalina** de forma casi instantánea, se concentra en **axilas, palmas, plantas y frente**, e implica también las **glándulas apocrinas** de la axila, cuya secreción es más rica en grasas y proteínas → **las bacterias la degradan más rápido y huele más** que el sudor térmico. Por eso el sudor de estrés huele distinto y más fuerte aunque sudes menos cantidad.
+
+Y tiene un **bucle** propio: sudas → te das cuenta → te preocupa que se note → sube la ansiedad → sudas más. Romper el bucle importa tanto como el producto.
+
+**Cómo se maneja:**
+
+| Frente | Qué hacer |
+|---|---|
+| **Base preventiva** | El antitranspirante nocturno de arriba es aún más importante en tu caso: el tapón ya tiene que estar formado **antes** de la situación de estrés. No sirve aplicarlo cuando ya empezaste a sudar |
+| **Refuerzo anticipado** | Si sabes que viene una situación cargada (presentación, reunión difícil, entrevista), aplica la noche anterior **y** la anterior a esa. Dos noches seguidas de carga |
+| **Cortar el pico en el momento** | **Respiración 4-7-8** o exhalación alargada (inhala 4 s, exhala 8 s) durante 1-2 minutos. La exhalación larga activa el parasimpático y baja la descarga adrenérgica que dispara el sudor. Funciona en el momento, no es un placebo |
+| **Ropa** | Algodón, lino o merino, y **colores que no marquen**: blanco, negro, estampados. Los que peor delatan son gris medio, azul claro y celeste. Una camiseta interior de algodón absorbe antes de que llegue a la camisa |
+| **Manos** | Si te sudan las palmas al saludar: antitranspirante también en las manos por la noche (mismo producto), y lleva un pañuelo de tela en el bolsillo |
+| **Cafeína** | Es un estimulante adrenérgico directo. Si notas que los días de más café sudas más en reuniones, ahí tienes una palanca gratis |
+| **Higiene específica** | El sudor apocrino huele más: el desodorante con **ácido mandélico** de día es más útil en tu caso que un desodorante perfumado, que solo tapa |
+
+**Lo de fondo:** el sudor es el síntoma, la ansiedad es la causa. Lo que más va a mover la aguja no es un producto — es el sueño consistente, el ejercicio regular y, si la ansiedad te condiciona decisiones o te afecta más allá de sudar, hablarlo con un profesional. Las secciones 6, 7 y 8 de este documento son, indirectamente, tratamiento para esto.
 
 ### 5.2 Higiene íntima
 
@@ -361,31 +383,39 @@ Empezar en remoto y sin trayecto es **el mejor momento posible** para construir 
 | **La cama a 3 metros del escritorio** | El cerebro deja de asociar el dormitorio con dormir | **Nunca trabajes desde la cama.** Si vives en espacio reducido, al menos siéntate en una silla distinta |
 | **El día no termina nunca** | Sin trayecto de vuelta, el trabajo se filtra hasta las 23:00 | Crea un **"trayecto artificial"**: al terminar, camina 15-20 min afuera. Marca el fin del día laboral y suma luz + movimiento |
 
-### 6.2 Horario modelo para tu situación
+### 6.2 Tu horario
 
-Ajusta las horas a tu jornada, pero **respeta los intervalos relativos**:
+**Jornada actual:** 08:30-17:30. **Entrada más temprana posible:** 08:00.
+
+> **La decisión clave:** ancla tu hora de despertar a la entrada **más temprana posible (08:00), no a la de esta semana.** Si te levantas a las 06:45 siempre, un día de 08:00 y uno de 08:30 funcionan igual — el de 08:30 simplemente te regala 30 min de margen. Si en cambio ajustas el despertador a cada jornada, reconstruyes el hábito cada vez que cambia el horario y nunca se automatiza.
 
 | Hora | Bloque |
 |---|---|
-| 07:00 | Despertar (**misma hora todos los días, también fin de semana**) |
-| 07:00-07:30 | **Salir a la calle 15 min** + agua. Sin móvil ni correo |
-| 07:30-08:00 | Rutina facial mañana + barba + ducha |
-| 08:00 | Desayuno con proteína |
-| 08:30-13:00 | Bloque de trabajo profundo (lo más exigente cognitivamente aquí) |
-| 13:00-14:00 | Almuerzo **fuera del escritorio**. Salir si se puede |
-| **14:00** | **Última cafeína del día** |
-| 14:00-18:00 | Segundo bloque de trabajo |
-| 18:00-18:20 | **"Trayecto artificial"**: caminata afuera. Cierra el día laboral |
-| 18:30-19:30 | Entrenamiento (fuerza 3x/sem, cardio 2x/sem) |
-| 20:00 | Cena. **Última comida copiosa** |
-| 21:30 | Luces cálidas y bajas. Pantallas al mínimo o fuera |
-| 22:00-22:30 | Ducha caliente + rutina facial noche + lectura en papel |
-| 22:45 | En la cama. Móvil **fuera** del dormitorio |
-| 23:00 | Dormido → **8 h hasta las 07:00** |
+| **06:45** | **Despertar. Misma hora siempre, también fin de semana** (máx. 1 h más tarde sábado y domingo) |
+| 06:45-07:15 | Agua + **salir a la calle 15 min**. Sin móvil, sin correo, sin Slack |
+| 07:15-07:50 | Rutina facial mañana + barba (recorte si toca) + ducha |
+| 07:50-08:20 | Desayuno con proteína, sentado, sin pantalla de trabajo |
+| **08:00 / 08:30** | Entrada. Arranca con el **bloque de trabajo profundo** — lo más exigente aquí, no el correo |
+| 13:00-14:00 | Almuerzo **fuera del escritorio**. Sal a la calle si puedes: segunda dosis de luz |
+| **14:00** | **Última cafeína del día**. Sin excepciones |
+| 14:00-17:30 | Segundo bloque: reuniones, correo, tareas de menor carga cognitiva |
+| **17:30-17:50** | **"Trayecto artificial"**: caminata afuera. Cierra la jornada — sin esto el trabajo se filtra hasta las 23:00 |
+| 18:00-19:00 | Entrenamiento (fuerza 3x/sem, cardio 2x/sem) |
+| 19:30-20:00 | Cena. **Última comida copiosa** — 2,5-3 h antes de dormir |
+| 21:00 | Luces cálidas y bajas. Notificaciones de trabajo en silencio |
+| 21:45-22:15 | Ducha caliente + rutina facial noche + **antitranspirante** + lectura en papel |
+| **22:15** | En la cama. Móvil **fuera** del dormitorio, cargando en otra habitación |
+| 22:30 | Dormido → **8 h 15 min hasta las 06:45** |
+
+**Los 30 minutos de margen los días de 08:30:** úsalos para alargar la caminata matinal o desayunar sin prisa. **No para revisar el móvil en la cama** — es exactamente el hábito que arruina el despertar consistente.
+
+**El entrenamiento a las 18:00 está bien colocado:** 4,5 h antes de dormir. Entrenar fuerte a menos de 3 h de la cama sube la temperatura corporal y retrasa el sueño; a esta hora te da el efecto contrario y duermes mejor.
 
 **Cómo llegar ahí sin fracasar:** no cambies tu horario 3 horas de golpe. **Adelanta 15 minutos cada 2-3 días** hasta llegar al objetivo. El cuerpo acepta desplazamientos graduales; los saltos bruscos duran una semana y se abandonan.
 
 **Lo primero que debes fijar no es la hora de acostarte — es la hora de LEVANTARTE.** La de dormir se ajusta sola después de 5-7 días de despertar consistente.
+
+**Si te cambian el horario de entrada más adelante:** mantén las 06:45 mientras la entrada no sea antes de las 08:00. Solo si te adelantan por debajo de esa hora, mueve el despertador — y hazlo también en 15 min cada 2-3 días.
 
 ---
 
