@@ -1,6 +1,13 @@
 # Rutina de cuidado personal — Ariel, 27 años
 
-> **Perfil configurado:** piel mixta-grasa · objetivos: acné/marcas + prevención de envejecimiento + ojeras + textura/poros · pelo seco y encrespado · nivel de compromiso: completo (20+ min/día).
+> **Perfil configurado**
+> - **Piel:** mixta-grasa. Objetivos: acné/marcas + prevención de envejecimiento + ojeras + textura/poros
+> - **Pelo:** seco y encrespado
+> - **Barba:** con degradado, mantenimiento propio entre visitas al barbero. Equipo: Philips Series 7000, Gillette de cartucho sensible, maquinilla de mariposa
+> - **Cuerpo:** sudoración alta con olor · granitos en espalda/pecho · piel seca corporal · manos, pies y uñas por poner al día
+> - **Sueño:** en reconstrucción — inicio de teletrabajo, sin trayecto, horarios por definir
+> - **Presupuesto:** medio (~$30.000-60.000 CLP/mes) · **Compra en Chile**
+> - **Compromiso:** completo (20+ min/día)
 >
 > **Aviso:** esto es información general de autocuidado, no consejo médico. Cualquier medicación (retinoides con receta, tratamientos para acné o caída) la valora un dermatólogo. Al final hay una sección de banderas rojas.
 
@@ -84,17 +91,77 @@ Cuando esto lo toleres 2 meses sin irritación, puedes subir a retinol 0.5-1% o 
 
 ---
 
-## 2. Afeitado y barba
+## 2. Barba con degradado — mantenimiento y afeitado
 
-El afeitado es una exfoliación mecánica agresiva. Con piel propensa a acné, hacerlo mal genera foliculitis y pelos encarnados.
+Tienes tres herramientas y cada una tiene su función. El error es usarlas indistintamente.
 
-- **Antes:** afeita **después** de la ducha, con la piel y el vello hidratados 2-3 minutos. Nunca en seco al levantarte.
-- **Producto:** gel o crema sin fragancia, con glicerina. Evita las espumas en aerosol clásicas (resecan).
-- **Dirección:** siempre **a favor del pelo** en la primera pasada. Si necesitas más apurado, segunda pasada transversal — nunca a contrapelo en cuello y mandíbula.
-- **Cuchilla:** cámbiala cada 5-7 afeitados. Una cuchilla roma tira del pelo y es la causa nº1 de irritación. Enjuaga y seca la hoja tras cada uso.
-- **Después:** agua fría, después hidratante sin alcohol. Nada de aftershave con alcohol si tienes acné.
-- **Pelos encarnados:** el BHA 2% también sirve en el cuello, 2 veces por semana.
-- **Días de retinoide:** no te afeites la mañana siguiente si tienes descamación activa.
+| Herramienta | Para qué sirve | Para qué NO |
+|---|---|---|
+| **Philips Series 7000 (multigroom)** | Mantener el **largo** de la barba y **construir el degradado** con los peines guía | Apurar al ras la línea de contorno |
+| **Gillette de cartucho (la verde, SkinGuard/sensitive)** | Apurar el **cuello, pómulos y línea de contorno**. Uso rápido y seguro | Definir bordes finos — el cartucho es grueso y no ves la línea |
+| **Maquinilla de mariposa (doble hoja / shavette de barbería)** | **Líneas de contorno nítidas** y apurado premium. La hoja es una sola y ves exactamente dónde cortas | Uso apurado con prisa — requiere técnica y no perdona el ángulo |
+
+### 2.1 El degradado (fade) — cómo mantenerlo tú mismo
+
+Un degradado es **una escalera de largos que se funde**. Con los peines de la Philips lo mantienes 3-4 semanas entre visitas al barbero.
+
+**Cada 4-6 días, en seco y con la barba peinada:**
+
+1. **Fija el largo base** de la barba (mentón y bigote) con el peine más alto que uses — por ejemplo 7-9 mm. Pasa siempre **a contrapelo** para uniformar.
+2. **Baja un escalón** (ej. 5 mm) y trabaja solo la **zona media de la mejilla y el lateral de la mandíbula**, hasta la mitad de altura.
+3. **Baja otro escalón** (ej. 3 mm) en la **zona alta de la mejilla y las patillas**, conectando con el pelo de la cabeza.
+4. **1-2 mm** en el punto donde la patilla se une al degradado del corte de pelo.
+5. **Funde las transiciones:** este es el paso que separa un degradado de una escalera evidente. Con el peine intermedio, pasa **en diagonal y con movimiento de muñeca hacia afuera** (flicking) sobre cada línea de unión, sin apoyar plano. Repite 3-4 veces por transición.
+6. **Contornos con la mariposa o la Gillette:** define la línea del **cuello** (regla: dos dedos por encima de la nuez, siguiendo una curva en U, **no** la línea de la mandíbula) y la **línea del pómulo** (traza mentalmente desde la patilla hasta la comisura de la boca y elimina lo que quede por encima).
+7. **Bigote:** recorta el borde inferior con el mini-recortador para que no toque el labio.
+
+**Regla de oro del degradado:** siempre puedes cortar más, nunca puedes pegar. Empieza con el peine más largo de lo que crees.
+
+**Visita al barbero cada 3-4 semanas** para que reconstruya el fade. Tú solo lo mantienes, no lo recreas desde cero — reconstruirlo mal es la forma más rápida de arruinarlo.
+
+### 2.2 Afeitado del contorno — protocolo
+
+El afeitado es exfoliación mecánica agresiva. Con piel mixta-grasa, hacerlo mal genera foliculitis y pelos encarnados justo en la zona del contorno.
+
+- **Siempre después de la ducha**, con piel y vello hidratados 2-3 min. Nunca en seco recién levantado.
+- **Preafeitado:** gel o crema transparente con glicerina (transparente para *ver* la línea que estás trazando — con espuma blanca vas a ciegas). Evita las espumas en aerosol clásicas: resecan.
+- **Dirección:** primera pasada **a favor del pelo**. Si necesitas más apurado, segunda pasada transversal. **Nunca a contrapelo en el cuello** — es donde se producen el 90% de los encarnados.
+- **Presión:** cero. El peso de la maquinilla basta. Con la de mariposa, el ángulo correcto es ~30° respecto a la piel; si aprietas, cortas.
+- **Piel tensa:** estira con la mano libre la zona que afeitas.
+- **Después:** enjuague con agua fría, secar a toques, hidratante sin alcohol. **Nada de aftershave con alcohol** si tienes acné — arde, reseca y empeora el sebo de rebote.
+
+### 2.3 Higiene y mantenimiento del equipo (esto es lo que evita los granitos)
+
+- **Cartuchos Gillette:** cámbialos cada **5-7 afeitados**. Una hoja roma tira del pelo en vez de cortarlo → foliculitis. Enjuaga a fondo y guarda **seco y fuera de la ducha** (la humedad oxida el filo y cría bacterias).
+- **Hojas de la mariposa:** son de un solo uso o máximo 2-3 afeitados, y son baratas. Cámbialas sin pena. **Nunca compartas** ni reutilices una hoja oxidada.
+- **Philips 7000:** limpia el cabezal después de **cada** uso (la mayoría son lavables bajo el grifo). Una vez al mes, desmonta y aceita las cuchillas con una gota de aceite mineral. Los cabezales de recambio duran ~2 años.
+- **Desinfecta** el cabezal y la maquinilla de mariposa con alcohol 70% una vez por semana.
+- **Los cabezales de cuerpo y de cabeza no se mezclan con los de cara.** Usa uno solo para cada zona.
+
+### 2.4 Cuidado de la piel bajo la barba y de la fibra
+
+La piel bajo la barba se descama y se irrita, y con tu tipo de piel además acumula sebo.
+
+- **Champú de barba o limpiador suave 2-3 veces/semana**, masajeando hasta la piel. El champú de cabeza es demasiado agresivo para la cara.
+- **Aceite de barba a diario**, 3-5 gotas en las palmas, masajeando de la piel hacia afuera. Es para la **piel**, no para el pelo: evita la descamación (la "caspa de barba").
+- **Bálsamo de barba** si la quieres con forma; el aceite solo hidrata.
+- **Cepillo de cerdas de jabalí** todos los días: distribuye el sebo natural, entrena la dirección del pelo y exfolia suavemente.
+- **Pelos encarnados:** BHA 2% en cuello y línea de contorno, 2 veces por semana, en las noches que no uses retinoide. Nunca los saques con pinzas.
+- **Días de retinoide:** no te afeites la mañana siguiente si hay descamación activa. Y **no apliques retinoide sobre la zona del cuello recién afeitada** — espera 24 h.
+
+### 2.5 Frecuencia — resumen
+
+| Acción | Cada |
+|---|---|
+| Cepillar la barba | Diario |
+| Aceite de barba | Diario |
+| Recorte de mantenimiento + fundido con la Philips | 4-6 días |
+| Definir contornos (cuello y pómulo) | 4-6 días |
+| Champú de barba | 2-3x semana |
+| Cambio de cartucho Gillette | 5-7 usos |
+| Desinfección del equipo | Semanal |
+| Barbero (reconstruir el fade) | 3-4 semanas |
+| Aceitar cuchillas Philips | Mensual |
 
 ---
 
@@ -160,6 +227,26 @@ Muy común a tu edad y suele ser *Malassezia* (foliculitis fúngica), no acné b
 
 1-2 veces por semana con **guante de crin suave o AHA corporal (ácido láctico 10%)**. Nunca sobre piel irritada o quemada por el sol.
 
+### 4.5 Tu conflicto: piel seca + granitos en espalda
+
+Tienes dos problemas que piden cosas opuestas. El acné corporal pide secar y exfoliar; la piel seca pide todo lo contrario. **Si aplicas el gel de salicílico en todo el cuerpo vas a empeorar la sequedad y acabarás abandonando.**
+
+La solución es **tratar por zonas, no por cuerpo entero**:
+
+| Zona | Producto | Frecuencia |
+|---|---|---|
+| **Espalda, pecho y hombros** | Gel con ácido salicílico 2% o piritiona de zinc, dejando actuar 3-5 min antes de enjuagar | 3-4x semana |
+| **Axilas, ingles, pies** | Gel syndet normal | Diario |
+| **Brazos, piernas, torso, resto** | Solo agua la mayoría de los días, o gel syndet muy suave | Diario |
+| **Todo el cuerpo, post-ducha** | Crema corporal con ceramidas o urea 5%, sobre piel húmeda | Diario, sin excepción |
+| **Espalda y pecho, post-ducha** | Loción **ligera y oil-free** — no la crema espesa del resto del cuerpo | Diario |
+
+**Orden en la ducha:** champú primero → salicílico en espalda/pecho (déjalo actuar mientras te lavas el resto) → gel syndet en el resto → enjuagar todo al final → secar a toques → **hidratante en los 3 primeros minutos**.
+
+Un truco práctico si no llegas bien a la espalda: usa un **cepillo de mango largo o una esponja de cuerda** solo para aplicar el salicílico, y guárdalo seco.
+
+**Los granitos de espalda tras entrenar casi siempre son foliculitis por *Malassezia*, no acné.** Si el salicílico no funciona en 4 semanas, cambia a **champú con ketoconazol 2% usado como gel de ducha** en esa zona, 5 minutos de contacto, 3 veces por semana. La diferencia se nota rápido.
+
 ---
 
 ## 5. Higiene e olor corporal
@@ -174,9 +261,21 @@ Muy común a tu edad y suele ser *Malassezia* (foliculitis fúngica), no acné b
 
 Sobre el aluminio: **no hay evidencia científica que lo vincule con cáncer de mama ni Alzheimer.** Ese vínculo fue desmentido. Si aun así prefieres evitarlo, las alternativas eficaces son desodorantes con **ácido mandélico** o **glicina de zinc**.
 
-- Si el olor persiste pese a la higiene: prueba lavar las axilas con un limpiador antibacteriano suave, o un desodorante con ácido mandélico (baja el pH de la piel y las bacterias no proliferan).
-- **Recorta el vello de las axilas** (no hace falta rasurar): menos superficie para bacterias, menos olor.
-- La ropa también huele: las camisetas técnicas de poliéster retienen bacterias. Lávalas con un ciclo específico o cámbialas con más frecuencia.
+### Protocolo para sudoración alta (tu caso)
+
+La mayoría de la gente usa el antitranspirante mal y concluye que "no le funciona". Haz esto:
+
+1. **Aplícalo de noche, sobre la axila completamente seca**, antes de dormir. Las sales de aluminio necesitan 6-8 h sin sudor para formar el tapón en el conducto sudoríparo. Aplicado por la mañana sobre piel que ya está sudando, se diluye y se va.
+2. **No te lo quites por la mañana** — la ducha no elimina el tapón ya formado. Puedes ducharte normal.
+3. **Busca cloruro de aluminio 10-20%** (no "clorhidrato" al 2% del supermercado) si el sudor es realmente alto. En Chile lo encuentras como antitranspirante clínico en farmacia.
+4. **Los 3-5 primeros días aplícalo cada noche.** Después basta 2-3 veces por semana para mantener el efecto.
+5. Si arde o irrita, aplica en noches alternas y no lo uses la noche siguiente al depilado/rasurado.
+
+**Además:**
+- **Recorta el vello de las axilas** con el cabezal de cuerpo de la Philips (no hace falta rasurar al ras): menos superficie húmeda para bacterias, menos olor y el producto llega mejor a la piel.
+- El olor no lo produce el sudor — lo producen las bacterias que lo degradan. Un **desodorante con ácido mandélico** baja el pH de la piel y las bacterias dejan de proliferar. Combínalo con el antitranspirante: uno controla el sudor de noche, el otro el olor de día.
+- **La ropa huele aunque tú no.** Las camisetas técnicas de poliéster retienen bacterias que el lavado normal no elimina. Lávalas aparte, con un remojo previo en agua con vinagre blanco (30 min) o con detergente enzimático, y **no las dejes en el cesto húmedas**.
+- Si sudas de forma incapacitante (te empapa la ropa en reposo, afecta tu vida social o laboral): eso es **hiperhidrosis** y tiene tratamiento médico real — antitranspirantes con receta, iontoforesis, toxina botulínica. Vale la pena consultar, no es algo que tengas que aguantar.
 
 ### 5.2 Higiene íntima
 
@@ -187,17 +286,35 @@ Sobre el aluminio: **no hay evidencia científica que lo vincule con cáncer de 
 
 ### 5.3 Pies
 
-- Secar entre los dedos siempre. La humedad ahí es lo que causa pie de atleta.
-- Calcetines de algodón o lana merino, cambio diario.
-- Rota los zapatos: no uses el mismo par dos días seguidos (necesitan 24h para secarse).
-- Uñas rectas, no redondeadas en las esquinas → previene encarnadas.
-- Urea 20-30% en talones si hay durezas.
+Si sudas bastante (tu caso), los pies son la zona de mayor riesgo: humedad + oscuridad + calor = hongos y mal olor.
+
+**Diario:**
+- **Secar entre los dedos, uno por uno.** Es el paso que la gente se salta y es exactamente donde empieza el pie de atleta.
+- Calcetines limpios cada día, de **algodón o lana merino**. El poliéster puro retiene humedad y olor.
+- **Rota los zapatos: nunca el mismo par dos días seguidos.** Un zapato necesita 24 h para secarse por dentro. Esto solo ya elimina la mayoría del mal olor.
+
+**Semanal:**
+- **Talco o polvo antitranspirante** con óxido de zinc en pies y dentro del zapato, 2-3 veces por semana.
+- Si hay olor persistente: lavado con **jabón antibacteriano**, secado total y **antitranspirante de axilas aplicado en las plantas** por la noche. Funciona exactamente igual que en la axila.
+- Lima suave o piedra pómez en talones tras la ducha + **urea 20-30%** en las durezas.
+
+**Señales de hongos** (descamación entre los dedos, picor, uña engrosada o amarillenta): antifúngico tópico de farmacia 4 semanas. Si es la **uña**, el tópico rara vez basta — necesita valoración médica y tratamiento largo.
 
 ### 5.4 Manos y uñas
 
-- Corta uñas cada 1-2 semanas, lima los bordes.
-- **No cortes las cutículas** — empújalas suavemente tras la ducha. Son barrera contra infección.
-- Crema de manos por la noche.
+Es lo primero que la gente ve cuando das la mano o gesticulas hablando. Cuesta 10 minutos a la semana.
+
+**Rutina quincenal (15 min, después de la ducha, con las uñas blandas):**
+1. **Corta** las uñas de las manos con cortaúñas o alicate. Ligeramente curvadas siguiendo la forma del dedo.
+2. **Uñas de los pies: corte RECTO**, sin redondear las esquinas. Redondearlas es lo que causa las uñas encarnadas.
+3. **Lima** los bordes en una sola dirección (no en vaivén, que descama la lámina).
+4. **Empuja las cutículas** suavemente con un palito de naranjo. **No las cortes** — son la barrera contra infección; cortarlas causa padrastros e inflamación.
+5. **Limpia debajo de la uña** con el limpiador del cortaúñas.
+6. **Aceite de cutículas o aceite de barba** en la base de cada uña.
+
+**Diario:** crema de manos por la noche. Si tienes las manos muy secas, aplícala y duerme con ella — es cuando más absorbe.
+
+**No te muerdas las uñas ni te arranques los padrastros.** Si lo haces por ansiedad, córtalas muy cortas una temporada y ten crema a mano; la textura suave rompe el hábito.
 
 ### 5.5 Higiene oral (subestimadísima)
 
@@ -233,6 +350,42 @@ Durante el sueño profundo se libera GH, se repara la piel, se consolida el sist
 - Si no te duermes en 20 min: levántate, luz tenue, actividad aburrida, vuelve cuando tengas sueño. No te quedes en la cama frustrado.
 - Siestas: máximo 20-30 min y antes de las 15:00.
 - Regla útil: cuenta hacia atrás desde tu hora de despertar. Si te levantas a las 7:00, estás en la cama a las 22:45.
+
+### 6.1 Teletrabajo: la oportunidad y la trampa
+
+Empezar en remoto y sin trayecto es **el mejor momento posible** para construir horarios desde cero. Pero el teletrabajo tiene tres trampas específicas que arruinan el sueño y se ven en la piel:
+
+| Trampa | Qué pasa | Solución |
+|---|---|---|
+| **Cero luz solar** | Sin trayecto, puedes pasar días sin ver el sol directo. Tu reloj circadiano se desincroniza y no produces melatonina a tiempo | **Sal a la calle 15 min dentro de la primera hora de despertar.** No vale la ventana: el vidrio filtra y la intensidad cae 10x. Esto es no negociable |
+| **La cama a 3 metros del escritorio** | El cerebro deja de asociar el dormitorio con dormir | **Nunca trabajes desde la cama.** Si vives en espacio reducido, al menos siéntate en una silla distinta |
+| **El día no termina nunca** | Sin trayecto de vuelta, el trabajo se filtra hasta las 23:00 | Crea un **"trayecto artificial"**: al terminar, camina 15-20 min afuera. Marca el fin del día laboral y suma luz + movimiento |
+
+### 6.2 Horario modelo para tu situación
+
+Ajusta las horas a tu jornada, pero **respeta los intervalos relativos**:
+
+| Hora | Bloque |
+|---|---|
+| 07:00 | Despertar (**misma hora todos los días, también fin de semana**) |
+| 07:00-07:30 | **Salir a la calle 15 min** + agua. Sin móvil ni correo |
+| 07:30-08:00 | Rutina facial mañana + barba + ducha |
+| 08:00 | Desayuno con proteína |
+| 08:30-13:00 | Bloque de trabajo profundo (lo más exigente cognitivamente aquí) |
+| 13:00-14:00 | Almuerzo **fuera del escritorio**. Salir si se puede |
+| **14:00** | **Última cafeína del día** |
+| 14:00-18:00 | Segundo bloque de trabajo |
+| 18:00-18:20 | **"Trayecto artificial"**: caminata afuera. Cierra el día laboral |
+| 18:30-19:30 | Entrenamiento (fuerza 3x/sem, cardio 2x/sem) |
+| 20:00 | Cena. **Última comida copiosa** |
+| 21:30 | Luces cálidas y bajas. Pantallas al mínimo o fuera |
+| 22:00-22:30 | Ducha caliente + rutina facial noche + lectura en papel |
+| 22:45 | En la cama. Móvil **fuera** del dormitorio |
+| 23:00 | Dormido → **8 h hasta las 07:00** |
+
+**Cómo llegar ahí sin fracasar:** no cambies tu horario 3 horas de golpe. **Adelanta 15 minutos cada 2-3 días** hasta llegar al objetivo. El cuerpo acepta desplazamientos graduales; los saltos bruscos duran una semana y se abandonan.
+
+**Lo primero que debes fijar no es la hora de acostarte — es la hora de LEVANTARTE.** La de dormir se ajusta sola después de 5-7 días de despertar consistente.
 
 ---
 
@@ -278,54 +431,98 @@ Lo razonable sin más justificación: **vitamina D3** si estás deficitario (muy
 
 ---
 
-## 10. Lista de compra inicial
+## 10. Lista de compra — presupuesto medio
 
-**Compra ahora (fase 1) — lo esencial:**
-1. Limpiador facial en gel suave, sin sulfatos
-2. Hidratante gel-crema con niacinamida
-3. **Protector solar facial SPF 50 oil-free**
-4. Gel de ducha syndet pH 5.5
-5. Champú sin sulfatos + acondicionador
-6. Crema corporal
-7. Desodorante o antitranspirante
-8. Seda dental / cepillos interdentales
+**Dónde comprar en Chile:** Cruz Verde, Salcobrand y Farmacias Ahumada tienen CeraVe, La Roche-Posay, Eucerin, Isdin, Vichy y Bioderma, casi siempre con rotación de ofertas 2x1 o 40% dto. **Preunic y DBS** suelen tener mejor precio en dermocosmética y son el sitio para The Ordinary. Revisa siempre el precio en las tres cadenas antes de comprar: la diferencia por el mismo producto llega al 40%.
 
-**Semana 3:**
-9. Retinal 0.05% o retinol 0.3%
+> Los precios son órdenes de magnitud aproximados en CLP a 2026 y varían con las promociones. Un producto dura 2-4 meses, así que el gasto **mensual** real es bastante menor que el desembolso inicial.
 
-**Semana 7:**
-10. Ácido salicílico 2% (líquido o gel)
+### Compra 1 — ahora (~$60.000-75.000 CLP, dura 2-3 meses)
 
-**Cuando la base esté consolidada:**
-11. Vitamina C mañana
-12. Contorno de ojos con cafeína
-13. Leave-in y aceite para el pelo, toalla de microfibra
-14. Mascarilla capilar semanal
-15. Funda de almohada de satén
+| Producto | Qué buscar | Aprox. |
+|---|---|---|
+| Limpiador facial en gel | CeraVe Espuma Limpiadora piel normal-grasa · La Roche-Posay Effaclar Gel | $12.000 |
+| Hidratante gel-crema | CeraVe PM Loción · Effaclar Mat · cualquiera con niacinamida, oil-free | $14.000 |
+| **Protector solar SPF 50 oil-free** | Isdin Fusion Water · Effaclar UV Mat · Eucerin Oil Control | $18.000 |
+| Gel de ducha syndet | CeraVe Limpiador Hidratante · Eucerin pH5 | $10.000 |
+| Crema corporal | CeraVe Loción Hidratante · Eucerin Urea 5% | $12.000 |
+| Antitranspirante clínico | Cloruro de aluminio, en farmacia | $8.000 |
+| Seda dental / interdentales | Cualquier marca | $3.000 |
 
-Marcas de farmacia con buena relación calidad-precio y disponibles en España: **CeraVe, La Roche-Posay, Isdin, Avène, Sesderma, The Ordinary, Medik8**. No hace falta gastar más de 20-25 € por producto para tener resultados.
+### Compra 2 — semana 2-3 (~$45.000, dura 3-4 meses)
+
+| Producto | Aprox. |
+|---|---|
+| Champú sin sulfatos + acondicionador (pelo seco) | $18.000 |
+| **Retinal 0.05% o retinol 0.3%** (The Ordinary, La Roche-Posay Retinol B3) | $15.000 |
+| Aceite de barba + champú de barba | $12.000 |
+| Cepillo de cerdas de jabalí para barba | $8.000 |
+
+### Compra 3 — semana 6-8 (~$40.000, dura 3-4 meses)
+
+| Producto | Aprox. |
+|---|---|
+| **Ácido salicílico 2%** — versión facial (The Ordinary / Effaclar) | $10.000 |
+| **Gel de ducha con salicílico o ketoconazol 2%** para espalda y pecho | $12.000 |
+| Leave-in / crema sin aclarado para el pelo | $10.000 |
+| Toalla de microfibra para el pelo | $6.000 |
+
+### Compra 4 — cuando la base esté consolidada (mes 3+)
+
+| Producto | Aprox. |
+|---|---|
+| Vitamina C mañana | $18.000 |
+| Contorno de ojos con cafeína | $14.000 |
+| Mascarilla capilar semanal | $10.000 |
+| Aceite ligero de argán/jojoba para puntas | $9.000 |
+| Funda de almohada de satén | $12.000 |
+| Urea 20-30% para talones | $8.000 |
+
+### Cómo mantenerte en $30.000-60.000/mes
+
+- **El SPF y el hidratante son los que más rápido se acaban.** Presupuesta ~$30.000/mes solo para esos dos y estarás bien.
+- **The Ordinary es la forma más barata de tener activos serios** (retinal, salicílico, niacinamida, vitamina C) — mismos ingredientes que marcas de $40.000 por una fracción.
+- **No compres nada de las secciones 3 y 4 antes de tiempo.** El orden importa más que la cantidad.
+- Aprovecha las promociones de farmacia para **stockear** solo lo que ya sabes que usas y toleras. Nunca compres 2x1 de algo que estrenas.
+- **Lo que NO necesitas comprar:** tónicos, aguas micelares (si te lavas la cara con agua), esencias, sérums "multivitamínicos", colágeno bebible, biotina, mascarillas de tela, exfoliantes con partículas.
 
 ---
 
 ## 11. Checklist
 
 ### Diario
+- [ ] **Salir a la calle 15 min en la primera hora del día**
 - [ ] Rutina facial mañana (limpiar → hidratar → **SPF**)
-- [ ] Rutina facial noche (limpiar → activo si toca → hidratar)
-- [ ] Ducha + hidratante corporal
-- [ ] Desodorante
-- [ ] Cepillado 2x + seda dental
-- [ ] Luz solar por la mañana
-- [ ] En la cama a la hora fijada
+- [ ] Cepillar la barba + aceite de barba
+- [ ] Ducha (salicílico en espalda/pecho si toca) + **hidratante corporal en los 3 min siguientes**
+- [ ] Antitranspirante **por la noche**, axilas secas
+- [ ] Cepillado dental 2x + seda dental
+- [ ] Calcetines limpios + zapatos rotados
 - [ ] Sin cafeína después de las 14:00
+- [ ] "Trayecto artificial": caminata al cerrar el día laboral
+- [ ] Rutina facial noche (limpiar → activo si toca → hidratar)
+- [ ] En la cama a la hora fijada, móvil fuera del dormitorio
 
 ### Semanal
 - [ ] 3 sesiones de fuerza + 2 de cardio
+- [ ] Recorte de barba y fundido del degradado (cada 4-6 días)
+- [ ] Definir contornos de cuello y pómulo
+- [ ] Champú de barba (2-3x)
+- [ ] Gel de salicílico/ketoconazol en espalda y pecho (3-4x)
 - [ ] Mascarilla capilar (1x)
 - [ ] Exfoliación corporal (1-2x)
+- [ ] Talco antitranspirante en pies (2-3x)
+- [ ] Desinfectar equipo de afeitado con alcohol 70%
 - [ ] Cambiar funda de almohada
-- [ ] Cambiar cuchilla si toca
+- [ ] Cambiar cartucho de la Gillette si toca (cada 5-7 usos)
 - [ ] Foto de seguimiento (misma luz, misma hora, sin filtros)
+
+### Quincenal
+- [ ] Manicura y pedicura básica (corte, limado, cutículas, aceite)
+
+### Mensual (además de lo de abajo)
+- [ ] Aceitar cuchillas de la Philips
+- [ ] Barbero: reconstruir el degradado (cada 3-4 semanas)
 
 ### Mensual
 - [ ] Revisar la foto del mes anterior — es la única forma honesta de ver progreso
@@ -340,11 +537,37 @@ Marcas de farmacia con buena relación calidad-precio y disponibles en España: 
 
 ## 12. Los primeros 30 días, en concreto
 
-| Semana | Qué haces |
-|---|---|
-| 1 | Solo limpiador + hidratante + SPF. Fijar hora de dormir. Seda dental diaria |
-| 2 | Añadir rutina corporal (gel syndet, crema post-ducha) y cambiar champú. Sin cafeína después de las 14:00 |
-| 3 | Introducir retinoide 2 noches. Empezar leave-in y toalla de microfibra en el pelo |
-| 4 | Retinoide 3 noches. Consolidar entrenamiento y luz matinal. Sacar foto de control |
+Un solo foco por semana. Lo de la semana anterior ya no se negocia — se mantiene.
 
-Después de estos 30 días la base ya es automática y puedes seguir el calendario de activos de la sección 1.3 sin pensarlo.
+### Semana 1 — Base facial + hora de despertar
+
+- Compra 1 de la lista.
+- **Cara:** limpiador + hidratante + SPF. Nada más, ningún activo.
+- **Sueño:** fija **la hora de LEVANTARTE** (no la de acostarte) y respétala también el fin de semana. Sal a la calle 15 min cada mañana.
+- **Higiene:** seda dental diaria. Antitranspirante por la noche, cada noche esta semana.
+
+### Semana 2 — Cuerpo y barba
+
+- **Ducha:** gel syndet, agua templada, **crema corporal en los 3 min posteriores**. Todos los días.
+- **Barba:** compra 2. Aceite de barba diario + cepillo. Establece el ciclo de recorte cada 4-6 días con la Philips.
+- **Sueño:** última cafeína a las 14:00. Adelanta la hora de dormir 15 min cada 2-3 días hacia tu objetivo.
+- **Trabajo:** implanta el "trayecto artificial" al cerrar el día.
+
+### Semana 3 — Entra el retinoide
+
+- **Cara:** retinal/retinol 2 noches (lunes y jueves). Técnica sándwich si tira.
+- **Pelo:** cambia a champú sin sulfatos, lava 2-3x/semana, acondicionador siempre. Deja de secarte con toalla de rizo.
+- **Pies y uñas:** primera sesión de manicura/pedicura. Empieza a rotar zapatos.
+
+### Semana 4 — Consolidar
+
+- **Cara:** retinoide 3 noches.
+- **Ejercicio:** 3 fuerza + 2 cardio, encajados en el horario de la sección 6.2.
+- **Foto de control** (misma luz, misma hora, sin filtros). Guárdala: es tu única medida honesta.
+- **Analítica:** pide hora al médico para vitamina D, ferritina, B12, TSH y perfil lipídico.
+
+### A partir del día 30
+
+La base ya es automática. Sigues el **calendario de activos de la sección 1.3** (semana 7: entra el salicílico; semana 11: rutina de crucero) y el **protocolo corporal de la 4.5** sin tener que pensarlo.
+
+**Cómo saber si va bien:** compara la foto del mes 3 con la del día 1. No la del día anterior — a diario no vas a ver nada y es la vía rápida a abandonar.
