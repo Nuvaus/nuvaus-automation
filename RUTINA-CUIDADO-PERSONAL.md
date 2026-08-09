@@ -225,6 +225,19 @@ Muy común a tu edad y suele ser *Malassezia* (foliculitis fúngica), no acné b
 - **Dúchate inmediatamente después de entrenar.** El sudor secándose sobre la piel bajo ropa técnica es el detonante nº1.
 - Ropa de algodón transpirable, no ajustada, para dormir.
 
+### 4.0 Accesorios — qué sí y qué no
+
+| Ítem | Veredicto | $ |
+|---|---|---|
+| **Peine de púa ancha** | **Sí, imprescindible.** Desenreda en húmedo sin romper la fibra | 3.000 |
+| **Cepillo de mango largo** | **Sí.** Para aplicarte el salicílico en la espalda tú solo | 5.000 |
+| **Guante de crin** | **Sí.** Exfoliación corporal 1-2x/semana | 3.000 |
+| **Masajeador de silicona de cuero cabelludo** | Opcional. Reparte el champú y masajea | 4.000 |
+| **Esponja o puff de plástico** | **No.** Retienen bacterias y no aportan nada sobre las manos | — |
+| **Cepillo de cerdas de jabalí** | Ya en Compra 2 — es para la barba, no para la cabeza | 8.000 |
+
+**Regla única:** todos secan colgados **fuera de la ducha**. Un guante o cepillo húmedo cría bacterias, y con tu acné de espalda eso juega en contra. Guante y esponja se reemplazan cada 2-3 meses.
+
 ### 4.4 Exfoliación corporal
 
 1-2 veces por semana con **guante de crin suave o AHA corporal (ácido láctico 10%)**. Nunca sobre piel irritada o quemada por el sol.
