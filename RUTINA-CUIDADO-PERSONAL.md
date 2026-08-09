@@ -204,6 +204,8 @@ El encrespamiento es **falta de agua retenida en la fibra + cutícula abierta**.
 
 ### 4.1 Ducha
 
+> **Jabón en barra: no.** pH 9-10, destroza la barrera lipídica. Tu gel de cuerpo es el **CeraVe Limpiadora Hidratante** — no necesitas nada más.
+
 - **Diaria**, 5-10 minutos, agua **templada**. El agua muy caliente destruye la barrera lipídica y es la causa principal de piel seca corporal.
 - **Gel syndet** (limpiador sin jabón, pH ~5.5). Los jabones tradicionales tienen pH 9-10 y agreden la piel.
 - Enfoca el gel en **axilas, ingles, pies y pliegues**. El resto del cuerpo casi no lo necesita a diario.
@@ -412,7 +414,9 @@ Es lo primero que la gente ve cuando das la mano o gesticulas hablando. Cuesta 1
 
 Impacta en salud general: la enfermedad periodontal está asociada a inflamación sistémica y riesgo cardiovascular.
 
-- Cepillado **2x/día, 2 minutos**, cepillo suave o eléctrico, pasta con **flúor 1450 ppm**.
+- Cepillado **2x/día, 2 minutos**, pasta con **flúor 1450 ppm**.
+- **Cepillo eléctrico: Oral-B Pro 1 o Pro 3** (~$35.000-55.000). Los oscilante-rotatorios quitan algo más de placa que los sónicos. Lo único que importa es **sensor de presión + temporizador de 2 min**; bluetooth, app y modos extra son marketing.
+- **Pasta:** el flúor es el único ingrediente que hace el trabajo. **Evita las blanqueadoras** — son abrasivas y con cepillo eléctrico desgastan esmalte.
 - **Limpieza interdental a diario.** El cepillo no llega al 40% de la superficie dental.
   - **Cepillos interdentales (TePe, Curaprox) antes que hilo.** Son más eficaces cuando el espacio lo permite, se usan con una mano en 30 s, y la adherencia es muchísimo mayor. Si la seda dental te resulta incómoda, no insistas: el mejor método es el que vas a usar todos los días.
   - **Tamaño:** compra un pack mixto de colores. Empieza por el más fino y sube hasta el que entra con leve resistencia, **sin forzar**. Lo normal es acabar usando dos tamaños: uno atrás y otro más fino delante.
@@ -657,7 +661,7 @@ Compartidos con tu pareja. Los tres son tubo o dosificador, así que no hay prob
 
 | Producto | Aprox. |
 |---|---|
-| Champú sin sulfatos + acondicionador (pelo seco) | $18.000 |
+| Champú **sin sulfatos** + acondicionador (Herbal Essences bío:renew o equivalente) | $18.000 |
 | **Retinal 0.05% o retinol 0.3%** (The Ordinary, La Roche-Posay Retinol B3) | $15.000 |
 | Aceite de barba + champú de barba | $12.000 |
 | Cepillo de cerdas de jabalí para barba | $8.000 |
