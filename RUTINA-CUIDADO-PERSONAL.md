@@ -603,6 +603,38 @@ Compartidos con tu pareja. Los tres son tubo o dosificador, así que no hay prob
 
 **Cómo aplicar el SPF (lo único que importa hacer bien):** **dos dedos de producto** — línea completa sobre índice y medio — para cara y cuello. La mayoría se pone un tercio de lo necesario y obtiene un SPF real de ~15 en vez de 50. Todos los días, también nublado y en interior junto a ventanas.
 
+### 10.0 ter — Lista final con links
+
+Precios verificados en agosto 2026. **Salcobrand con SBPay sale más barato** en los dos CeraVe.
+
+**Ahora — ~$46.000**
+
+| Producto | $ | Dónde |
+|---|---|---|
+| CeraVe **Limpiador** Hidratante 473 ml (gel ducha) | 11.300-15.400 | [Salcobrand](https://salcobrand.cl/products/locion-limpiadora-hidratante-para-la-piel-473ml) · [Cruz Verde](https://www.cruzverde.cl/limpiador-hidratante-473-ml/291914.html) |
+| CeraVe **Loción** Hidratante 473 ml (crema corporal) | 11.300-14.000 | [Salcobrand](https://salcobrand.cl/products/locion-hidratante-cerave-protectora-473ml) · [Cruz Verde](https://www.cruzverde.cl/locion-hidratante-473-ml/291911.html) |
+| Cepillos interdentales TePe/Curaprox pack mixto | ~8.000 | Farmacia o ML |
+| Desodorante día (Nivea Men) | ~4.000 | Supermercado |
+| Peine púa ancha + guante de crin + cepillo mango largo | ~11.000 | ML |
+| ~~Perspirex Comfort~~ | ✅ comprado | [Salcobrand](https://salcobrand.cl/products/comfort-roll-on-20ml) |
+
+> **Trampa de nombres:** "Loción Hidratante" es la **crema**; "Limpiador / Loción Limpiadora Hidratante" es el **gel**. Mismos 473 ml, precio casi igual, envase casi idéntico. Verifica que uno diga *Limpiador* y el otro no.
+
+**Semana 2-3 — ~$71.000**
+
+| Producto | $ | Dónde |
+|---|---|---|
+| Oral-B Pro Series 3 | ~40.000 | [Mercado Libre](https://www.mercadolibre.cl/cepillo-de-dientes-electrico-oral-b-pro-series-3-recargable/p/MLC19959466) · [Falabella](https://www.falabella.com/falabella-cl/product/143165580/Cepillo-De-Dientes-Electrico-Oral-b-Pro-Series-3-Recargable/143165581) |
+| Champú sin sulfatos + acondicionador | ~18.000 | Supermercado |
+| Retinal 0.05% o retinol 0.3% | ~15.000 | Preunic / DBS (The Ordinary) |
+| Pasta flúor 1450 ppm | ~3.000 | Supermercado |
+
+**Semana 6-8 — ~$38.000:** gel salicílico/ketoconazol cuerpo (12.000) · salicílico 2% facial (10.000) · leave-in (10.000) · toalla microfibra (6.000)
+
+**Mes 3+ — ~$71.000:** vitamina C (18.000) · contorno ojos cafeína (14.000) · funda satén (12.000) · mascarilla capilar (10.000) · aceite argán (9.000) · urea 20-30% (8.000)
+
+**Antes de pagar, compara en [FarmaCompara](https://www.farmacompara.cl/) o [Knasta](https://knasta.cl/).** Las farmacias rotan ofertas cada semana y la diferencia por el mismo producto llega al 40%.
+
 ### 10.1 Resumen ejecutable
 
 **Compra 1 — hoy o mañana · ~$45.000** (bajó de $89.000 con lo que ya tienes)
