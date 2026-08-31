@@ -1,0 +1,692 @@
+<title>Propuesta Clínica Lacasia</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
+<style>
+:root{
+  --ground:#F6F8F7; --surface:#FFFFFF; --surface-2:#EFF3F1;
+  --ink:#14201E; --ink-2:#3A4A46; --muted:#697A75; --line:#DBE3E0; --line-soft:#E9EEEC;
+  --accent:#1F5F55; --accent-2:#2E7D6F; --accent-soft:#E2EFEA;
+  --mark:#9C6318; --mark-soft:#F6EDDF;
+  --shadow:0 1px 2px rgba(20,32,30,.05), 0 8px 24px -16px rgba(20,32,30,.28);
+  --wrap:1120px; --prose:70ch;
+  --f-display:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F1513; --surface:#161E1C; --surface-2:#1C2624;
+    --ink:#E9EFEC; --ink-2:#BCC9C5; --muted:#8E9E99; --line:#27332F; --line-soft:#1F2926;
+    --accent:#5CB3A1; --accent-2:#79C7B6; --accent-soft:#172B27;
+    --mark:#D9A257; --mark-soft:#2A2317;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F1513; --surface:#161E1C; --surface-2:#1C2624;
+  --ink:#E9EFEC; --ink-2:#BCC9C5; --muted:#8E9E99; --line:#27332F; --line-soft:#1F2926;
+  --accent:#5CB3A1; --accent-2:#79C7B6; --accent-soft:#172B27;
+  --mark:#D9A257; --mark-soft:#2A2317;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:var(--f-body); font-size:16px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.page{max-width:var(--wrap); margin:0 auto; padding:0 24px 96px}
+@media (min-width:1180px){
+  .page{display:grid; grid-template-columns:180px minmax(0,1fr); gap:56px; padding-right:32px}
+  .masthead{grid-column:1/-1}
+}
+
+/* ---------- masthead ---------- */
+.masthead{padding:56px 0 0}
+.chart{
+  border:1px solid var(--line); border-radius:3px; background:var(--surface);
+  box-shadow:var(--shadow); overflow:hidden;
+}
+.chart-top{
+  display:flex; flex-wrap:wrap; gap:8px 20px; align-items:baseline;
+  padding:14px 24px; border-bottom:1px solid var(--line);
+  background:var(--surface-2);
+  font-family:var(--f-mono); font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted);
+}
+.chart-top strong{color:var(--accent); font-weight:500}
+.chart-body{padding:40px 24px 34px}
+@media (min-width:720px){.chart-body{padding:56px 44px 44px}}
+.eyebrow{
+  font-family:var(--f-mono); font-size:11.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent); margin:0 0 18px;
+}
+h1{
+  font-family:var(--f-display); font-weight:500; font-size:clamp(2.1rem,5.4vw,3.5rem);
+  line-height:1.08; letter-spacing:-.015em; margin:0 0 18px; text-wrap:balance;
+}
+h1 em{font-style:italic; color:var(--accent)}
+.lede{
+  font-family:var(--f-display); font-size:clamp(1.05rem,2.2vw,1.3rem); line-height:1.55;
+  color:var(--ink-2); max-width:62ch; margin:0;
+}
+.facts{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px; background:var(--line); border-top:1px solid var(--line); margin-top:38px;
+}
+.fact{background:var(--surface); padding:16px 24px}
+@media (min-width:720px){.fact{padding:18px 44px}}
+.fact dt{
+  font-family:var(--f-mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--muted); margin:0 0 5px;
+}
+.fact dd{margin:0; font-size:15px; font-weight:500; font-variant-numeric:tabular-nums}
+
+/* ---------- side nav ---------- */
+.toc{display:none}
+@media (min-width:1180px){
+  .toc{display:block; position:sticky; top:32px; align-self:start; padding-top:64px}
+  .toc h2{
+    font-family:var(--f-mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--muted); margin:0 0 14px; font-weight:500;
+  }
+  .toc ol{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2px}
+  .toc a{
+    display:flex; gap:9px; text-decoration:none; color:var(--muted); font-size:13px; line-height:1.35;
+    padding:5px 8px; border-radius:2px; border-left:2px solid transparent;
+  }
+  .toc a span{font-family:var(--f-mono); font-size:11px; opacity:.75; padding-top:1px}
+  .toc a:hover{color:var(--ink); background:var(--surface-2); border-left-color:var(--accent)}
+  .toc a:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+}
+
+/* ---------- sections ---------- */
+main{min-width:0}
+section{padding-top:64px; scroll-margin-top:24px}
+.s-head{display:flex; gap:14px; align-items:baseline; margin-bottom:8px}
+.s-num{
+  font-family:var(--f-mono); font-size:12px; color:var(--accent);
+  border:1px solid var(--accent); border-radius:2px; padding:1px 6px; flex:none;
+  line-height:1.5;
+}
+h2{
+  font-family:var(--f-display); font-weight:500; font-size:clamp(1.5rem,3.2vw,2.05rem);
+  line-height:1.18; letter-spacing:-.01em; margin:0; text-wrap:balance;
+}
+h3{
+  font-family:var(--f-body); font-weight:600; font-size:1rem; letter-spacing:.005em;
+  margin:34px 0 10px; color:var(--ink);
+}
+h4{
+  font-family:var(--f-mono); font-weight:500; font-size:11.5px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted); margin:24px 0 8px;
+}
+p,ul,ol{max-width:var(--prose)}
+p{margin:0 0 14px; color:var(--ink-2)}
+strong{color:var(--ink); font-weight:600}
+ul,ol{padding-left:20px; margin:0 0 16px; color:var(--ink-2)}
+li{margin-bottom:7px}
+li::marker{color:var(--accent)}
+a{color:var(--accent)}
+hr{border:0; border-top:1px solid var(--line); margin:0}
+
+.rule{border-top:1px solid var(--line-soft); margin:14px 0 0}
+
+/* ---------- thesis ---------- */
+.thesis{
+  border-left:3px solid var(--accent); background:var(--accent-soft);
+  padding:26px 28px; border-radius:0 3px 3px 0; margin:24px 0 8px; max-width:var(--prose);
+}
+.thesis p{margin:0 0 6px; font-size:13px; color:var(--ink-2)}
+.thesis .big{
+  font-family:var(--f-display); font-size:clamp(1.3rem,3vw,1.7rem); line-height:1.25;
+  color:var(--ink); margin:0; font-weight:500;
+}
+
+/* ---------- callouts ---------- */
+.note{
+  border:1px solid var(--line); border-left:3px solid var(--mark); background:var(--surface);
+  padding:16px 20px; border-radius:0 3px 3px 0; margin:20px 0; max-width:var(--prose);
+}
+.note p:last-child{margin-bottom:0}
+.note .tag{
+  font-family:var(--f-mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--mark); display:block; margin-bottom:6px;
+}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto; margin:20px 0 26px; border:1px solid var(--line); border-radius:3px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; font-size:14px; min-width:520px}
+th,td{text-align:left; padding:11px 16px; border-bottom:1px solid var(--line-soft); vertical-align:top}
+thead th{
+  font-family:var(--f-mono); font-size:10.5px; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--muted); font-weight:500; background:var(--surface-2);
+  border-bottom:1px solid var(--line); white-space:nowrap; position:sticky; top:0;
+}
+tbody tr:last-child td{border-bottom:0}
+td{color:var(--ink-2)}
+td strong,th[scope="row"]{color:var(--ink)}
+th[scope="row"]{font-weight:500; font-size:14px; letter-spacing:0; text-transform:none; font-family:var(--f-body); color:var(--ink)}
+.num{font-variant-numeric:tabular-nums; white-space:nowrap}
+.yes{color:var(--accent); font-weight:600}
+.no{color:var(--muted)}
+tbody tr:hover{background:var(--surface-2)}
+
+/* recommended plan column */
+.plans td:nth-child(3),.plans th:nth-child(3){background:var(--mark-soft)}
+.plans tbody tr:hover td:nth-child(3){background:var(--mark-soft)}
+.plans thead th:nth-child(3){color:var(--mark); border-bottom:2px solid var(--mark)}
+.plans tfoot td{
+  border-top:2px solid var(--line); font-weight:600; color:var(--ink);
+  font-variant-numeric:tabular-nums; background:var(--surface-2);
+}
+.plans tfoot td:nth-child(3){background:var(--mark-soft); color:var(--mark)}
+.plans tfoot th{
+  border-top:2px solid var(--line); background:var(--surface-2);
+  font-family:var(--f-body); font-size:14px; text-transform:none; letter-spacing:0; color:var(--ink); font-weight:600;
+}
+
+/* ---------- roadmap ---------- */
+.phases{list-style:none; margin:28px 0 0; padding:0; max-width:none; display:flex; flex-direction:column; gap:0}
+.phase{
+  display:grid; gap:4px 26px; padding:24px 0; border-top:1px solid var(--line);
+  grid-template-columns:1fr;
+}
+@media (min-width:820px){.phase{grid-template-columns:160px minmax(0,1fr)}}
+.phase:last-child{border-bottom:1px solid var(--line)}
+.phase-key{display:flex; flex-direction:column; gap:4px}
+.phase-id{
+  font-family:var(--f-mono); font-size:12px; color:var(--accent); letter-spacing:.06em;
+}
+.phase-when{font-family:var(--f-mono); font-size:11.5px; color:var(--muted); letter-spacing:.04em}
+.phase-body h3{margin:0 0 8px; font-family:var(--f-display); font-size:1.25rem; font-weight:500; letter-spacing:-.005em}
+.phase-body p{margin:0 0 12px; font-size:14.5px}
+.milestone{
+  display:flex; gap:10px; align-items:flex-start; margin-top:10px;
+  border:1px solid var(--line); border-radius:3px; padding:12px 14px; background:var(--surface);
+  max-width:var(--prose);
+}
+.milestone .mid{
+  font-family:var(--f-mono); font-size:11px; font-weight:500; color:var(--surface);
+  background:var(--accent); border-radius:2px; padding:2px 6px; flex:none; margin-top:2px;
+}
+.milestone div{font-size:13.5px; color:var(--ink-2)}
+.milestone b{display:block; color:var(--ink); font-size:14px; font-weight:600; margin-bottom:3px}
+
+/* ---------- price cards ---------- */
+.ramp{
+  display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  margin:22px 0 8px; max-width:760px;
+}
+.ramp-card{border:1px solid var(--line); border-radius:3px; padding:18px 20px; background:var(--surface)}
+.ramp-card.hi{border-color:var(--mark); background:var(--mark-soft)}
+.ramp-card dt{
+  font-family:var(--f-mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:6px;
+}
+.ramp-card.hi dt{color:var(--mark)}
+.ramp-card dd{
+  margin:0; font-family:var(--f-display); font-size:1.75rem; font-weight:500;
+  font-variant-numeric:tabular-nums; letter-spacing:-.01em;
+}
+.ramp-card small{display:block; font-family:var(--f-body); font-size:12.5px; color:var(--muted); margin-top:4px}
+
+/* ---------- steps ---------- */
+.steps{list-style:none; padding:0; margin:24px 0 0; counter-reset:s; max-width:var(--prose)}
+.steps li{
+  counter-increment:s; display:grid; grid-template-columns:30px 1fr; gap:14px;
+  padding:14px 0; border-top:1px solid var(--line-soft);
+}
+.steps li::before{
+  content:counter(s); font-family:var(--f-mono); font-size:12px; color:var(--accent);
+  border:1px solid var(--accent); border-radius:50%; width:26px; height:26px;
+  display:grid; place-items:center; margin-top:1px;
+}
+.steps b{display:block; color:var(--ink); margin-bottom:2px}
+.steps span{font-size:14px; color:var(--muted)}
+
+/* ---------- formula ---------- */
+.formula{
+  font-family:var(--f-mono); font-size:13.5px; line-height:1.9; background:var(--surface-2);
+  border:1px solid var(--line); border-radius:3px; padding:18px 20px; margin:20px 0;
+  overflow-x:auto; color:var(--ink); max-width:var(--prose);
+}
+
+/* ---------- footer ---------- */
+footer{
+  margin-top:72px; padding-top:26px; border-top:1px solid var(--line);
+  display:flex; flex-wrap:wrap; gap:10px 28px; justify-content:space-between; align-items:baseline;
+}
+footer p{margin:0; font-size:13px; color:var(--muted); max-width:none}
+footer .sig{font-family:var(--f-display); font-size:1.1rem; color:var(--ink)}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+@media print{
+  body{background:#fff; color:#000; font-size:11pt}
+  .toc{display:none}
+  .page{display:block; max-width:none; padding:0}
+  section{page-break-inside:avoid; padding-top:28px}
+  .tw,.chart{box-shadow:none}
+}
+</style>
+
+<div class="page">
+
+<header class="masthead">
+  <div class="chart">
+    <div class="chart-top">
+      <span><strong>NV-PROP-LACASIA-31-08-2026</strong></span>
+      <span>Nuvaus</span>
+      <span>Confidencial</span>
+      <span>Vigencia 30 días</span>
+    </div>
+    <div class="chart-body">
+      <p class="eyebrow">Propuesta de servicios digitales · 12 meses</p>
+      <h1>Clínica Lacasia:<br>de presencia digital a <em>agenda llena</em></h1>
+      <p class="lede">Un programa de doce meses con hitos verificables, reuniones fijas y un pago mensual predecible, construido alrededor de una sola métrica: el costo de conseguir un paciente nuevo atendido.</p>
+    </div>
+    <dl class="facts">
+      <div class="fact"><dt>Para</dt><dd>Clínica Lacasia</dd></div>
+      <div class="fact"><dt>Ubicación</dt><dd>Providencia · Metro Salvador</dd></div>
+      <div class="fact"><dt>Emisión</dt><dd>31 · 08 · 2026</dd></div>
+      <div class="fact"><dt>Plazo</dt><dd>12 meses</dd></div>
+      <div class="fact"><dt>Plan sugerido</dt><dd>Crecimiento</dd></div>
+    </dl>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Contenido de la propuesta">
+  <h2>Contenido</h2>
+  <ol>
+    <li><a href="#s1"><span>01</span>El objetivo real</a></li>
+    <li><a href="#s2"><span>02</span>Diagnóstico</a></li>
+    <li><a href="#s3"><span>03</span>Alcance</a></li>
+    <li><a href="#s4"><span>04</span>Roadmap 12 meses</a></li>
+    <li><a href="#s5"><span>05</span>Reuniones e hitos</a></li>
+    <li><a href="#s6"><span>06</span>Metas y KPIs</a></li>
+    <li><a href="#s7"><span>07</span>Entregables mensuales</a></li>
+    <li><a href="#s8"><span>08</span>Inversión</a></li>
+    <li><a href="#s9"><span>09</span>Condiciones</a></li>
+    <li><a href="#s10"><span>10</span>Qué aporta la clínica</a></li>
+    <li><a href="#s11"><span>11</span>Normativa y riesgos</a></li>
+    <li><a href="#s12"><span>12</span>Próximos pasos</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<section id="s1">
+  <div class="s-head"><span class="s-num">01</span><h2>El objetivo real</h2></div>
+  <p>Clínica Lacasia no necesita más seguidores. Necesita <strong>más horas agendadas y más pacientes atendidos</strong>, de forma predecible y a un costo que la clínica pueda sostener mes a mes.</p>
+  <p>Todo lo que está en esta propuesta —sitio web, contenido, redes, publicidad, medición— existe para mover una sola métrica:</p>
+  <div class="thesis">
+    <p>La métrica que decide si el programa funciona</p>
+    <p class="big">Costo por paciente nuevo atendido.</p>
+  </div>
+  <p>Si esa métrica baja y el volumen sube, el programa funciona. Si no, lo cambiamos. Por eso la propuesta está construida sobre hitos medibles y revisiones mensuales, y no sobre entregables sueltos.</p>
+  <h3>Por qué esto se puede lograr</h3>
+  <p>Una clínica ubicada en Metro Salvador tiene una ventaja que la mayoría de sus competidores no aprovecha: <strong>demanda local de alta intención</strong>. Hay gente buscando la prestación que ustedes ofrecen, a menos de tres kilómetros, hoy. Hoy esa búsqueda se la lleva otro. El trabajo consiste en capturarla, responderla rápido y convertirla.</p>
+</section>
+
+<section id="s2">
+  <div class="s-head"><span class="s-num">02</span><h2>Diagnóstico de partida</h2></div>
+  <p>Antes de comprometer números definitivos hacemos una auditoría, sin costo y sin compromiso. Esto es lo que revisamos:</p>
+  <div class="tw"><table>
+    <thead><tr><th>Área</th><th>Qué auditamos</th><th>Estado</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Sitio web</th><td>Velocidad móvil (Core Web Vitals), estructura, formularios, integración con agenda, indexación</td><td class="no">Por medir</td></tr>
+      <tr><th scope="row">Medición</th><td>¿Existe GA4? ¿Píxel de Meta? ¿Se registran conversiones? ¿Hay UTMs?</td><td class="no">Por medir</td></tr>
+      <tr><th scope="row">SEO local</th><td>Google Business Profile, reseñas, fichas, datos estructurados</td><td class="no">Por medir</td></tr>
+      <tr><th scope="row">Redes</th><td>Frecuencia, formatos, interacción real, biografías y enlaces</td><td class="no">Por medir</td></tr>
+      <tr><th scope="row">Publicidad</th><td>Cuentas existentes, historial, gasto previo y resultados</td><td class="no">Por medir</td></tr>
+      <tr><th scope="row">Competencia</th><td>Tres clínicas comparables: qué pautan, con qué mensajes, a qué precio aparente</td><td class="no">Por medir</td></tr>
+      <tr><th scope="row">Comercial</th><td>Ticket promedio, valor de vida del paciente, tiempo de respuesta a consultas, tasa de no-show</td><td><strong>Lo aporta la clínica</strong></td></tr>
+    </tbody>
+  </table></div>
+  <div class="note">
+    <span class="tag">Nota honesta</span>
+    <p>Las metas de la sección 06 son referenciales de mercado. Se recalibran con datos reales al día 60, y ese recalibrado queda por escrito en el tablero de hitos. Nadie se compromete a números que todavía no puede ver.</p>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="s-head"><span class="s-num">03</span><h2>Alcance de servicios</h2></div>
+
+  <h3>A · Sitio web — modernización y gestión</h3>
+  <p>Rediseño completo <strong>mobile-first</strong>: más de tres cuartos del tráfico de salud llega desde el teléfono. La arquitectura se orienta a conversión —cada prestación con su propia página, su prueba social y su llamado a la acción— e integra el sistema de agenda actual, o formulario más WhatsApp Business si aún no existe.</p>
+  <p>Páginas base: Inicio · Prestaciones (una por servicio prioritario) · Equipo médico · Agendar hora · Nosotros · Contacto y ubicación · Blog. Objetivo técnico: Lighthouse móvil ≥ 85 en rendimiento y ≥ 95 en SEO y accesibilidad. Accesibilidad básica cuidada, que en salud no es un detalle: parte del público es adulto mayor.</p>
+  <p>La gestión mensual incluye hosting administrado, SSL, backups diarios, monitoreo de uptime, actualizaciones de seguridad y una bolsa de ajustes menores —horarios, precios, un profesional nuevo, un banner— según el plan.</p>
+
+  <h3>B · Contenido — el motor</h3>
+  <p>Sin contenido propio no hay redes ni publicidad que funcione. Cada <strong>jornada de producción presencial</strong> en la clínica genera fotografía (instalaciones, equipo, box de atención, retratos) y video vertical (reels, «el doctor responde», una prestación explicada en treinta segundos, tour, testimonios con consentimiento). Un banco de material que alimenta entre cuatro y seis semanas de publicaciones.</p>
+  <p>De ahí salen carruseles educativos —el formato que más se guarda y comparte en salud—, reels, piezas estáticas, historias y los recortes que después usa la publicidad. Todo con la línea gráfica definida en el manual de marca express del primer mes.</p>
+
+  <h3>C · Redes sociales — gestión</h3>
+  <p>Calendario editorial entregado el día 25 del mes anterior para su aprobación, publicación y programación en las redes del plan, community management con guion de respuestas aprobado por la clínica, escucha de menciones y gestión de reseñas de Google.</p>
+  <div class="note">
+    <span class="tag">Regla de oro</span>
+    <p>Nuvaus <strong>no</strong> entrega diagnósticos ni orientación clínica en redes. Toda consulta de salud se deriva al canal de agenda con un mensaje estándar aprobado por la dirección médica.</p>
+  </div>
+
+  <h3>D · Publicidad de pago</h3>
+  <ul>
+    <li><strong>Meta Ads</strong> (Instagram y Facebook): captación por geolocalización e intereses no sensibles, con creativos que hacen el trabajo de segmentación.</li>
+    <li><strong>Google Ads — Búsqueda</strong>: marca (defensiva y barata), prestaciones de alta intención y términos de competencia.</li>
+    <li><strong>Remarketing</strong>: quien visitó una prestación y no agendó, vuelve a ver el mensaje.</li>
+    <li><strong>Landing pages dedicadas</strong> por campaña, que convierten entre dos y cuatro veces mejor que enviar el tráfico a la home.</li>
+    <li><strong>Optimización activa</strong>: revisión mínima dos veces por semana. Nunca «prender y olvidar».</li>
+  </ul>
+  <div class="note">
+    <span class="tag">Salud y publicidad</span>
+    <p>Meta restringe la segmentación por categorías sensibles de salud. La estrategia <strong>no depende</strong> de esa segmentación: se construye sobre geolocalización, intención de búsqueda, creativo y remarketing propio. Es una restricción conocida y contemplada, no un obstáculo.</p>
+  </div>
+
+  <h3>E · Medición, metadatos y datos estructurados</h3>
+  <p>Esto es lo que separa <em>gastar</em> en publicidad de <em>invertir</em> en publicidad.</p>
+  <ul>
+    <li><strong>Google Tag Manager</strong> como capa única de etiquetado.</li>
+    <li><strong>GA4</strong> con eventos de conversión reales: clic a WhatsApp, clic a teléfono, envío de formulario, inicio de agendamiento, agendamiento completado.</li>
+    <li><strong>Meta Pixel + API de Conversiones</strong> server-side, con datos hasheados y sin enviar categorías sensibles de salud.</li>
+    <li><strong>UTMs normalizadas</strong>, para que cada peso invertido sea rastreable hasta la hora agendada.</li>
+    <li><strong>SEO técnico y metadatos</strong>: títulos y descripciones únicos por página, jerarquía de encabezados, canonical, sitemap, robots, texto alternativo.</li>
+    <li><strong>Open Graph y Twitter Cards</strong>: que cada enlace compartido por WhatsApp se vea profesional.</li>
+    <li><strong>Datos estructurados schema.org</strong>: <code>MedicalClinic</code>, <code>Physician</code>, <code>MedicalProcedure</code>, <code>LocalBusiness</code>, <code>FAQPage</code>.</li>
+    <li><strong>Dashboard Looker Studio</strong> con acceso permanente de la clínica: métricas en vivo, sin esperar al informe.</li>
+  </ul>
+
+  <h3>F · Gobernanza — reuniones, hitos y roadmap</h3>
+  <p>Es parte del servicio, no un anexo. Se detalla en las secciones 04 y 05.</p>
+</section>
+
+<section id="s4">
+  <div class="s-head"><span class="s-num">04</span><h2>Roadmap 12 meses</h2></div>
+  <p>Cinco fases. Cada una cierra con un hito verificable y un criterio de aceptación escrito.</p>
+
+  <ol class="phases">
+    <li class="phase">
+      <div class="phase-key"><span class="phase-id">FASE 0</span><span class="phase-when">Semanas 1–2</span></div>
+      <div class="phase-body">
+        <h3>Descubrimiento</h3>
+        <p>Kickoff de 90 minutos, auditoría técnica del sitio, auditoría de redes y competencia, traspaso de accesos, definición de prestaciones prioritarias por rentabilidad, perfiles de paciente objetivo y manual de marca express.</p>
+        <p><b>Entregables:</b> informe de auditoría · plan maestro de 12 meses · calendario de reuniones · tablero de hitos activo.</p>
+        <div class="milestone"><span class="mid">H1</span><div><b>Plan maestro aprobado</b>Documento de estrategia y calendario aprobados por escrito por la dirección, más el 100 % de los accesos entregados.</div></div>
+      </div>
+    </li>
+    <li class="phase">
+      <div class="phase-key"><span class="phase-id">FASE 1</span><span class="phase-when">Meses 1–2</span></div>
+      <div class="phase-body">
+        <h3>Fundaciones: medir y capturar</h3>
+        <p>Diseño y desarrollo del nuevo sitio, instalación de GTM, GA4, Pixel y CAPI, SEO técnico y metadatos completos, datos estructurados, optimización de Google Business Profile, sistema de solicitud de reseñas y primera jornada de producción.</p>
+        <p><b>Entregables:</b> sitio en producción · dashboard en vivo · ficha de Google optimizada · banco de contenido inicial.</p>
+        <div class="milestone"><span class="mid">H2</span><div><b>Sitio publicado y medición al 100 %</b>Lighthouse móvil ≥ 85 rendimiento y ≥ 95 SEO · los cinco eventos de conversión validados en GA4 <em>y</em> en Meta · dashboard accesible para la clínica.</div></div>
+      </div>
+    </li>
+    <li class="phase">
+      <div class="phase-key"><span class="phase-id">FASE 2</span><span class="phase-when">Meses 3–5</span></div>
+      <div class="phase-body">
+        <h3>Motor de contenido y primeras campañas</h3>
+        <p>Calendario editorial en régimen, jornadas de producción mensuales, lanzamiento de Meta Ads y de Google Search, landing pages de las dos prestaciones estrella y guion de respuesta a leads acordado con la recepción de la clínica.</p>
+        <p><b>Entregables:</b> piezas mensuales según plan · campañas activas y optimizadas · informe mensual · protocolo de atención de leads.</p>
+        <div class="milestone"><span class="mid">H3</span><div><b>Primera campaña en aire con costo por lead medido</b>Atribución completa desde el anuncio hasta la solicitud de hora.</div></div>
+        <div class="milestone"><span class="mid">H4</span><div><b>Costo por lead de referencia y volumen base</b>Meta de leads del mes 5 alcanzada, o plan de corrección aprobado. Las metas de la sección 06 se fijan aquí con datos reales.</div></div>
+      </div>
+    </li>
+    <li class="phase">
+      <div class="phase-key"><span class="phase-id">FASE 3</span><span class="phase-when">Meses 6–9</span></div>
+      <div class="phase-body">
+        <h3>Escalar lo que funciona</h3>
+        <p>Reasignación de presupuesto hacia los conjuntos ganadores y corte de los perdedores, pruebas A/B en landings y creativos, optimización del tiempo de respuesta a leads, series de contenido recurrentes, blog optimizado por prestación y campaña de reactivación de la base de pacientes existente —la fuente de ingresos más barata que tiene la clínica.</p>
+        <div class="milestone"><span class="mid">H5</span><div><b>Revisión semestral: continuidad y ajuste de plan</b>Informe semestral presentado y plan del segundo semestre aprobado.</div></div>
+        <div class="milestone"><span class="mid">H6</span><div><b>Costo por lead reducido ≥ 30 % respecto del mes 5</b>Comparativo documentado mes 5 contra mes 9, sobre la misma definición de lead.</div></div>
+      </div>
+    </li>
+    <li class="phase">
+      <div class="phase-key"><span class="phase-id">FASE 4</span><span class="phase-when">Meses 10–12</span></div>
+      <div class="phase-body">
+        <h3>Consolidar y proyectar</h3>
+        <p>Automatizaciones de recordatorio para reducir el no-show, flujo de posventa y recompra, acciones de autoridad de marca (prensa local, alianzas de barrio, colaboraciones), cierre analítico del año y diseño del plan del año 2.</p>
+        <div class="milestone"><span class="mid">H7</span><div><b>Informe anual entregado y plan año 2 aprobado</b>Las ocho métricas de la sección 06 comparadas contra la línea base, más la propuesta del año siguiente presentada.</div></div>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<section id="s5">
+  <div class="s-head"><span class="s-num">05</span><h2>Reuniones y control de hitos</h2></div>
+  <h4>Ritmo de reuniones</h4>
+  <div class="tw"><table>
+    <thead><tr><th>Reunión</th><th>Frecuencia</th><th>Duración</th><th>Quién asiste</th><th>Para qué</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Kickoff</th><td>Una vez, semana 1</td><td class="num">90 min</td><td>Dirección + Nuvaus</td><td>Objetivos, accesos, prestaciones prioritarias, definición de lead válido</td></tr>
+      <tr><th scope="row">Avance operativo</th><td>Semanal (Crecimiento y Escala) · quincenal (Base)</td><td class="num">20–30 min</td><td>Contraparte operativa</td><td>Desbloquear, aprobar contenido, revisar campañas</td></tr>
+      <tr><th scope="row">Revisión de hitos</th><td>Mensual — primer viernes</td><td class="num">60 min</td><td>Dirección + Nuvaus</td><td>Resultados del mes, aceptación del hito, decisiones de presupuesto</td></tr>
+      <tr><th scope="row">Jornada de producción</th><td>Mensual, según plan</td><td class="num">4–8 h</td><td>Equipo médico</td><td>Grabar y fotografiar en la clínica</td></tr>
+      <tr><th scope="row">Revisión estratégica</th><td>Trimestral</td><td class="num">90 min</td><td>Dirección</td><td>Estrategia del trimestre siguiente, ajuste de presupuesto y plan</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>Canal permanente:</strong> grupo de WhatsApp con la contraparte. Respuesta comprometida en <strong>24 horas hábiles</strong>; incidencia crítica del sitio —caído, formulario roto— en <strong>4 horas hábiles</strong>.</p>
+
+  <h4>Tablero de hitos</h4>
+  <p>Todo el programa vive en un tablero compartido en Notion, con acceso de la clínica. Cada hito registra hito, fase, entregable, fecha objetivo, criterio de aceptación, responsable, estado y evidencia. Los estados van de <em>Planificado</em> a <em>En curso</em>, <em>En revisión</em>, <em>Aceptado</em> o <em>Bloqueado</em>.</p>
+  <p><strong>Regla de aceptación:</strong> un hito entregado se considera aceptado si no hay observaciones dentro de cinco días hábiles. Las observaciones se registran en el tablero, no en mensajes sueltos.</p>
+  <p><strong>Regla de bloqueo:</strong> si un hito depende de algo de la clínica —accesos, aprobaciones, disponibilidad médica para grabar— y no se recibe, el hito pasa a <em>Bloqueado</em> y su fecha objetivo se corre el mismo número de días. Queda registrado, y no se discute después.</p>
+</section>
+
+<section id="s6">
+  <div class="s-head"><span class="s-num">06</span><h2>Metas y KPIs</h2></div>
+  <p>Metas referenciales de mercado, a recalibrar con datos reales al día 60 y a fijar formalmente en el hito H4.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Métrica</th><th>Línea base</th><th>Mes 3</th><th>Mes 6</th><th>Mes 12</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Solicitudes de hora (leads) / mes</th><td class="no">a medir</td><td class="num">30 – 45</td><td class="num">60 – 90</td><td class="num">110 – 150</td></tr>
+      <tr><th scope="row">Costo por lead</th><td class="no">—</td><td class="num">≤ $9.000</td><td class="num">≤ $6.500</td><td class="num">≤ $4.500</td></tr>
+      <tr><th scope="row">Tasa lead → hora agendada</th><td class="no">a medir</td><td class="num">≥ 35 %</td><td class="num">≥ 45 %</td><td class="num">≥ 55 %</td></tr>
+      <tr><th scope="row">Tasa agendada → atendida</th><td class="no">a medir</td><td class="num">≥ 70 %</td><td class="num">≥ 78 %</td><td class="num">≥ 85 %</td></tr>
+      <tr><th scope="row"><strong>Pacientes nuevos / mes por canal digital</strong></th><td class="no">a medir</td><td class="num"><strong>8 – 15</strong></td><td class="num"><strong>25 – 40</strong></td><td class="num"><strong>55 – 75</strong></td></tr>
+      <tr><th scope="row">Tráfico orgánico mensual</th><td class="no">a medir</td><td class="num">+25 %</td><td class="num">+70 %</td><td class="num">+150 %</td></tr>
+      <tr><th scope="row">Reseñas nuevas en Google (acumulado)</th><td class="no">a medir</td><td class="num">+15</td><td class="num">+45</td><td class="num">+100</td></tr>
+      <tr><th scope="row">Seguidores en Instagram</th><td class="no">a medir</td><td class="num">+20 %</td><td class="num">+60 %</td><td class="num">+140 %</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>Definición de lead válido</strong> —se acuerda en el kickoff y no cambia después: contacto con nombre, teléfono válido y solicitud explícita de hora o de información sobre una prestación. No cuentan spam, proveedores, postulaciones de trabajo ni consultas de pacientes ya activos.</p>
+
+  <h3>Punto de equilibrio: la cuenta que importa</h3>
+  <p>Con el plan recomendado en régimen, del mes 6 en adelante:</p>
+  <div class="formula">Costo mensual del programa = fee $690.000 + pauta $300.000 = <strong>$990.000 CLP</strong>
+Pacientes nuevos para equilibrar = $990.000 ÷ margen por paciente nuevo</div>
+  <div class="tw"><table>
+    <thead><tr><th>Si el margen por paciente nuevo es…</th><th>Se necesitan al mes</th><th>Meta del programa al mes 6</th></tr></thead>
+    <tbody>
+      <tr><th scope="row" class="num">$25.000 — primera consulta</th><td class="num">40 pacientes</td><td class="num">25 – 40</td></tr>
+      <tr><th scope="row" class="num">$60.000 — consulta más un procedimiento</th><td class="num">17 pacientes</td><td class="num yes">25 – 40 ✓</td></tr>
+      <tr><th scope="row" class="num">$150.000 — valor de vida del paciente</th><td class="num">7 pacientes</td><td class="num yes">25 – 40 ✓</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note">
+    <span class="tag">Criterio de decisión</span>
+    <p>Los tres márgenes de la izquierda son ejemplos. En el kickoff se reemplazan por los números reales de la clínica y esta tabla se convierte en el criterio objetivo del programa. Si al mes 6 no vamos camino al equilibrio, se ajusta el plan o se activa la cláusula de salida de la sección 09. Sin letra chica.</p>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="s-head"><span class="s-num">07</span><h2>Entregables mensuales fijos</h2></div>
+  <p>Independiente del plan contratado, cada mes la clínica recibe:</p>
+  <div class="tw"><table>
+    <thead><tr><th>Cuándo</th><th>Entregable</th></tr></thead>
+    <tbody>
+      <tr><th scope="row" class="num">Día 25 del mes anterior</th><td>Calendario editorial del mes siguiente, para aprobación</td></tr>
+      <tr><th scope="row">Todo el mes</th><td>Publicación de las piezas comprometidas según plan</td></tr>
+      <tr><th scope="row">Según plan</th><td>Jornada de producción presencial en la clínica</td></tr>
+      <tr><th scope="row">Continuo</th><td>Gestión y optimización de campañas — revisión mínima dos veces por semana</td></tr>
+      <tr><th scope="row">Continuo</th><td>Mantención del sitio: seguridad, backups, monitoreo y ajustes menores</td></tr>
+      <tr><th scope="row" class="num">Día 5</th><td>Informe mensual: resultados contra metas, qué funcionó, qué se corta, qué se prueba el mes siguiente</td></tr>
+      <tr><th scope="row">Primer viernes</th><td>Reunión de revisión de hitos (60 min)</td></tr>
+      <tr><th scope="row">Siempre</th><td>Dashboard Looker Studio en vivo, accesible 24/7</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="s8">
+  <div class="s-head"><span class="s-num">08</span><h2>Inversión</h2></div>
+
+  <h4>Comparación de planes</h4>
+  <div class="tw"><table class="plans">
+    <thead><tr><th></th><th>Base · Presencia</th><th>Crecimiento · Pacientes ★</th><th>Escala · Autoridad</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Sitio web nuevo</th><td>Costo aparte</td><td class="yes">Incluido</td><td class="yes">Incluido</td></tr>
+      <tr><th scope="row">Mantención, hosting y backups</th><td class="yes">Sí</td><td class="yes">Sí</td><td class="yes">Sí</td></tr>
+      <tr><th scope="row">Medición GA4 · GTM · Pixel · CAPI</th><td class="yes">Sí</td><td class="yes">Sí</td><td class="yes">Sí</td></tr>
+      <tr><th scope="row">SEO técnico, metadatos y schema</th><td class="yes">Sí</td><td class="yes">Sí</td><td class="yes">Sí</td></tr>
+      <tr><th scope="row">Google Business Profile y reseñas</th><td class="yes">Sí</td><td class="yes">Sí</td><td class="yes">Sí</td></tr>
+      <tr><th scope="row">Redes gestionadas</th><td>IG + FB</td><td>IG + FB + TikTok</td><td>IG + FB + TikTok + YouTube + LinkedIn</td></tr>
+      <tr><th scope="row">Piezas publicadas al mes</th><td class="num">8</td><td class="num"><strong>16</strong></td><td class="num">26</td></tr>
+      <tr><th scope="row">— Reels y video vertical</th><td class="num">2</td><td class="num">6</td><td class="num">10</td></tr>
+      <tr><th scope="row">— Carruseles</th><td class="num">4</td><td class="num">6</td><td class="num">10</td></tr>
+      <tr><th scope="row">— Estáticas e historias</th><td class="num">2</td><td class="num">4</td><td class="num">6</td></tr>
+      <tr><th scope="row">Jornada de producción en clínica</th><td>1 cada 2 meses (4 h)</td><td><strong>1 al mes (4 h)</strong></td><td>2 al mes (8 h)</td></tr>
+      <tr><th scope="row">Community management</th><td>L–V, 1 revisión diaria</td><td>L–V, 2 revisiones diarias</td><td>L–S, 3 revisiones diarias</td></tr>
+      <tr><th scope="row">Publicidad gestionada</th><td>Meta (1 campaña)</td><td><strong>Meta + Google Search + remarketing</strong></td><td>Meta + Google Search + YouTube + Display + remarketing</td></tr>
+      <tr><th scope="row">Landing pages dedicadas</th><td class="no">—</td><td class="num">2 al año</td><td class="num">6 al año</td></tr>
+      <tr><th scope="row">Artículos SEO al mes</th><td class="no">—</td><td class="num">1</td><td class="num">2</td></tr>
+      <tr><th scope="row">Reactivación de base de pacientes</th><td class="no">—</td><td>Trimestral</td><td>Mensual</td></tr>
+      <tr><th scope="row">Horas de ajuste web al mes</th><td class="num">2 h</td><td class="num">3 h</td><td class="num">6 h</td></tr>
+      <tr><th scope="row">Reuniones</th><td>Quincenal 30' + mensual 60'</td><td><strong>Semanal 20' + mensual 60' + trimestral</strong></td><td>Semanal 30' + mensual 60' + trimestral</td></tr>
+      <tr><th scope="row">Informes</th><td>Mensual PDF</td><td>Dashboard vivo + mensual</td><td>Dashboard vivo + mensual + estratégico</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><th scope="row">Fee mensual</th><td class="num">$350.000</td><td class="num">$690.000</td><td class="num">$1.050.000</td></tr>
+      <tr><th scope="row">Referencia en USD</th><td class="num">≈ US$365</td><td class="num">≈ US$720</td><td class="num">≈ US$1.095</td></tr>
+    </tfoot>
+  </table></div>
+  <div class="note">
+    <span class="tag">Plan recomendado — Crecimiento</span>
+    <p>Es el mínimo que sostiene el motor completo: contenido propio cada mes, los dos canales que realmente traen pacientes —Meta para descubrimiento, Google Search para intención— y la medición que permite decidir. Por debajo de esto, la publicidad no sale de la fase de aprendizaje y no hay datos con los cuales optimizar.</p>
+  </div>
+
+  <h3>Rampa de arranque, pensada para un presupuesto ajustado</h3>
+  <p>Los primeros tres meses son de construcción: el sitio se está desarrollando y las campañas todavía no están en régimen. No corresponde cobrar lo mismo.</p>
+  <dl class="ramp">
+    <div class="ramp-card hi"><dt>Meses 1 – 3</dt><dd>$490.000</dd><small>fee mensual durante la construcción</small></div>
+    <div class="ramp-card"><dt>Meses 4 – 12</dt><dd>$690.000</dd><small>fee mensual en régimen</small></div>
+    <div class="ramp-card"><dt>Total fee año 1</dt><dd>$7.680.000</dd><small>promedio $640.000 al mes</small></div>
+  </dl>
+  <p><strong>El sitio web va incluido, sin desembolso inicial.</strong> Valor de lista: $1.400.000.</p>
+
+  <h3>Inversión publicitaria (pauta) — aparte</h3>
+  <p>La pauta la paga <strong>directamente la clínica</strong> a Meta y Google, con su propia tarjeta o facturación. Nuvaus no la factura ni le agrega margen, y la clínica ve cada peso en su propia cuenta.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Período</th><th>Pauta mensual sugerida</th><th>Por qué</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Meses 1 – 2</th><td class="num">$0</td><td>Fase de construcción: aún no hay dónde llevar el tráfico</td></tr>
+      <tr><th scope="row">Mes 3</th><td class="num">$200.000</td><td>Aprendizaje de plataformas, mínimo operativo</td></tr>
+      <tr><th scope="row">Meses 4 – 6</th><td class="num">$300.000</td><td>Volumen suficiente para optimizar con datos</td></tr>
+      <tr><th scope="row">Meses 7 – 12</th><td class="num">$300.000 – $600.000</td><td>Se escala solo lo que ya demostró costo por lead aceptable</td></tr>
+    </tbody>
+  </table></div>
+  <p>Si la clínica prefiere que Nuvaus adelante la pauta, se factura con un 10 % de recargo administrativo.</p>
+
+  <h3>Inversión total estimada — año 1</h3>
+  <div class="tw"><table class="plans">
+    <thead><tr><th>Plan</th><th>Fee 12 meses</th><th>Sitio web</th><th>Pauta estimada</th><th>Total año 1</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Base</th><td class="num">$4.200.000</td><td class="num">$1.400.000</td><td class="num">$2.000.000</td><td class="num"><strong>$7.600.000</strong></td></tr>
+      <tr><th scope="row"><strong>Crecimiento ★</strong></th><td class="num"><strong>$7.680.000</strong></td><td class="yes">Incluido</td><td class="num">$3.000.000</td><td class="num"><strong>$10.680.000</strong></td></tr>
+      <tr><th scope="row">Escala</th><td class="num">$12.600.000</td><td class="yes">Incluido</td><td class="num">$6.000.000</td><td class="num"><strong>$18.600.000</strong></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Opción de modelo mixto, disponible desde el mes 4</h3>
+  <p>Para alinear los incentivos por completo, la clínica puede optar por un fee reducido de <strong>$490.000 al mes más $3.500 por lead válido sobre los primeros 40 del mes</strong>.</p>
+  <p>Con 40 leads mensuales cuesta menos que el plan fijo. Con 90 leads cuesta $665.000 —prácticamente lo mismo—, pero la clínica solo paga más cuando efectivamente recibe más. Requiere que la medición esté validada (hito H2 aceptado) y la definición de lead válido cerrada; por eso se habilita recién en el mes 4.</p>
+
+  <h4>Servicios adicionales, a solicitud</h4>
+  <div class="tw"><table>
+    <thead><tr><th>Servicio</th><th>Valor</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Jornada extra de producción (4 h)</th><td class="num">$180.000</td></tr>
+      <tr><th scope="row">Landing page adicional</th><td class="num">$220.000</td></tr>
+      <tr><th scope="row">Video institucional (guion, rodaje y edición)</th><td class="num">$450.000</td></tr>
+      <tr><th scope="row">Sesión fotográfica de media jornada</th><td class="num">$250.000</td></tr>
+      <tr><th scope="row">Hora de desarrollo web fuera de bolsa</th><td class="num">$28.000</td></tr>
+    </tbody>
+  </table></div>
+  <p>Todos los valores están expresados en pesos chilenos <strong>sin IVA</strong>. Las referencias en dólares usan un tipo de cambio de $960 CLP/USD y son solo indicativas.</p>
+</section>
+
+<section id="s9">
+  <div class="s-head"><span class="s-num">09</span><h2>Condiciones comerciales</h2></div>
+  <div class="tw"><table>
+    <tbody>
+      <tr><th scope="row">Plazo</th><td>12 meses desde la firma. Renovación automática por igual período, salvo aviso escrito con 30 días de anticipación.</td></tr>
+      <tr><th scope="row">Facturación</th><td>Factura emitida el día 1 de cada mes, pago a 5 días. Sin reajustes durante los primeros 12 meses.</td></tr>
+      <tr><th scope="row">Salida anticipada</th><td>Desde el mes 7, con aviso escrito de 30 días. Si el plan incluía el sitio sin costo inicial, se paga el saldo no amortizado ($1.400.000 ÷ 12 × meses restantes). Antes del mes 7 no hay salida anticipada: es el tiempo mínimo para que un programa de captación entregue datos concluyentes.</td></tr>
+      <tr><th scope="row">Propiedad de los activos</th><td><strong>Todo es de la clínica desde el día 1</strong>: el sitio y su código, los archivos fuente de diseño y video, el material fotográfico, las cuentas publicitarias, los píxeles, los perfiles y las bases de datos. Nuvaus trabaja sobre cuentas de la clínica, nunca sobre cuentas propias. Al término, por el motivo que sea, se entregan todos los accesos y archivos fuente dentro de 5 días hábiles.</td></tr>
+      <tr><th scope="row">Cambios de alcance</th><td>La bolsa mensual cubre los ajustes menores. Sobre esa bolsa, todo requiere estimación y aprobación escrita previa. Nunca hay cargos sorpresa.</td></tr>
+      <tr><th scope="row">Confidencialidad</th><td>Acuerdo mutuo. Nuvaus no divulga información clínica, comercial ni de pacientes. Usar a la clínica como caso de referencia requiere autorización escrita.</td></tr>
+      <tr><th scope="row">Exclusividad de rubro</th><td>Durante la vigencia, Nuvaus no toma otra clínica de la misma especialidad en un radio de 3 km.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="s10">
+  <div class="s-head"><span class="s-num">10</span><h2>Lo que necesitamos de la clínica</h2></div>
+  <p>El programa funciona en la medida en que existan estas seis cosas. Se acuerdan en el kickoff y se monitorean en el tablero de hitos.</p>
+  <ol class="steps">
+    <li><b>Una contraparte con capacidad de decisión</b><span>Aproximadamente dos horas por semana.</span></li>
+    <li><b>Accesos completos</b><span>Dominio, hosting, redes, Google Business Profile y sistema de agenda. Sin accesos no hay medición, y sin medición todo lo demás es una apuesta.</span></li>
+    <li><b>Disponibilidad médica para grabar</b><span>Uno o dos profesionales, cuatro horas al mes. Es el insumo del motor de contenido; sin él, el contenido pierde exactamente lo que lo hace competitivo.</span></li>
+    <li><b>Consentimientos de imagen por escrito</b><span>Del equipo y de todo paciente que aparezca.</span></li>
+    <li><b>Respuesta a los leads en menos de 15 minutos en horario hábil</b><span>Este es el factor número uno de conversión en salud, por encima del creativo, del presupuesto y del sitio web. Un lead contactado a los cinco minutos convierte varias veces más que el mismo lead contactado dos horas después. Si esto no ocurre, ningún costo por lead va a ser aceptable — y no será un problema de la campaña.</span></li>
+    <li><b>Aprobaciones dentro de 3 días hábiles</b><span>Calendarios, piezas y textos.</span></li>
+  </ol>
+</section>
+
+<section id="s11">
+  <div class="s-head"><span class="s-num">11</span><h2>Normativa, riesgos y supuestos</h2></div>
+
+  <h4>Cumplimiento</h4>
+  <ul>
+    <li><strong>Publicidad de prestaciones de salud:</strong> no se prometen resultados ni se usan comparativos engañosos, y toda credencial profesional publicada debe ser verificable en el registro de prestadores de la Superintendencia de Salud. Los textos publicitarios pasan por revisión de la dirección médica antes de publicarse.</li>
+    <li><strong>Derechos del paciente (Ley 20.584):</strong> ningún dato ni imagen de paciente se usa sin consentimiento informado, escrito y específico para uso publicitario.</li>
+    <li><strong>Protección de datos personales (Ley 21.719):</strong> aviso de privacidad en todos los formularios, base legal para el contacto comercial y procedimiento de eliminación a solicitud del titular.</li>
+    <li><strong>Datos sensibles y plataformas:</strong> no se envían diagnósticos, prestaciones específicas ni ningún dato de salud a Meta ni a Google. La API de Conversiones se configura con identificadores hasheados y eventos genéricos.</li>
+  </ul>
+
+  <h4>Riesgos identificados y mitigación</h4>
+  <div class="tw"><table>
+    <thead><tr><th>Riesgo</th><th>Impacto</th><th>Mitigación</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Respuesta lenta a los leads</th><td><strong>Alto</strong> — anula el resultado de toda la inversión</td><td>Protocolo acordado en el kickoff y medición del tiempo de respuesta en el informe mensual</td></tr>
+      <tr><th scope="row">Poca disponibilidad médica para grabar</th><td>Medio — el contenido pierde diferenciación</td><td>Jornadas agendadas con un mes de anticipación y banco de material de respaldo</td></tr>
+      <tr><th scope="row">Restricciones de segmentación de Meta en salud</th><td>Medio</td><td>Estrategia basada en geolocalización, intención y creativo, no en segmentación sensible</td></tr>
+      <tr><th scope="row">Estacionalidad de la demanda</th><td>Medio</td><td>Calendario de pauta ajustado mes a mes y reactivación de base en los meses bajos</td></tr>
+      <tr><th scope="row">Rechazo de anuncios por política de salud</th><td>Bajo–medio</td><td>Revisión previa de creativos, versiones alternativas listas y apelación gestionada por Nuvaus</td></tr>
+      <tr><th scope="row">Pauta insuficiente para salir del aprendizaje</th><td><strong>Alto</strong></td><td>Concentrar en un canal y una prestación antes que dispersar. El mínimo operativo es $200.000 al mes</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>Supuestos</h4>
+  <ul>
+    <li>La clínica cuenta con un sistema de agenda operativo, o acepta partir con formulario más WhatsApp Business.</li>
+    <li>Existe personal de recepción disponible para atender leads en horario hábil.</li>
+    <li>Las prestaciones prioritarias tienen capacidad de atención disponible. No tiene sentido generar demanda para una agenda que ya está llena; si ese fuera el caso, el foco cambia a rentabilidad por hora en vez de volumen, y el plan se ajusta.</li>
+  </ul>
+</section>
+
+<section id="s12">
+  <div class="s-head"><span class="s-num">12</span><h2>Próximos pasos</h2></div>
+  <ol class="steps">
+    <li><b>Reunión de descubrimiento — 45 minutos, sin costo ni compromiso</b><span>Clínica + Nuvaus · esta semana</span></li>
+    <li><b>Auditoría técnica y competitiva, con los números reales de la clínica</b><span>Nuvaus · 5 días hábiles</span></li>
+    <li><b>Ajuste del plan y del presupuesto según los hallazgos</b><span>Nuvaus · junto con la auditoría</span></li>
+    <li><b>Firma del acuerdo y traspaso de accesos</b><span>Clínica · semana siguiente</span></li>
+    <li><b>Kickoff y arranque de la Fase 0</b><span>Ambos · dentro de 5 días hábiles desde la firma</span></li>
+  </ol>
+</section>
+
+<footer>
+  <p class="sig">Nuvaus · Ariel Meneses<br><span style="font-family:var(--f-body);font-size:13px;color:var(--muted)">ariel@nuvaus.com</span></p>
+  <p>Documento NV-PROP-LACASIA-31-08-2026 · Vigencia 30 días corridos<br>Valores en pesos chilenos, sin IVA.</p>
+</footer>
+
+</main>
+</div>

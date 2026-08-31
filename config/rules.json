@@ -61,7 +61,8 @@
     { "code": "CECA", "name": "CECA Salud", "folder": "ceca", "country": "CL" },
     { "code": "AJJ", "name": "AJJ Remodelaciones", "folder": "ajj", "country": "US" },
     { "code": "ALEP", "name": "Alepineda", "folder": "alepineda", "country": "CL" },
-    { "code": "UNAB", "name": "Universidad Andrés Bello", "folder": "unab", "country": "CL" }
+    { "code": "UNAB", "name": "Universidad Andrés Bello", "folder": "unab", "country": "CL" },
+    { "code": "LACASIA", "name": "Clínica Lacasia", "folder": "lacasia", "country": "CL" }
   ],
   "global_settings": {
     "log_level": "INFO",
